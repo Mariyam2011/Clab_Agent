@@ -1,0 +1,672 @@
+{
+    "student_profile": {
+        "name": "Muhammad Omer",
+        "sex": "Male",
+        "gender": "Male",
+        "birth_country": "Pakistan",
+        "cultural_background": [
+            "South Asian",
+            "Punjabi",
+            "urban upbringing (Lahore)",
+            "STEM-driven household with both parents as small business owners",
+            "grew up in a densely populated urban zone of Lahore (Gulberg)",
+            "first-generation college aspirant in international context",
+            "gender-norm-sensitive male interested in toy engineering for children with disabilities",
+            "community-involved through cultural teaching and service"
+        ],
+        "languages": [],
+        "socioeconomic_indicators": [
+            "Fee Waiver Requested",
+            "first-generation to apply abroad for college",
+            "parents with some high/secondary school education only",
+            "both parents self-employed small business proprietors"
+        ],
+        "geographic_context": {
+            "birth_place": "Lahore, Pakistan",
+            "citizenship_status": "Citizen of non-U.S. country",
+            "citizenship": "Pakistan",
+            "current_address": "22-A STREET 4 AKRAM PARK GULBERG 3 Lahore, PUNJAB, 54660, PAK"        }
+    },
+    "academic_profile": {
+        "schools": [
+            {
+                "name": "Lahore Grammar Senior School For Boys, 364 E-1 MA Johar Town, Lahore, Punjab, PAK",
+                "type": "Independent",
+                "grades_attended": "11, 12",
+                "gpa_scale": null,
+                "gpa": null,
+                "gpa_weighting": null,
+                "rank": "na / 260",
+                "rank_weighting": null,
+                "recent_courses_taken": [
+                    {
+                        "subject": "Mathematics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "N/A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Physics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "N/A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Computer Science - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "N/A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Psychology - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "N/A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Environmental Management - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "N/A",
+                        "grade": "12"
+                    }
+                ]
+            },
+            {
+                "name": "The City School - Alpha DHA Campus, 296 B Phase VI, DHA Lahore, Punjab, PAK",
+                "type": "Independent",
+                "grades_attended": "9, 10",
+                "gpa_scale": null,
+                "gpa": null,
+                "gpa_weighting": null,
+                "rank": null,
+                "rank_weighting": null,
+                "recent_courses_taken": []
+            }
+        ],
+        "graduation_date": "08/2024",
+        "gap_year": false,
+        "Honors": [
+            {
+                "Title": "Valedictorian, Class of 2021 (O-Levels)",
+                "type": "School",
+                "grade": [ 9, 10 ],
+                "keywords": [ "Academic Excellence", "Valedictorian", "Top of Class", "O-Levels" ]
+            },
+            {
+                "Title": "Winner and Runner-up Best Team, Largest High School Science Olympiad of South Asia, LUMS PsiFi 2021",
+                "type": "National",
+                "grade": [ 10 ],
+                "keywords": [ "STEM", "Science Olympiad", "LUMS", "Team Excellence" ]
+            },
+            {
+                "Title": "Finalist Pakistan Physics Team, Top 10 Physicist, International Young Physicists' Tournament (IYPT)",
+                "type": "National",
+                "grade": [ 11 ],
+                "keywords": [ "Physics", "IYPT", "National Recognition", "STEM" ]
+            },
+            {
+                "Title": "Winner, Best Team & Best Delegate Award, MetaMathics, STEM Olympiad",
+                "type": "National",
+                "grade": [ 10 ],
+                "keywords": [ "STEM Olympiad", "Math Competition", "Leadership", "Academic Excellence" ]
+            },
+            {
+                "Title": "Distinction in Mathematics & Physics",
+                "type": "School",
+                "grade": [ 9, 10 ],
+                "keywords": [ "Subject Distinction", "STEM", "School Topper", "Math and Physics" ]
+            }
+        ],
+        "future_plans": [ "Engineer", "Masters" ],
+        "standardized_tests": [
+            {
+                "exam_name": "SAT",
+                "results": [
+                    { "section": "Evidence-based Reading and Writing", "score": "790" },
+                    { "section": "Math", "score": "770" }
+                ]
+            }
+        ]
+    },
+    "activity_profile": {
+        "activities": [
+            {
+                "category": "Career Oriented",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "14 hr/wk, 18 wk/yr",
+                "position": "Founder",
+                "organization": "EcoDwell, Startup, Sustainable Housing in Rural Villages",
+                "description": "Developed a cost-effective rural housing design using traditional mud-brick & modern insulation, reducing indoor temperatures by 5°C; did field tests",
+                "keywords": [
+                    "sustainable-engineering",
+                    "eco-housing-design",
+                    "rural-impact",
+                    "founder-initiative",
+                    "climate-adaptation",
+                    "innovation-in-construction"
+                ]
+            },
+            {
+                "category": "Research",
+                "grades": "11",
+                "timing": "Break",
+                "hours": "25 hr/wk, 12 wk/yr",
+                "position": "Research Intern, Engineering & Structural Analysis",
+                "organization": "Punjab Environmental Protection Authority (EPA)",
+                "description": "Led research on heavy construction on Murree's slopes; examined load-bearing capacity of 40+ structures; proposed slope-adaptive structural design",
+                "keywords": [
+                    "government-research",
+                    "structural-engineering",
+                    "slope-adaptation",
+                    "civil-infrastructure",
+                    "field-research",
+                    "policy-relevance"
+                ]
+            },
+            {
+                "category": "Computer/Technology",
+                "grades": "11, 12",
+                "timing": "School, Break",
+                "hours": "15 hr/wk, 12 wk/yr",
+                "position": "3D Designer and Engineer",
+                "organization": "Civil & Environmental Project for Homeless, University of Punjab",
+                "description": "Designed sustainable tiny homes for the homeless; used computer-aided design (CAD) to develop 3D prototype; working with a professor for deployment",
+                "keywords": [
+                    "3D-modeling",
+                    "CAD",
+                    "homeless-shelters",
+                    "design-thinking",
+                    "university-collaboration",
+                    "applied-technology"
+                ]
+            },
+            {
+                "category": "Student Govt./Politics",
+                "grades": "9, 10",
+                "timing": "School, Year",
+                "hours": "15 hr/wk, 36 wk/yr",
+                "position": "Founder & President",
+                "organization": "Architecture & Engineering Club, City School",
+                "description": "100+ members; discussions on sustainable design; organized model building workshops, tours to cultural monuments, & talks by architects & engineers",
+                "keywords": [
+                    "club-founder",
+                    "sustainable-architecture",
+                    "youth-leadership",
+                    "educational-outreach",
+                    "engineering-exposure",
+                    "cultural-heritage"
+                ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "5 hr/wk, 14 wk/yr",
+                "position": "Founder",
+                "organization": "\"Khilonay\" (Toy-Making Initiative for Children with Polio Virus)",
+                "description": "Initiated toy-making workshop for kids with polio at Indus Hospital; 14 members; designed toys for 277 children using cardboard & metal components",
+                "keywords": [
+                    "disability-inclusion",
+                    "toys-for-healing",
+                    "founder-project",
+                    "hospital-collaboration",
+                    "child-focused-design",
+                    "hands-on-engineering"
+                ]
+            },
+            {
+                "category": "Science/Math",
+                "grades": "11",
+                "timing": "School, Break",
+                "hours": "18 hr/wk, 36 wk/yr",
+                "position": "Pakistan National Physics Team",
+                "organization": "International Young Physicists' Tournament (IYPT)",
+                "description": "Finalist among 3k participants; researched on Thermodynamics and Acoustics; executed advanced experiments and Math models in RStudio & Python.",
+                "keywords": [
+                    "physics-research",
+                    "national-finalist",
+                    "IYPT",
+                    "experimental-design",
+                    "programming-in-STEM",
+                    "thermodynamics-modeling"
+                ]
+            },
+            {
+                "category": "Science/Math",
+                "grades": "11",
+                "timing": "School",
+                "hours": "9 hr/wk, 18 wk/yr",
+                "position": "Head of Structural Team, National Team Member",
+                "organization": "NSS Gerard K. O'Neill Space Settlement Contest",
+                "description": "Crafted 8+ 3D models with BLENDER; studied orbital mechanics & radiation shielding; independently researched geopolitics in space missions.",
+                "keywords": [
+                    "space-settlement",
+                    "orbital-mechanics",
+                    "3D-design-in-BLENDER",
+                    "national-STEM-contest",
+                    "interdisciplinary-research",
+                    "aerospace-innovation"
+                ]
+            },
+            {
+                "category": "Student Govt./Politics",
+                "grades": "11, 12",
+                "timing": "School",
+                "hours": "11 hr/wk, 41 wk/yr",
+                "position": "President Community Service Society",
+                "organization": "Akhtar Hameed Community Service Society, LGS JT",
+                "description": "Led 400+ members; did mental health & climate change awareness, sustainability initiatives, & educational reach out for disabled students;raised $16k",
+                "keywords": [
+                    "student-leadership",
+                    "community-service",
+                    "mental-health-awareness",
+                    "disability-inclusion",
+                    "fundraising-impact",
+                    "climate-education"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "9, 10, 11, 12",
+                "timing": "School, Break",
+                "hours": "3 hr/wk, 22 wk/yr",
+                "position": "Clay Modeling Instructor",
+                "organization": "Mashghalay Sculpting & Pottery Workshop",
+                "description": "Taught 25+ marginalized girls sculpting & pottery to craft cultural-inspired artifacts & jewelry; helped them sell clay work at cultural exhibits",
+                "keywords": [
+                    "vocational-training",
+                    "female-empowerment",
+                    "arts-and-crafts",
+                    "economic-uplift",
+                    "cultural-preservation",
+                    "hands-on-learning"
+                ]
+            },
+            {
+                "category": "Cultural",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "12 hr/wk, 26 wk/yr",
+                "position": "Founder, Language-Exchange Teacher",
+                "organization": "Mushtarak (Digital Media NGO)",
+                "description": "Fostered cultural diversity, social justice, & collaboration in provinces of Pakistan and South Asia; led cross-border language workshops; 60+ member",
+                "keywords": [
+                    "cross-cultural-collaboration",
+                    "language-education",
+                    "social-justice",
+                    "cultural-integration",
+                    "NGO-founder",
+                    "digital-humanities"
+                ]
+            }
+        ],
+        "activity_profile_meta_tags": {
+            "leadership_roles": [
+                "founder-EcoDwell-startup",
+                "research-leader-EPA-project",
+                "3D-design-engineer-housing",
+                "founder-architecture-club",
+                "founder-Khilonay-toy-initiative",
+                "president-community-service-society",
+                "national-physics-team-researcher",
+                "head-structural-team-space-settlement",
+                "clay-modeling-instructor",
+                "language-exchange-NGO-founder"
+            ],
+            "community_impact": [
+                "low-cost-rural-housing",
+                "toys-for-disabled-children",
+                "homeless-shelter-design",
+                "mental-health-education",
+                "climate-awareness",
+                "female-empowerment-through-arts",
+                "cross-cultural-dialogue",
+                "educational-access-for-disabled-students",
+                "inclusive-urban-architecture",
+                "economic-opportunity-for-marginalized-girls"
+            ],
+            "unique_ideas": [
+                "mud-brick-housing-with-modern-insulation",
+                "toy-making-with-metal-and-cardboard-for-polio-kids",
+                "3D-modeling-shelters-for-homeless",
+                "language-exchange-in-South-Asia",
+                "space-settlement-modeling-in-BLENDER",
+                "community-service-through-design-thinking",
+                "architecture-club-led-tours-to-cultural-sites",
+                "teaching-sculpting-to-economically-disadvantaged-girls",
+                "founder-NGO-for-cultural-integration",
+                "thermodynamics-research-using-RStudio"
+            ],
+            "academic_excellence": [
+                "Pakistan-National-Physics-Team",
+                "IYPT-finalist",
+                "engineering-research-internship",
+                "NASA-space-settlement-research",
+                "university-collaboration-on-homeless-housing",
+                "computer-aided-design-expertise",
+                "advanced-STEM-prototyping",
+                "applied-physics-in-civil-design",
+                "peer-education-in-STEM-contexts",
+                "early-leadership-in-STEM-clubs"
+            ]
+        },
+        "time_commitment": { "total_annual_hours": 2056, "average_weekly_hours": 39.5, "activity_count": 10 }
+    },
+    "personal_statement": {
+        "essay_prompt": "Share an essay on any topic of your choice. It can be one you've already written, one that",
+        "personal_statement": "Just look at those laser lights… The symphony of youthful laughter teases me with this toy store’s promises. While they played, I watched and watched - beguiled by these creations they call Toys. What else could lure seven-year-old Omer, other than Toys? Gazing through the thick glass pane, past a mosaic of remote-controlled cars, I was head over heels - for these other-worldly rows laden with Marvel's sturdy action figures. Parked at the street's terminus, the toy store became a daily rendezvous, a haven before and after school. This ‘window shopping’ of mine replaced tangible play - assuaging the solitude of solo bus rides with dreams that lingered until the school bus echoed its piercing horn. Toys……These ones - displayed in ‘WonderToys!’ - seemed different, from the ones I borrowed from neighborhood garbage bins. ‘Pre-loved’ proved a more fitting label than mere junk. Salvaging stray templates and frames, each Toy was a canvas and a challenge - to recycle its past into a new future. Each Toy heralded a long journey of remodeling and re-engineering - resisting society’s readiness to cast it aside as garbage. In my dainty fingers, the toy would cease being trash. Enter Dr. Omer, the conjurer of whimsical transformations; the Creator of Toys! In youthful explorations, playtime sparked a curiosity to unravel the science behind contraptions and repurposing. Lurking within STEM journals, I found inspiration in works like Don Norman's ‘The Design of Everyday Things’ and Samuel Florman's relatable ‘The Existential Pleasures of Engineering.’ Toys thus, became a manifesto for sustainable joy - embodying constant recreation. From Recycled Robot Sculptures made of old tin cans to budget-friendly Virtual Reality Goggles fashioned from discarded eyewear, my little workshop echoed my commitment. Awards like ‘Creator of Engineer’ and ‘Junior Science Champ’ validated my dedication, rooted in a childhood love for Toys and the limitless possibilities they offered. Committed to this devotion, I tenderly touch my lab coat, fueled by the ambition to engineer Toys—this time, for a greater cause. Initiating the Khilonay project, my team of 14 adolescent engineers and I conduct toy-making workshops at The Indus Hospital for children afflicted with the Polio Virus. Mirroring my childhood fascination, we employ recyclable materials for Khilonay - a passion project that believes in every child’s right to play and hence, our duty to engineer: Sketch how recyclable cardboard and metal components can harmonize to form the Toy of your imagination Select recyclable cardboard and salvaged metal parts that align with the design, emphasizing both durability and functionality Assemble a prototype with the chosen materials according to the sketch Add interactive elements to the toy to enhance its appearance Commence playtime! In six months of dedicated effort, we have readied Toys for 277 children, our lab coats endorsing the marks of our tireless labor. Yet, we don't dwell on worn attire; each frayed thread symbolizes a purpose etched on our decorated laboratory coats—a blessing that encapsulates our mission on this planet. Now, I don this very lab coat, as my team goes from crafting Toys to engineering shelter houses - crafting environmentally friendly houses: a traditional mud-brick design paired with eco-friendly insulation. Our innovative layout, tailored for Pakistan's arid regions, promises to lower indoor temperatures by 5°C, making it an optimal choice for pastoral households nationwide. This is not the end; it is just the beginning - of the end of unsustainable, carbon-fuming engineering. It is the beginning of a new era - of creating, composing, and constructing - all without compromising the sanctity of planet Earth. On some days, these will be Toys for the Children of today and tomorrow; on other days these will be shelters for our Citizens. From gazing inside 'WonderToys' to serving both child's joy and humanity - it is a spark of childhood wonder fueling a relentless drive for sustainable and innovative creation.",
+        "essay_analysis": {
+            "themes": [
+                "sustainability",
+                "engineering-for-social-good",
+                "childhood-curiosity",
+                "toys-as-symbols-of-agency",
+                "recycling-and-repurposing",
+                "design-thinking"
+            ],
+            "challenges_overcome": [
+                "financial-constraints-in-childhood",
+                "lack-of-access-to-commercial-toys",
+                "navigating-solitude-and-imagination",
+                "engineering-with-limited-resources"
+            ],
+            "unique_cultural_and_other_elements": [
+                "South-Asian-childhood-experience",
+                "recycling-culture-in-urban-Pakistan",
+                "use-of-toys-as-cultural-healing-tools",
+                "social-inclusion-of-disabled-children"
+            ],
+            "growth_narrative": [
+                "transformation-from-passive-observer-to-active-creator",
+                "childhood-passion-evolving-into-social-enterprise",
+                "moving-from-play-to-purpose",
+                "designing-for-humanity"
+            ],
+            "why_this_worked": [
+                "authentic-voice",
+                "emotional-resonance-through-imagery",
+                "clear-spike-in-STEM-social-design",
+                "personal-to-global-impact-arc",
+                "vision-for-purpose-driven-engineering",
+                "childhood-nostalgia-to-mission-driven-action"
+            ]
+        }
+    },
+    "education_progression": {
+        "education_progression_type": "NA",
+        "explanation": "",
+        "school_change": true,
+        "school_change_reasoning": "After finishing my O-Levels from The City School (TCS), I transferred to Lahore Grammar School (LGS) because my previous school was undergoing massive administrative and faculty changes. Moreover, TCS wasn't offering the subjects in A-Levels that I wanted to take."
+    },
+    "university_specific_questions": {
+        "college_name": "Princeton University",
+        "entry_term": "Fall 2024",
+        "decision_plan": "Regular Decision",
+        "financial_aid": true,
+        "ACT/SAT_scores": true,
+        "top_academic_majors_interest": [
+            "1. Civil and Environmental Engineering",
+            "2. Architecture",
+            "Minor: Sustainable Energy",
+            "Minor: Architecture and Engineering"
+        ]
+    },
+    "university_supplemental_questions": {
+        "short_essay_1": {
+            "prompt": "Please describe why you are interested in studying engineering at Princeton. Include any of your experiences in, or exposure to engineering, and how you think the programs offered at the University suit your particular interests. (Please respond in 250 words or fewer)",
+            "response": "My blend of traditional mud-brick with modern insulation for cost-effective, eco-friendly housing thrusted me into the world of sustainable engineering. My community-involved approach resulted in a groundbreaking design, reducing indoor temperatures by 5 degrees Celsius during field tests. Beyond technical success, the initiative empowered communities with new skills and jobs, illustrating the transformative impact of sustainable engineering. My pursuit finds home within the ethos of Engineers without Borders (EWB) at Princeton. Amplifying my efforts through collaborative cross-functionality with EWB, I hope my dreams of sustainable engineering will transcend borders. Developing proper infrastructure and water facilities to underdeveloped areas in villages of all third peripheries, with EWB my vision expands trifold, limited by none other than my own imagination. Maria Garlock’s research on Innovative Structural Design for Earthquake, Fire, and Storm Surge runs parallel to mine at Punjab EPA, where I analyzed the impact of construction on the Murree- Tehsil region and studied the load-bearing capacity of 40+ structures. Under her guidance the horizon of disaster management’s amalgamation with engineering bypasses all dampers. For summers, the calling of home falls short in comparison to the excitement that researching at the Moini Lab offers. Joining Princeton's legacy, I see myself as a gardener, planting seeds of sustainable innovation in the fertile grounds of collaborative research and community engagement, nurturing them to blossom into solutions that cool the hearths of homes and warm the hearts of communities.",
+            "essay_analysis": {
+                "themes": [
+                    "sustainable-engineering",
+                    "community-development",
+                    "applied-research",
+                    "climate-adaptation",
+                    "humanitarian-STEM",
+                    "collaborative-impact"
+                ],
+                "challenges_overcome": [
+                    "rural-engineering-constraints",
+                    "lack-of-access-to-efficient-housing",
+                    "disaster-vulnerable-infrastructure",
+                    "limited-technical-resources-in-developing-contexts"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "South-Asian-architecture",
+                    "vernacular-materials-reimagined",
+                    "environmental-research-in-Pakistan",
+                    "community-based-disaster-resilience"
+                ],
+                "growth_narrative": [
+                    "from-local-to-global-engineering-vision",
+                    "transformation-of-hands-on-work-into-research",
+                    "identifying-role-models-in-academia",
+                    "vision-to-scale-impact-through-Princeton-platform"
+                ],
+                "why_this_worked": [
+                    "institutional-fit-with-Princeton’s-civic-engineering-ethos",
+                    "alignment-with-faculty-and-labs",
+                    "clearly-demonstrated-passion-with-experience",
+                    "scalable-vision-for-engineering-solutions",
+                    "blends-technical-detail-with-human-stakes",
+                    "uses-Personal-Voice-and-Mission-Language-effectively"
+                ]
+            }
+        },
+        "short_essay_2": {
+            "prompt": "Your Voice Princeton values community and encourages students, faculty, staff and leadership to engage in respectful conversations that can expand their perspectives and challenge their ideas and beliefs. As a prospective member of this community, reflect on how your lived experiences will impact the conversations you will have in the classroom, the dining hall or other campus spaces. What lessons have you learned in life thus far? What will your classmates learn from you? In short, how has your lived experience shaped you? (500 words or fewer)",
+            "response": "With soft loamy soil under my feet, I work barefoot - embarking on designing and constructing houses in Adrana. My work - despite the grit of the dirt beneath me, harkens me over the moon - as if I am a part of something larger - a pilgrimage. Embracing my role as a 3D Designer for the Architectural Project for the Homeless, in collaboration with the University of Punjab, I am entrusted with the task of crafting sustainable abodes for the homeless. Employing advanced computer-aided design (CAD) techniques, I meticulously develop intricate 3D prototypes, contributing to the comprehensive mapping of these structures. Under the invaluable guidance of esteemed professors dedicated to development, this journey embodies a commitment to forging positive change and creating havens of hope for those in need. This endeavor transcends mere mechanics; it's a journey, resonating with deep emotion and a profound attachment to the cause. These villages bear the lingering scars of devastating floods, entire regions in Punjab decimated, living spaces erased, and cherished ways of life obliterated. These communities are not strangers; they echo the familiar landscape of my own, sharing borders, and tragedies of rendering children my age homeless, without shelter, and utterly helpless: a fate that was mine in the 2011 floods as raging waters flooded our village and left us desolate and ravaged. I am now less enamored by scale, less galvanized by the prospect of beauty- my purpose, rather, has been extended to wanting to create an impact by safeguarding: a vanguard against the threats that echo every year. Now, I wish to reconstruct the community, and be a more active member of it entirely - my priorities have changed, marred by tragedy I vow to be the difference that protects others against the catastrophe that was mine. I am wary of taking life’s treasures for granted. Housing is a luxury for so many in my land- a matter of lottery, regardless of the shape and size it comes in. My eyes have opened to the sheer scale of disparities within housing rights, especially in rural villages similar to mine. Parallel to rural orthodoxies, how slums are inherently developed with a lack of sustainability, and yet, paradoxically, are the permanent homes for so many. I hope then, to combat this by ensuring sustainable material - even if this demands unanticipated aggressive crowdfunding efforts - for this is the obligation of the community - to safeguard, to protect, to share.",
+            "essay_analysis": {
+                "themes": [
+                    "resilience-through-disaster",
+                    "community-rebuilding",
+                    "housing-inequality",
+                    "humanitarian-engineering",
+                    "social-justice",
+                    "collective-responsibility",
+                    "empathy-in-action"
+                ],
+                "challenges_overcome": [
+                    "displacement-due-to-2011-floods",
+                    "loss-of-home-and-security",
+                    "growing-up-amid-rural-insecurity",
+                    "emotional-trauma-from-natural-disaster"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "lived-experience-of-rural-flooding-in-Pakistan",
+                    "housing-crisis-in-South-Asian-slums",
+                    "integration-of-tech-and-tradition-in-design",
+                    "moral-obligation-framed-in-Islamic-and-cultural-values",
+                    "intergenerational-perspective-on-shelter-and-dignity"
+                ],
+                "growth_narrative": [
+                    "from-flood-survivor-to-shelter-designer",
+                    "evolving-purpose-from-beauty-to-safety",
+                    "transition-from-trauma-to-transformative-impact",
+                    "commitment-to-civic-engineering-through-personal-loss"
+                ],
+                "why_this_worked": [
+                    "deep-authenticity-and-vulnerability",
+                    "emotive-arc-that-feeds-purpose-driven-action",
+                    "direct-connection-between-trauma-and-intellectual-mission",
+                    "demonstrates-Princeton-values-of-civic-responsibility",
+                    "embodies-global-humanitarianism-rooted-in-lived-experience",
+                    "unique-regional-perspective-on-climate-displacement"
+                ]
+            }
+        },
+        "short_essay_3": {
+            "prompt": "Princeton has a longstanding commitment to understanding our responsibility to society through service and civic engagement. How does your own story intersect with these ideals? (250 words or fewer)",
+            "response": "In Pakistan, cultures are intricately linked, yet often, this connection is distant outside provincial borders. My life began at the cross-stitch of Punjab and Sindh - a vibrant intersection of Saraiki and Punjabi. My father from the former and mother from the latter, the language of love was often lost in translation. Despite warmth, there was a chill in the spaces between words understood and sentiments shared, a tangible testament to the division that language and culture sowed. It is from this personal narrative that Mushtarak was born. Within its embrace, 60+ people from diverse provincial backgrounds found a common language. We dismantled barriers with the gentle, persistent flow of mutual respect and understanding. Our workshops were not mere meetings; they were the loom on which we wove a new fabric of society, where the threads of cultural diversity strengthened rather than divided. With Mushtarak I have stood at the confluence of cultures, not as a bystander but as a bridge. Where once the words of my parents stumbled, lost in translation, I now find them in the smiles of children who speak the universal language of acceptance. From warmth of shared laughter in a Saraiki poem to strength found in a Punjabi proverb, I've learned that service is not just about building bridges but also about crossing them. In Mushtarak, I have not only founded an organization but fostered a family. Language of the heart is universal, and when we dare to speak it, the world listens and transforms.",
+            "essay_analysis": {
+                "themes": [
+                    "language-and-identity",
+                    "civic-engagement-through-dialogue",
+                    "cultural-bridge-building",
+                    "interprovincial-understanding",
+                    "service-through-connection",
+                    "social-cohesion"
+                ],
+                "challenges_overcome": [
+                    "intercultural-misunderstanding-in-family",
+                    "linguistic-barriers-within-community",
+                    "emotional-disconnection-across-cultures",
+                    "founding-a-social-initiative-in-divided-society"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "Saraiki-and-Punjabi-household",
+                    "Pakistani-provincial-divides",
+                    "multilingual-conflict-resolution",
+                    "grassroots-social-dialogue-in-South-Asia",
+                    "reconciliation-through-poetry-and-proverb"
+                ],
+                "growth_narrative": [
+                    "from-observer-of-division-to-founder-of-dialogue",
+                    "turning-familial-friction-into-social-solution",
+                    "translating-personal-disconnect-into-civic-action",
+                    "leadership-through-cultural-repair"
+                ],
+                "why_this_worked": [
+                    "authentic-and-deeply-personal-entry-point",
+                    "connects-family-conflict-to-global-values",
+                    "demonstrates-cultural-literacy-and-social-leadership",
+                    "perfect-fit-for-Princeton’s-service-oriented-ethos",
+                    "unique-narrative-in-a-global-context",
+                    "emotionally-resonant-use-of-language-and-metaphor"
+                ]
+            }
+        },
+        "short_essay_4": {
+            "prompt": "More About You Please respond to each question in 50 words or fewer. There are no right or wrong answers. Be yourself! What is a new skill you would like to learn in college?",
+            "response": "Organocatalysts - greener methods to design and construct small organic molecules that initiate chemical reactions. Pioneered by Princeton’s very own James S. McDonnell appeals to me as a catalyst (pun-intended) in their potential as materials that can be used to build green homes.",
+            "essay_analysis": {
+                "themes": [
+                    "green-chemistry",
+                    "sustainable-material-science",
+                    "interdisciplinary-curiosity",
+                    "innovation-in-environmental-design"
+                ],
+                "challenges_overcome": [],
+                "unique_cultural_and_other_elements": [
+                    "linking-material-science-to-sustainable-housing",
+                    "South-Asian-context-for-green-building",
+                    "awareness-of-Princeton-faculty-research"
+                ],
+                "growth_narrative": [
+                    "evolving-interest-from-engineering-to-molecular-chemistry",
+                    "connecting-environmental-values-to-new-domains",
+                    "intellectual-expansion-through-university-resources"
+                ],
+                "why_this_worked": [
+                    "demonstrates-curiosity-beyond-high-school-curriculum",
+                    "connects-faculty-research-to-student’s-mission",
+                    "humor-and-wordplay-indicate-personality",
+                    "reveals-scientific-precision-in-compact-form",
+                    "signals-long-term-vision-for-sustainable-design"
+                ]
+            }
+        },
+        "short_essay_5": {
+            "prompt": "What brings you joy?",
+            "response": "Amaltas - locally called umeed ka phool (flower of hope), a rare native plant of Pakistan that is almost extinct everywhere else. One warrior sapling fights on in the corner of my room - my letter of love to the nature I adore so profusely.",
+            "essay_analysis": {
+                "themes": [ "joy-in-nature", "environmental-stewardship", "symbolism-and-hope", "connection-to-place" ],
+                "challenges_overcome": [],
+                "unique_cultural_and_other_elements": [
+                    "reference-to-native-Pakistani-flora",
+                    "cultural-metaphor-umeed-ka-phool",
+                    "ecological-consciousness-in-South-Asian-context",
+                    "room-as-refuge-and-sanctuary"
+                ],
+                "growth_narrative": [
+                    "tending-to-life-as-an-act-of-purpose",
+                    "cherishing-endangered-beauty-in-everyday-life",
+                    "personal-ritual-of-care-and-hope"
+                ],
+                "why_this_worked": [
+                    "evocative-and-poetic-language-in-limited-space",
+                    "emotionally-rich-metaphor-for-hope-and-resilience",
+                    "reveals-inner-world-and-personal-values",
+                    "cultural-rootedness-in-a-global-application",
+                    "demonstrates-sensitivity-Princeton-values-in-community"
+                ]
+            }
+        },
+        "short_essay_6": {
+            "prompt": "What song represents the soundtrack of your life at this moment?",
+            "response": "Heer-Ranjha by Noor Jehan - a Punjabi folksong, unique to my language and home-village. A version of it exists in every indigenous language spoken in the country, making it the one song of love that my parents serenade me to together when I’m feeling down.",
+            "essay_analysis": {
+                "themes": [
+                    "music-and-memory",
+                    "cultural-identity",
+                    "emotional-comfort-through-family",
+                    "language-and-love"
+                ],
+                "challenges_overcome": [],
+                "unique_cultural_and_other_elements": [
+                    "Punjabi-folksong-heritage",
+                    "Heer-Ranjha-legend",
+                    "shared-musical-tradition-across-indigenous-languages",
+                    "intergenerational-parental-bonding",
+                    "South-Asian-musical-storytelling"
+                ],
+                "growth_narrative": [
+                    "rediscovering-strength-through-cultural-rootedness",
+                    "embracing-multilingual-family-identity",
+                    "song-as-symbol-of-healing-and-unity"
+                ],
+                "why_this_worked": [
+                    "evokes-cultural-richness-in-a-personal-way",
+                    "reveals-family-intimacy-and-emotional-vulnerability",
+                    "ties-local-tradition-to-national-unity",
+                    "subtle-but-powerful-expression-of-belonging-and-comfort",
+                    "unique-use-of-music-as-narrative-connector"
+                ]
+            }
+        }
+    },
+    "application_narrative": {
+        "connected_themes": [
+            "engineering-for-social-good",
+            "sustainability-and-environmental-justice",
+            "civic-entrepreneurship",
+            "design-thinking-from-childhood-to-impact",
+            "cultural-bridge-building-through-language",
+            "healing-through-creation",
+            "resilience-through-trauma-and-reconstruction"
+        ],
+        "academic_to_extracurricular_connection": [
+            {
+                "subject": "Mathematics",
+                "connection": "Applied in structural physics modeling for NASA space settlement and thermodynamics research for IYPT; integrated into cost-calculations for sustainable housing prototypes."
+            },
+            {
+                "subject": "Physics",
+                "connection": "Central to experimental design and national team competitions (IYPT, NSS); used in environmental field research on construction stress-testing and material insulation efficacy."
+            },
+            {
+                "subject": "Computer Science",
+                "connection": "Used in CAD and 3D modeling for both homeless shelter designs and space architecture; core to his technical spike as a digital builder and STEM innovator."
+            },
+            {
+                "subject": "Psychology",
+                "connection": "Informs his empathy-driven approach to toy-making for children with polio and outreach to marginalized youth; reveals holistic understanding of user-centric design."
+            },
+            {
+                "subject": "Environmental Management",
+                "connection": "Shapes his commitment to eco-housing, climate-adaptive infrastructure, and ethical engineering practices; serves as thematic spine across academic and service projects."
+            }
+        ],
+        "success_factors": [
+            "authentic-voice-across-all-essays",
+            "clear-STEM-spike-with-humanitarian-bend",
+            "founder-of-impactful-social-ventures",
+            "deeply-rooted-in-local-culture-and-global-awareness",
+            "interdisciplinary-synthesis-of-engineering-design-and-civic-service",
+            "emotional-narrative-arc-from-loss-to-leadership",
+            "demonstrated-use-of-research-to-impact-rural-communities",
+            "alignment-with-Princeton's-values-of-service-justice-and-innovation"
+        ],
+        "overall_analysis": "This application stands as a paradigm of narrative coherence and multidimensional excellence. The student successfully weaves a profound personal story of childhood deprivation into a mission-driven engineering and civic identity, showing growth from curiosity to leadership, from play to purpose. His spike in STEM — evidenced through research with governmental and university partners, prestigious competition outcomes, and deep CAD/3D technical experience — is rare and elite. But what distinguishes him further is the humanization of this STEM profile: every project addresses a social wound — housing crises, disability inclusion, cultural fragmentation, flood displacement. His service-driven ventures (EcoDwell, Khilonay, Mushtarak) are not performative but rooted in authentic lived experience, and he demonstrates not just empathy but a capacity to engineer solutions for systemic problems. His personal statement is emotionally layered, his supplements show institutional fit with Princeton’s Engineers Without Borders, and his essays center community healing over personal accolades. This applicant exemplifies what *The Gatekeepers* calls the 'citizen-scholar': intellectually driven, emotionally aware, civically rooted. His narrative reflects not only a world-class maker mindset but a moral compass oriented toward justice. Princeton would not merely admit him; it would be proud to amplify his impact."
+    }
+}

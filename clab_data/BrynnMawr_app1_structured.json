@@ -1,0 +1,524 @@
+{
+    "student_profile": {
+        "name": "Aiman Fatima",
+        "sex": "Female",
+        "gender": "Female",
+        "birth_country": "Pakistan",
+        "cultural_background": [
+            "South Asian",
+            "Punjabi",
+            "Urban middle-class from Lahore",
+            "Female leader in patriarchal society",
+            "Multilingual with strong linguistic and cultural fluency",
+            "Part of a large nuclear family",
+            "Grew up in a semi-urban township with infrastructural privilege (Bahria Town)",
+            "Likely first-generation college-bound in Western system"
+        ],
+        "languages": [
+            { "English": [ "First Language", "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Urdu": [ "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Punjabi": [ "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Hindi": [ "Speak" ]},
+            { "French": [ "Speak", "Read", "Write" ]}
+        ],
+        "socioeconomic_indicators": [
+            "Fee Waiver Requested",
+            "Attends private international curriculum school but still requested financial aid",
+            "Parents have limited formal education (some high/secondary school only)",
+            "Single-income family with mother as homemaker",
+            "Lives in a planned, gated community indicating geographic privilege but economic constraint"
+        ],
+        "geographic_context": {
+            "birth_place": "Sahiwal, Pakistan",
+            "citizenship_status": "Citizen of non-U.S. country",
+            "citizenship": "Pakistan",
+            "current_address": "House No 291, Street No 15 Usman Block, Sector B, Bahria Town, Lahore, PUNJAB, PAK"        }
+    },
+    "academic_profile": {
+        "schools": [
+            {
+                "name": "The Lahore Lyceum School, 35-B Aziz Avenue, Gulberg 5, Lahore, Punjab, Pakistan",
+                "type": "Independent",
+                "grades_attended": "11, 12",
+                "gpa_scale": "4.0",
+                "gpa": 4,
+                "gpa_weighting": "Unweighted",
+                "rank": "2 / 296",
+                "rank_weighting": "Unweighted",
+                "recent_courses_taken": [
+                    {
+                        "subject": "Mathematics - (Cambridge AICE AS A-Level)",
+                        "type": "Cambridge AICE AS A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Environmental Management - (Cambridge AICE AS A-Level)",
+                        "type": "Cambridge AICE AS A-Level",
+                        "leaving_exam": "Predicted A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "History - (Cambridge AICE AS A-Level)",
+                        "type": "Cambridge AICE AS A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Sociology - (Cambridge AICE AS A-Level)",
+                        "type": "Cambridge AICE AS A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Chemistry - (Cambridge AICE AS A-Level)",
+                        "type": "Cambridge AICE AS A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    { "subject": "French Language - (REG)", "type": "REG", "leaving_exam": "N/A", "grade": "12" }
+                ]
+            },
+            {
+                "name": "Beaconhouse School System: Multan Main Campus, Bosan Road, Multan, Punjab, Pakistan",
+                "type": "Independent",
+                "grades_attended": "9, 10",
+                "gpa_scale": null,
+                "gpa": null,
+                "gpa_weighting": null,
+                "rank": null,
+                "rank_weighting": null,
+                "recent_courses_taken": []
+            }
+        ],
+        "graduation_date": "06/2025",
+        "gap_year": false,
+        "Honors": [
+            {
+                "Title": "Silver Medal - National Earth Sciences Olympiad - 2024",
+                "type": "National",
+                "grade": [ 12 ],
+                "keywords": [ "Olympiad", "Earth Sciences", "National Recognition", "STEM Achievement" ]
+            },
+            {
+                "Title": "Gold Medalist - Punjab Badminton Championship 2023",
+                "type": "State/Regional",
+                "grade": [ 11 ],
+                "keywords": [ "Athletics", "Badminton", "State-level Competition", "Gold Medal" ]
+            },
+            {
+                "Title": "Distinction - Global Perspectives, Southern Region - 2022",
+                "type": "State/Regional",
+                "grade": [ 10 ],
+                "keywords": [ "Academic Excellence", "Global Perspectives", "Regional Recognition" ]
+            },
+            {
+                "Title": "Winner - Best Short Film, National Amateur Short Film Festival (NASFF)",
+                "type": "National",
+                "grade": [ 11 ],
+                "keywords": [ "Filmmaking", "Artistic Achievement", "National Recognition", "Storytelling" ]
+            },
+            {
+                "Title": "100% Academic Scholarship - The Lahore Lyceum",
+                "type": "School",
+                "grade": [ 11, 12 ],
+                "keywords": [ "Full Scholarship", "Merit-based Aid", "Academic Achievement", "School Honor" ]
+            }
+        ],
+        "future_plans": [ "Policymaker/Government", "Doctorate" ],
+        "standardized_tests": []
+    },
+    "activity_profile": {
+        "activities": [
+            {
+                "category": "Student Govt./Politics",
+                "grades": "11",
+                "timing": "School",
+                "hours": "24 hr/wk, 36 wk/yr",
+                "position": "Deputy Head Girl",
+                "organization": "The Lahore Lyceum",
+                "description": "Co-led 1800+ students; Initiated “Safeda(Greenery)” week for composting and student-led gardens; introduced weekly google form based suggestion system",
+                "keywords": [
+                    "leadership",
+                    "environmental-advocacy",
+                    "student-governance",
+                    "initiative",
+                    "school-wide-impact",
+                    "sustainability-implementation",
+                    "organizational-systems"
+                ]
+            },
+            {
+                "category": "Science/Math",
+                "grades": "12",
+                "timing": "Year",
+                "hours": "24 hr/wk, 20 wk/yr",
+                "position": "National Team Member",
+                "organization": "International Earth Sciences Olympiad (IESO), National Earth Sciences Olympiad (NESO)",
+                "description": "Silver Medalist at NESO; Qualified for IESO; attended extensive summer training camp on soil sampling, hydrology, rock formation, and GIS",
+                "keywords": [
+                    "earth-science",
+                    "olympiad",
+                    "national-qualification",
+                    "STEM-excellence",
+                    "summer-research",
+                    "academic-rigor",
+                    "international-competition"
+                ]
+            },
+            {
+                "category": "Student Govt./Politics",
+                "grades": "12",
+                "timing": "School",
+                "hours": "12 hr/wk, 36 wk/yr",
+                "position": "Vice President",
+                "organization": "Environmental Club, The Lahore Lyceum",
+                "description": "Co-Led 50+ members in neighborhood cleanups, installing vertical gardens, adding green space to unused areas; led sustainability workshops",
+                "keywords": [
+                    "club-leadership",
+                    "community-cleanups",
+                    "environmental-activism",
+                    "green-space-advocacy",
+                    "public-education",
+                    "urban-ecology",
+                    "youth-engagement"
+                ]
+            },
+            {
+                "category": "Athletics: JV/Varsity",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "10 hr/wk, 28 wk/yr",
+                "position": "Competitor & National Team Member",
+                "organization": "The Lahore Lyceum & Pakistan National Badminton team",
+                "description": "Won 7 gold and 4 silver medals championships; Pakistan Badminton Federation Team’s Under-17 Cohort",
+                "keywords": [
+                    "national-athlete",
+                    "sports-leadership",
+                    "gold-medalist",
+                    "female-athlete",
+                    "discipline-and-dedication",
+                    "long-term-commitment",
+                    "under-17-national-team"
+                ]
+            },
+            {
+                "category": "Research",
+                "grades": "12",
+                "timing": "Break",
+                "hours": "7 hr/wk, 10 wk/yr",
+                "position": "Researcher & Author",
+                "organization": "Independent Research at Lahore University of Management Sciences with Professor Batool",
+                "description": "Studied tax credits & policies for tree protection in Punjab; analyzed 35+ cases; interviewed farmers on rural deforestation; shared findings at LUMS",
+                "keywords": [
+                    "environmental-policy",
+                    "tree-conservation",
+                    "rural-deforestation",
+                    "independent-research",
+                    "public-policy",
+                    "university-collaboration",
+                    "agricultural-advocacy"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "8 hr/wk, 36 wk/yr",
+                "position": "Founder & Director",
+                "organization": "Aabo Hawa - Urban Greening Initiative",
+                "description": "Created 6,000 sq. ft. of urban greenery; installed rooftop and wall gardens with 40+ volunteers; partnered with entrepreneurs to expand greenery",
+                "keywords": [
+                    "founder",
+                    "urban-greening",
+                    "youth-activism",
+                    "sustainability",
+                    "entrepreneurial-collaboration",
+                    "community-engagement",
+                    "female-ecopreneur"
+                ]
+            },
+            {
+                "category": "Internship",
+                "grades": "11",
+                "timing": "Break",
+                "hours": "11 hr/wk, 7 wk/yr",
+                "position": "Intern",
+                "organization": "Lahore Development Authority (LDA)",
+                "description": "Did on-site assessments for Lahore city projects; collaborated on finding optimized public transportation traffic routes; analyzed waste-production data",
+                "keywords": [
+                    "urban-planning",
+                    "public-transport",
+                    "waste-analysis",
+                    "government-internship",
+                    "infrastructure-assessment",
+                    "real-world-application"
+                ]
+            },
+            {
+                "category": "Debate/Speech",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "8 hr/wk, 40 wk/yr",
+                "position": "Delegate & Chair",
+                "organization": "Various MUN Conferences (e.g., GMUN, FCUMUN)",
+                "description": "Won 12+ Best/Outstanding Delegate; chaired 5 MUN committees on climate change related issues; Coached 32 students",
+                "keywords": [
+                    "public-speaking",
+                    "climate-policy-debate",
+                    "MUN-leadership",
+                    "student-coach",
+                    "international-relations",
+                    "awards-winner",
+                    "mentorship"
+                ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "11, 12",
+                "timing": "Break",
+                "hours": "12 hr/wk, 12 wk/yr",
+                "position": "Filmmaker & Project Lead",
+                "organization": "“Darya ki Kahaniyan” - Tales of the River",
+                "description": "Directed a documentary on rural fishermen, filming 20+ interviews to showcase how pollution and urbanization impact their livelihoods and culture",
+                "keywords": [
+                    "documentary-filmmaking",
+                    "rural-advocacy",
+                    "cultural-preservation",
+                    "storytelling",
+                    "water-ecology",
+                    "female-director",
+                    "multimedia-expression"
+                ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "9, 10, 11, 12, PG",
+                "timing": "Year",
+                "hours": "4 hr/wk, 40 wk/yr",
+                "position": "Terrarium Crafter",
+                "organization": "Hobby",
+                "description": "Made miniature intricate terrariums with native flora and fauna; experimented with water-based plants, moss, and water",
+                "keywords": [
+                    "creative-hobby",
+                    "nature-aesthetic",
+                    "botanical-experimentation",
+                    "eco-creativity",
+                    "sustainable-art",
+                    "mindfulness-through-crafting"
+                ]
+            }
+        ],
+        "activity_profile_meta_tags": {
+            "leadership_roles": [
+                "deputy-head-girl",
+                "vice-president-club",
+                "founder-urban-greening",
+                "research-lead",
+                "MUN-chair-and-coach",
+                "documentary-project-lead"
+            ],
+            "community_impact": [
+                "urban-ecology-advocacy",
+                "green-space-creation",
+                "youth-sustainability-movement",
+                "public-policy-research",
+                "rural-voices-through-film",
+                "coaching-public-speaking",
+                "student-suggestion-reform"
+            ],
+            "unique_ideas": [
+                "vertical-garden-initiatives",
+                "tax-policy-for-trees",
+                "eco-documentary-on-fishermen",
+                "student-feedback-digital-system",
+                "interactive-MUN-on-climate-change",
+                "public-transport-internship"
+            ],
+            "academic_excellence": [
+                "NESO-silver-medalist",
+                "IESO-qualification",
+                "LUMS-research-collaboration",
+                "policy-analysis-skills",
+                "analytical-environmental-thinking",
+                "climate-debate-leadership"
+            ]
+        },
+        "time_commitment": { "total_annual_hours": 2250, "average_weekly_hours": 43.3, "activity_count": 10 }
+    },
+    "personal_statement": {
+        "essay_prompt": "Share an essay on any topic of your choice. It can be one you've already written, one that responds to a different prompt, or one of your own design.",
+        "personal_statement": "Others may not feel the beating heart of the khet (field) that defines my badminton court but I do. It cradles me like a mother carrying her newborn. It inhales for me when my deviated septum becomes a hurdle for my breathing. Spellbound, I chase this shuttlecock as though it wants to be caught - by none other than me - and I oblige: consistently, o so fervently. Giving up is not a choice because I, my racket, my shuttlecock, and my khet make up a team that shares a dream, and I am the only one who can move without assistance. I simply cannot let them down. Even then, do I belong here - fully? Am I not conflicted between two worlds? Both begin with the letters L - London and Lahore. In fact, they even encompass the same amount of alphabets. Yet, they are as different, as antipodal as sports and economics. A part of me will always be in London, the part I left just there in ninth grade when I migrated to Lahore. A triumph of one romantic city over another. Or was it? Conflicted, I find myself often disconcerted even when amongst my people, in a khet my ancestors took pride in; so much so, that I feel like a shadow. I feel as though I am some traitor - one who could not master my mother tongue. Even then, my khet took me in, humbled me, taught me lessons, gave me uncountable chances, and made me the man I am. More than anything, it offered me the joy of badminton. How can I ever repay the debt? How can I confess my love to it in its two languages, Urdu and Punjabi, that I still remain imperfect in? Somehow giving back, I disallow my crooked septum from hindering my badminton pursuits. This has seemingly progressed into a passion, a conviction - one that I need as much as I need that poorly passed-through oxygen. Fate, however, offers bigger plans. Is it my hard work, determination, or just a miracle? I do not know but following a landmark number of trials and hospital admissions, I ended up in the Pakistan National Badminton team and then the Pakistan Badminton Federation Team’s Under-17 Cohort. Finally, I acquired answers for my identity: this nation owns me and I own it too. I finally feel as though I have given back to my nation in my way. There is freedom; there is felicity in this realization that only my shuttlecock can understand as it flies across to my opponents. Henceforth, I shine in my community because of the shine of my seven gold and four silver medals. They see me as a symbol of hope - something people of my country need now more than ever. And so I know my purpose: I need to do more; I need to expand my horizons, and take inspiration from my long-term companion - my shuttlecock - which has the mobility that Pakistan needs. I must be led by the spirits of my people to become the best version of myself, just as my racket pushes the shuttlecock. So forth, I move towards another, perhaps even stronger passion: policy making. Commencing with eco-policy, I attended the “Green Print for Change, Navigating the Policy Landscape in Environmental Stewardship” conference on Climate Change and Environmental Sustainability. Just as my shuttlecock bounces between me and my opponent, I successfully bounce between badminton, physiotherapy, and activism. Through each publication, experiment, and regression analysis, I feel as though I am fulfilling a promise - to the very khet that grounds me. With this, my goals became clearer: I can make Pakistan as mobile, as fast-paced as my shuttlecock. I can and I will - stronger than the force that I exert on my racket, stronger than the suffocation that my deviated septum induces.",
+        "essay_analysis": {
+            "themes": [
+                "identity and self-discovery",
+                "national pride and contribution",
+                "duality of place and culture",
+                "resilience through physical and linguistic challenges",
+                "sports as metaphor for purpose",
+                "emergence of civic responsibility"
+            ],
+            "challenges_overcome": [
+                "deviated septum and chronic breathing issues",
+                "cultural dislocation from London to Lahore",
+                "language insecurity in Urdu and Punjabi",
+                "internal conflict of belonging and displacement",
+                "self-doubt about national identity and worthiness"
+            ],
+            "unique_cultural_and_other_elements": [
+                "metaphorical use of ‘khet’ (field) as ancestral and personal ground",
+                "symbolism of badminton and shuttlecock representing nation and mobility",
+                "straddling British and Pakistani cultural identities",
+                "integration of sports, eco-policy, and activism",
+                "rural heritage and national representation via athletics"
+            ],
+            "growth_narrative": [
+                "evolution from conflicted identity to national pride",
+                "transformation from athlete to civic-minded policymaker",
+                "redefinition of self-worth through contribution to country",
+                "turning physical and emotional limitation into momentum for change",
+                "expansion of impact from personal excellence to public service"
+            ],
+            "why_this_worked": [
+                "poetic structure with vivid sensory metaphors (‘beating heart of the khet’, ‘shuttlecock’)",
+                "emotional authenticity and intellectual reflection",
+                "demonstrates rare interdisciplinary blend: athlete + environmental policy thinker",
+                "connects deeply personal struggle with broader national and cultural mission",
+                "evidences values of resilience, gratitude, and future-oriented leadership",
+                "aligned with Bryn Mawr’s values of intellectual independence, civic engagement, and women’s empowerment"
+            ]
+        }
+    },
+    "education_progression": {
+        "education_progression_type": "Gap-Year",
+        "explanation": "Shortly after completing my O Levels in 2021, my mother suffered a severe heart attack, leaving her in critical condition. With limited medical facilities in Multan, we relocated to Lahore, where she underwent angioplasty and angiography. As the eldest child, I took on the responsibility of caring for her and supporting my younger siblings while my father continued working in Multan. This significant change in our family dynamic made it challenging for me to attend school consistently. Her recovery was a long and demanding process, during which I stayed home to manage her care and support my siblings. Balancing these responsibilities required me to adjust my educational trajectory, but I remained committed to my learning despite these obstacles, and by end of 2022, I resumed my academic journey, transitioning to A Levels later",
+        "school_change": true,
+        "school_change_reasoning": "In 2021, shortly after completing my O Levels, my mother fell critically ill, and we had to make the decision to relocate from Multan to Lahore for her treatment, as better healthcare facilities were available there. As a result, I had to leave my school in Multan. In Lahore, I initially looked into continuing my education at Beaconhouse, but their A Level program didn’t offer the subjects I wanted to pursue. After some searching, I found The Lyceum, which provided the required subjects which aligned better with my educational aspirations."
+    },
+    "university_specific_questions": {
+        "college_name": "Bryn Mawr College",
+        "entry_term": "Fall 2025",
+        "decision_plan": "Early Decision II",
+        "financial_aid": true,
+        "ACT/SAT_scores": false,
+        "top_academic_majors_interest": [ "1. Environmental Studies", "2. Sociology", "3. Women's Studies" ]
+    },
+    "university_supplemental_questions": {
+        "short_essay_1": {
+            "prompt": "Why are you interested",
+            "response": "Growing up in Lahore, I’ve witnessed the loss of greenery each year due to urban sprawl, with parks disappearing and concrete taking over. As rapid urbanization continues, the environmental consequences are barely acknowledged. Through Bryn Mawr's interdisciplinary approach, I can expand on my understanding of environmental issues and develop solutions for developing countries, with courses like ENVS B202-001 and ENVS B350-002 equipping me to address societal impacts and promote urban greening. Engaging with the Environmental Club and drawing from my work with my NGO, Aab o Hawa, I look forward to helping implement programs for green infrastructure and tree canopy expansion. Where courses like “Modern Urbanisms” and “Narratives of Identity” would let me connect my passions for storytelling and sustainable societal development in a meaningful way, Bryn Mawr's Katharine Houghton Hepburn Center would provide a unique platform to turn these ideas into action. The opportunity to engage with diverse perspectives through Tri-College Consortium while maintaining the intimacy of a smaller college environment feels like the perfect balance for me. Bryn Mawr is the perfect place for me to grow academically and contribute meaningfully to greening urban spaces.",
+            "essay_analysis": {
+                "themes": [
+                    "environmental sustainability",
+                    "urban development and climate action",
+                    "interdisciplinary learning",
+                    "activism and applied policy",
+                    "educational empowerment"
+                ],
+                "challenges_overcome": [
+                    "environmental degradation in a developing country",
+                    "limited governmental support for green infrastructure",
+                    "lack of academic exposure to formal policy frameworks prior to college"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "firsthand experience with urban sprawl in Lahore",
+                    "NGO leadership rooted in local ecological realities",
+                    "intersection of narrative, identity, and sustainability from a South Asian perspective",
+                    "vision for scalable environmental change through both storytelling and STEM"
+                ],
+                "growth_narrative": [
+                    "from grassroots NGO founder to aspiring urban ecologist and policymaker",
+                    "shift from local intervention to global academic inquiry",
+                    "embracing academic frameworks to drive more impactful environmental change"
+                ],
+                "why_this_worked": [
+                    "tailored academic references (e.g. ENVS B202-001, ENVS B350-002, Modern Urbanisms)",
+                    "genuine institutional alignment with Bryn Mawr’s values: social justice, female leadership, environmental stewardship",
+                    "demonstrates initiative (NGO founder) and vision for scale",
+                    "shows integration of lived experience with academic aspirations—hallmark of liberal arts fit",
+                    "triangulates academic, extracurricular, and professional vision with clarity and purpose"
+                ]
+            }
+        },
+        "short_essay_2": {
+            "prompt": "Bryn Mawr students bring their authentic selves to campus. What do you know about yourself to be true—and what in your background or experience led you to that truth? (250-500 words)",
+            "response": "On the last day before summer break, our filmmaking club tasked us with selecting a theme for a documentary, ‘The Faces of Pakistan’ As our group of storytellers brainstormed ideas about education reform, urban poverty, disappearing crafts, one friend, recently moved from Karachi, suggested we focus on Pakistan's rivers: their culture, traditions, and their daily lives. And so,’Darya ki Kahaniyan’ (Tales of the River) began to take shape. The first day of filming was chaotic. We traveled to a small riverside village near Shakoor Lake in Badin district, with our equipment piled into a rickety van, greeted by the sight that left us both curious and unsettled. Fishermen moved with quiet determination, their silhouettes framed against the shimmering, polluted river. Their weary boats, made of aging wood, were lined up in the murky brown water. The water surface was slick with oil and dotted with clumps of blackish green algae. A pungent mix of ammonia assaulted our senses, making it hard to breathe. Our first interview was with an elderly fisherman named Ghulam. His hands were weathered and calloused, face deeply lined, and his voice heavy and worn. He wore a faded kurta, its color lost to time and countless washes, \"The river was alive,\" his eyes glistening. \"But now,it’s choking.The water smells of chemicals. The fish are fewer, smaller, and weaker.\" He spoke of the factories upstream dumping waste into the water, once-clear rivers became contaminated with chemicals, plastics, and toxins. “Ab toh kuch bhi nahi bacha.” (There is nothing left now), he finished. Here I realized that pollution and urbanization are not isolated; my urban environment and their rural one were intricately linked, and the choices we make in cities ripple outward in ways we often fail to see. Each interview brought a new revelation. There was the young father who struggled to feed his family because his daily catch had dwindled to a fraction of what it used to be, and a single mother who worked tirelessly repairing old nets, but still couldn't make enough to support her children. The more we filmed, the more I realized this wasn't just a fisherman's story—it was about all of us, with urban waste and unchecked industrialization choking the river and its people. The camera became more than just a tool; it became a link between two worlds that rarely acknowledged one another. The documentary, which started as a school project, grew into something far bigger. We submitted ‘Darya ki Kahaniyan’ to the National Amateur Short Film Festival (NASFF). Our film won the award for Best Short Documentary. The greatest reward came weeks later when, spurred by the documentary, the Pakistan Environmental Protection Agency launched a cleanup initiative, penalized factories, imposed stricter regulations, and began efforts to restore the river’s ecosystem. Through ‘Darya ki Kahaniyan’, I realized that I have the power to bring hidden stories to light and to incite action. I’m not just an observer, but an active participant in creating change where it's needed.",
+            "essay_analysis": {
+                "themes": [
+                    "activism through storytelling",
+                    "environmental justice",
+                    "interconnectedness of urban and rural communities",
+                    "authentic self-expression through filmmaking",
+                    "social responsibility"
+                ],
+                "challenges_overcome": [
+                    "navigating polluted and hazardous environments for documentary work",
+                    "witnessing systemic environmental neglect in underserved rural communities",
+                    "moving beyond academic intent to real-world impact",
+                    "amplifying marginalized voices with limited institutional support"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "filming in rural Sindh (Badin district) near Shakoor Lake",
+                    "interviewing multigenerational local fishermen and craftspeople",
+                    "language integration—use of Urdu, Sindhi, and Punjabi references",
+                    "student-led documentary as civic media activism",
+                    "cross-class empathy: bridging Lahore’s urban elite and rural fisherfolk"
+                ],
+                "growth_narrative": [
+                    "evolved from passive observer to civic documentarian",
+                    "realized capacity to catalyze policy and institutional response",
+                    "discovered personal truth: power lies in uncovering and amplifying underheard voices",
+                    "reframed environmentalism from abstract cause to lived social issue"
+                ],
+                "why_this_worked": [
+                    "tangible impact—led to EPA penalties and cleanup initiatives",
+                    "brings authentic, local, unscripted voices into the admissions space",
+                    "compelling narrative arc: from school project to national policy shift",
+                    "demonstrates leadership, initiative, and emotional intelligence",
+                    "perfect alignment with Bryn Mawr’s values: women’s agency, interdisciplinary engagement, and social justice"
+                ]
+            }
+        }
+    },
+    "application_narrative": {
+        "connected_themes": [
+            "Environmental justice through local and national advocacy",
+            "Storytelling as a civic and policy tool",
+            "Bridging urban privilege and rural struggle",
+            "Female leadership in male-dominated spaces",
+            "Intersection of identity, place, and purpose",
+            "Activism rooted in scientific inquiry and personal experience"
+        ],
+        "academic_to_extracurricular_connection": [
+            {
+                "subject": "Mathematics",
+                "connection": "Applied quantitatively in urban policy modeling during her LDA internship and environmental research (e.g., regression analysis on deforestation impacts and traffic optimization projects)."
+            },
+            {
+                "subject": "Environmental Management",
+                "connection": "Central to nearly all extracurriculars: NGO leadership (Aab o Hawa), research on tax policy for tree protection, and documentary activism (‘Darya ki Kahaniyan’) reflect academic learning applied to real-world ecosystems."
+            },
+            {
+                "subject": "History",
+                "connection": "Explores the long arc of environmental degradation and cultural erasure in Pakistan through her documentary and policymaking lens; storytelling activities often framed within sociohistorical narratives."
+            },
+            {
+                "subject": "Sociology",
+                "connection": "Forms the intellectual backbone of her exploration of inequality (rural-urban divide, gender roles, education reform); directly informs MUN chairing on climate justice and her understanding of systemic policy failure."
+            },
+            {
+                "subject": "Chemistry",
+                "connection": "Supports her scientific literacy in addressing pollution, industrial runoff, and chemical toxicity in river systems—key issues tackled in her documentary and research."
+            }
+        ],
+        "success_factors": [
+            "Exceptionally cohesive narrative centered on environmental justice, civic action, and identity-rooted leadership.",
+            "Spike excellence in multiple verticals: national-level athlete, award-winning filmmaker, Olympiad medalist, grassroots environmental entrepreneur.",
+            "Authentic engagement with community needs through NGO work, rural documentary storytelling, and public-sector internships.",
+            "Strategic institutional alignment with Bryn Mawr’s core values: interdisciplinary problem-solving, female empowerment, social justice.",
+            "Demonstrated intellectual vitality through independent research, university collaboration (LUMS), and synthesis of STEM and humanities.",
+            "Powerful personal voice across essays; poetic yet policy-driven, culturally rooted yet globally ambitious."
+        ],
+        "overall_analysis": "This is a top-decile liberal arts candidate whose application reflects extraordinary clarity of purpose and multidimensional excellence. Aiman Fatima presents a compelling throughline that connects her personal history (migration, language loss, family hardship), academic ambitions (environmental studies, sociology, public policy), and lived action (urban greening, documentary impact, policy advocacy). Her story is not just about overcoming obstacles—it is about transforming ecosystems: both literal and social. The application is a masterclass in narrative coherence: the 'shuttlecock' metaphor in her personal statement reflects not just resilience, but her broader philosophical commitment to mobility, justice, and regeneration. From her badminton achievements to environmental activism and filmmaking, every piece affirms a singular truth: she moves with purpose. Her background—a blend of urban middle-class privilege, economic constraint, and deep familial responsibility—adds nuance to her socioeconomic story, marking her as a future changemaker. At an institution like Bryn Mawr, which values agency, interdisciplinarity, and feminist praxis, Aiman would not just thrive—she would lead. This is the kind of application that admissions officers remember at committee: richly human, structurally sophisticated, and deeply mission-aligned."
+    }
+}

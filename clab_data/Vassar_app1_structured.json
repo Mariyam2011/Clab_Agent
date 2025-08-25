@@ -1,0 +1,516 @@
+{
+    "student_profile": {
+        "name": "Muhammad Ahmad Raza",
+        "sex": "Male",
+        "gender": "Male",
+        "birth_country": "Pakistan",
+        "cultural_background": [
+            "South Asian",
+            "Punjabi",
+            "LGBTQ+ student from conservative rural Pakistan",
+            "grew up in Mandi Bahauddin, a semi-urban/rural area in Punjab",
+            "nuclear family with business father and homemaker mother",
+            "navigated social conservatism while exploring gender and identity",
+            "cultural tension between traditional values and queer self-expression",
+            "intersection of queerness and Islamic cultural norms",
+            "independent self-driven educational and artistic development"
+        ],
+        "languages": [
+            { "English": [ "First Language", "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Urdu": [ "Speak", "Read", "Write" ]},
+            { "Punjabi": [ "Speak", "Read" ]},
+            { "Arabic": [ "Read", "Write" ]}
+        ],
+        "socioeconomic_indicators": [
+            "Fee Waiver Requested",
+            "parents have high school-level education",
+            "father is self-employed; mother is full-time homemaker",
+            "lives in a provincial town with limited LGBTQ+ support",
+            "received 100% academic merit scholarship throughout high school"
+        ],
+        "geographic_context": {
+            "birth_place": "Mandi Bahauddin, Pakistan",
+            "citizenship_status": "Citizen of non-U.S. country",
+            "citizenship": "Pakistan",
+            "current_address": "street 8 Mohallah Shafqat Abad Mandi Bahauddin, PUNJAB, 50400, PAK"        }
+    },
+    "academic_profile": {
+        "schools": [
+            {
+                "name": "The Lahore Lyceum Jallo Campus, 1 Canal Road, Khaira Pull, Lahore, Punjab, Pakistan",
+                "type": "Independent",
+                "grades_attended": "9, 10, 11, 12",
+                "gpa_scale": "4.0",
+                "gpa": "4.0",
+                "gpa_weighting": "Unweighted",
+                "rank": "3/333",
+                "rank_weighting": "Unweighted",
+                "recent_courses_taken": [
+                    {
+                        "subject": "Mathematics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Further Mathematics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Physics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Chemistry - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "English Literature - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "History - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Sociology - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    }
+                ]
+            }
+        ],
+        "graduation_date": "06/2025",
+        "gap_year": false,
+        "Honors": [
+            {
+                "Title": "100% Academic Merit Scholarship - Lahore Lyceum",
+                "type": "School",
+                "grade": [ 9, 10, 11, 12 ],
+                "keywords": [ "Merit-Based", "Scholarship", "Academic Excellence", "Tuition Coverage" ]
+            },
+            {
+                "Title": "Bronze Medal - National Astronomy Olympiad",
+                "type": "National",
+                "grade": [ 10, 11 ],
+                "keywords": [ "Science Competition", "Astronomy", "National Recognition", "STEM" ]
+            },
+            {
+                "Title": "Best Young Poet - Bulleh Shah Poetry Competition",
+                "type": "National",
+                "grade": [ 11 ],
+                "keywords": [ "Poetry", "Creative Writing", "National Competition", "Literary Talent" ]
+            },
+            {
+                "Title": "Cambridge O Level Distinction in Chemistry - Punjab",
+                "type": "State/Regional",
+                "grade": [ 9, 10 ],
+                "keywords": [ "Academic Distinction", "Chemistry", "Cambridge O Level", "Punjab Region" ]
+            },
+            {
+                "Title": "Cambridge O Level Distinction in Physics - Punjab",
+                "type": "State/Regional",
+                "grade": [ 9, 10 ],
+                "keywords": [ "Academic Distinction", "Physics", "Cambridge O Level", "Punjab Region" ]
+            }
+        ],
+        "future_plans": [ "Scientific researcher", "Doctorate" ],
+        "standardized_tests": [
+            {
+                "exam_name": "SAT",
+                "results": [
+                    { "section": "Evidence-based Reading and Writing", "score": "730" },
+                    { "section": "Math", "score": "790" }
+                ]
+            }
+        ]
+    },
+    "activity_profile": {
+        "activities": [
+            {
+                "category": "Science/Math",
+                "grades": "10, 11",
+                "timing": "School",
+                "hours": "6 hr/wk, 20 wk/yr",
+                "position": "Team Member, International Astronomy Olympiad (IAO)",
+                "organization": "International Astronomy Olympiad (IAO), Pakistan Team",
+                "description": "Represented Pakistan at IAO 2022 & 2023 after excelling nationally; trained intensively in astrophysics, dark matter & black holes under NUST Professors",
+                "keywords": [
+                    "international-competition",
+                    "STEM-excellence",
+                    "national-representation",
+                    "physics-specialization",
+                    "advanced-training",
+                    "academic-prestige"
+                ]
+            },
+            {
+                "category": "Journalism/Publication",
+                "grades": "10, 11, 12",
+                "timing": "School",
+                "hours": "6 hr/wk, 40 wk/yr",
+                "position": "Editor-in-Chief, School Magazine",
+                "organization": "The Lahore Lyceum",
+                "description": "Led editorial for 15+ issues; authored astronomy articles debunking superstitions; held special editions on STEM inclusivity for underrepresented groups",
+                "keywords": [
+                    "editorial-leadership",
+                    "science-communication",
+                    "public-science-literacy",
+                    "DEI-in-STEM",
+                    "writing-impact",
+                    "underrepresented-voices"
+                ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "10, 11, 12",
+                "timing": "School",
+                "hours": "8 hr/wk, 32 wk/yr",
+                "position": "Founder & President, Queer Art Club",
+                "organization": "The Lahore Lyceum",
+                "description": "Created safe art club for 30+ LGBTQ+ youth; held 12+ exhibitions, performances & workshops (poetry readings, drag shows, theater, etc.)",
+                "keywords": [
+                    "LGBTQ-leadership",
+                    "art-as-activism",
+                    "safe-space-creation",
+                    "creative-expression",
+                    "inclusive-education",
+                    "intersectionality"
+                ]
+            },
+            {
+                "category": "Athletics: Club",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "9 hr/wk, 40 wk/yr",
+                "position": "National level Rower, Pakistan Rowing Federation",
+                "organization": "Pakistan Rowing Federation",
+                "description": "Competed nationally; trained 15+ hours weekly under professional coaches for 2 years; mentored younger athletes on sportsmanship",
+                "keywords": [
+                    "national-athlete",
+                    "sports-discipline",
+                    "athlete-mentor",
+                    "teamwork",
+                    "sports-leadership",
+                    "physical-resilience"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "11, 12",
+                "timing": "Year",
+                "hours": "6 hr/wk, 45 wk/yr",
+                "position": "Founder & President, Sitaron Ki Raah - Mobile Astronomy Units",
+                "organization": "Sitaron Ki Raah",
+                "description": "Led mobile astronomy initiative on jeeps; held 10+ camps on stargazing, model rockets, and astrophysics for 500+ youth in underserved & remote areas",
+                "keywords": [
+                    "STEM-accessibility",
+                    "science-outreach",
+                    "founder-initiative",
+                    "rural-education",
+                    "hands-on-STEM",
+                    "public-science"
+                ]
+            },
+            {
+                "category": "Research",
+                "grades": "12",
+                "timing": "Break",
+                "hours": "20 hr/wk, 6 wk/yr",
+                "position": "Researcher & Author, Independent Research",
+                "organization": "Independent",
+                "description": "Conducted 20+ qualitative interviews, surveyed 200+ Intersex people on education barriers; analyzed Pakistan's Right to Education Act; proposed solutions",
+                "keywords": [
+                    "qualitative-research",
+                    "policy-analysis",
+                    "intersex-education",
+                    "social-justice-research",
+                    "independent-scholarship",
+                    "advocacy-through-data"
+                ]
+            },
+            {
+                "category": "Art",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "6 hr/wk, 30 wk/yr",
+                "position": "Jewelry Maker & Workshop Instructor",
+                "organization": "Noor Lahore",
+                "description": "Designed and handcrafted 80+ cosmic-inspired jewelry pieces; inspired by star signs; incorporating crystals linked to celestial mythology",
+                "keywords": [
+                    "artistic-entrepreneurship",
+                    "astronomy-inspired-design",
+                    "creative-narrative",
+                    "celestial-mythology",
+                    "youth-workshops",
+                    "spiritual-expression"
+                ]
+            },
+            {
+                "category": "Environmental",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "7 hr/wk, 42 wk/yr",
+                "position": "Activist & Member",
+                "organization": "Lahore Astronomical Society (LAST)",
+                "description": "Advocated for light pollution reduction; worked with officials on policies for shielded lights; preserving the night sky and minimizing urban glare",
+                "keywords": [
+                    "environmental-activism",
+                    "light-pollution-reduction",
+                    "urban-ecology",
+                    "policy-collaboration",
+                    "astronomical-conservation",
+                    "youth-environmentalism"
+                ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "7 hr/wk, 30 wk/yr",
+                "position": "Designer & Illustrator",
+                "organization": "Independent/School Magazine",
+                "description": "Illustrated a comic series exploring the multiverse adventures and cosmic phenomena; made complex astronomy visuals",
+                "keywords": [
+                    "science-visualization",
+                    "art-science-fusion",
+                    "multiverse-narrative",
+                    "creative-science-outreach",
+                    "visual-literacy",
+                    "independent-project"
+                ]
+            },
+            {
+                "category": "Debate/Speech",
+                "grades": "11, 12",
+                "timing": "School",
+                "hours": "8 hr/wk, 40 wk/yr",
+                "position": "Poetry Narrator & Speaker",
+                "organization": "Colony Lahore",
+                "description": "Narrated poetry on self-discovery, the link between acceptance and knowledge, and the human desire for exploration; performed at Colony events",
+                "keywords": [
+                    "public-speaking",
+                    "spoken-word-poetry",
+                    "philosophical-themes",
+                    "performance-art",
+                    "self-expression",
+                    "cultural-literary-voice"
+                ]
+            }
+        ],
+        "activity_profile_meta_tags": {
+            "leadership_roles": [
+                "founder-queer-art-club",
+                "president-science-mobile-unit",
+                "editor-in-chief-school-magazine",
+                "research-leader-intersex-education-study",
+                "workshop-instructor-jewelry-art",
+                "youth-mentor-rowing",
+                "science-illustrator",
+                "environmental-activist",
+                "poetry-performer"
+            ],
+            "community_impact": [
+                "queer-visibility-in-Pakistan",
+                "STEM-outreach-to-underserved",
+                "intersex-rights-advocacy",
+                "rural-access-to-astronomy",
+                "public-science-literacy",
+                "inclusive-STEM-journalism",
+                "light-pollution-policy-work",
+                "youth-art-education",
+                "gender-identity-normalization",
+                "sports-mentorship"
+            ],
+            "unique_ideas": [
+                "queer-led-art-club-in-rural-Pakistan",
+                "astronomy-themed-jewelry-design",
+                "mobile-astronomy-camps-on-jeeps",
+                "comic-series-on-multiverse-physics",
+                "intersex-rights-through-legal-analysis",
+                "drag-shows-in-student-club-setting",
+                "science-debunking-in-student-magazines",
+                "visual-cosmology-illustration",
+                "art-integrated-public-STEM-education",
+                "celestial-mythology-jewelry-instruction"
+            ],
+            "academic_excellence": [
+                "international-astronomy-olympiad",
+                "editorial-science-communication",
+                "policy-research-on-education-law",
+                "self-initiated-research-projects",
+                "Cambridge-distinction-in-STEM",
+                "youth-leadership-in-STEM-camps",
+                "scientific-visual-literacy-through-art"
+            ]
+        },
+        "time_commitment": { "total_annual_hours": 16464, "average_weekly_hours": 52.6, "activity_count": 10 }
+    },
+    "personal_statement": {
+        "essay_prompt": "Share an essay on any topic of your choice. It can be one you've already written, one that responds to a different prompt, or one of your own design.",
+        "personal_statement": "Much like the constellations above that guide us, each gemstone I work with reflects an essence waiting to be refined—a hidden resilience. Each stone’s color, energy, and purpose connect with the stars, as if pulling stories from the night sky into something tangible. In choosing, shaping, and setting stones, I discovered my own journey of healing—an odyssey refracted through isolation, hope, and transformation. Selecting the right stone is the first, crucial step of the process. Each stone holds a unique vibration. Like the garnet in January, I desperately needed strength and confidence as I faced alienation due to my LGBTQ identity. The world around me felt brittle and cold, rejecting me like a foreign fragment, my identity buried like an uncut gem. I’d once thought of myself as flawed, but once I worked with my gems , I began to wonder: What if, like gemstones, the hidden parts of me only needed to be unearthed and refined? February’s amethyst, the stone of healing, inspired me to look inward, and for the first time, I felt the stirring of self-acceptance, a glimmer that maybe I had something to offer. The grueling steps of cutting and polishing revealed to me the beauty within the rough, jagged edges. March’s aquamarine, a symbol of courage, became my guide as I took my first steps toward growth. Each cut mirrored the emotional wounds I was processing, the fractures from a world that didn’t understand. Polishing these surfaces took time and patience, and in that space, I began to accept myself as I was. April’s diamond of resilience taught me to wear my scars like a mark of survival and pride. With each piece, I felt a metamorphosis, as though I were reshaping myself alongside the gemstones, honing both their edges and my own. Bending and shaping the metal to cradle each stone taught me strength and gentleness. In shaping May’s emerald, the stone of growth, I had to bend without breaking, learning to embrace my journey while finding ways to lift others. Pearl, June’s hidden beauty, reminded me of the importance of solidarity. In my search for support, I found others facing similar struggles, a reminder that I was not alone. We were gems in the making, each of us trying to find our place in a world that often felt too rigid and unforgiving. It was in this spirit that I founded *Noor*—“light”—a jewelry business in partnership with a transrights NGO. With July’s ruby of passion, I was motivated to create a beacon of hope, a way for the LGBTQ and trans communities to find financial independence and stability. Like August’s peridot, symbol of abundance, I hoped *Noor* would be a bridge toward self-sufficiency for others to thrive in a world that so often denied them opportunities. The final step in jewelry making is linking each clasp and setting each gem, bringing the piece together in a unified design. In crafting each piece, I saw my own journey reflected—how far I’d come and how much we had transformed together. September’s sapphire of wisdom, embodied the knowledge gained from my struggles, while October’s opal, a stone of transformation, mirrored my growth as I worked with others at *Noor*. Through helping others on their paths, I realized my purpose: to help people find their own light amidst the shadows, guiding them as gem making had guided me. Setting the intention behind each piece is the final act, imbuing it with cosmic energy and meaning. Like the stones I work with, each person deserves to shine, to break free from the world’s rigid molds and find a future shaped by their own hands. In the vastness of the universe, we are all like gemstones—multifaceted, resilient, and waiting to reflect our own light. As I work with each piece, I am reminded that, like the constellations, we each hold the potential to illuminate even the darkest night.",
+        "essay_analysis": {
+            "themes": [
+                "identity-exploration-through-art",
+                "resilience-in-the-face-of-cultural-marginalization",
+                "healing-through-creative-expression",
+                "community-empowerment-via-social-enterprise",
+                "cosmic-symbolism-as-self-definition",
+                "transformative-growth-through-craft"
+            ],
+            "challenges_overcome": [
+                "LGBTQ-invisibility-in-conservative-rural-society",
+                "emotional-estrangement-and-internal-conflict",
+                "lack-of-social-support-and-acceptance",
+                "economic-barriers-to-self-and-community-expression"
+            ],
+            "unique_cultural_and_other_elements": [
+                "metaphor-of-gem-cutting-as-queer-identity-formation",
+                "jewelry-craft-intertwined-with-cosmic-and-astrological-narrative",
+                "fusion-of-art-and-advocacy-in-South-Asian-context",
+                "grassroots-social-entrepreneurship-for-trans-rights",
+                "reinterpretation-of-ritual-craft-as-resistance-and-solidarity"
+            ],
+            "growth_narrative": [
+                "from-internalized-shame-to-pride-in-identity",
+                "from-solitary-crafting-to-community-leadership",
+                "from-metaphysical-reflection-to-structural-action",
+                "emergence-of-purpose-through-shared-struggle-and-creation"
+            ],
+            "why_this_worked": [
+                "rarely-seen-blend-of-aesthetic-narrative-and-social-vision",
+                "sophisticated-use-of-symbolism-to-represent-interior-journey",
+                "demonstrates-self-knowledge-aligned-with-community-consciousness",
+                "builds-clear-narrative-bridge-between-personal-pain-and-public-purpose",
+                "engages-admissions-reader-emotionally-and-intellectually",
+                "signals-institutional-fit-with-liberal-arts-values-of-expression-and-justice",
+                "functions-as-both-artist-statement-and-mission-statement"
+            ]
+        }
+    },
+    "education_progression": {
+        "education_progression_type": "no change",
+        "explanation": "No change in progression",
+        "school_change": false,
+        "school_change_reasoning": ""
+    },
+    "university_specific_questions": {
+        "college_name": "Vassar College",
+        "entry_term": "Fall 2025",
+        "decision_plan": "Early Decision",
+        "financial_aid": true,
+        "ACT/SAT_scores": true,
+        "top_academic_majors_interest": [
+            "1. Astronomy",
+            "2. Educational Studies",
+            "3. Astronomy, Gender, Sexuality and the Body, Creative Writing and Literary Forms, Mathematics"
+        ]
+    },
+    "university_supplemental_questions": {
+        "short_essay_1": {
+            "prompt": "Vassar is a diverse community that inspires positive change through open inquiry, deep dives into society’s most difficult challenges, and collaborative problem solving. We care deeply about one another, the communities that have forged us, and the community we build together on campus. Tell us about the community (or communities) you come from and how it has shaped your lived experiences and identity.",
+            "response": "I sketched Orion’s silhouette standing on the barren plains of Mars. Orion chose to leave Earth and seeked refuge among the stars, but he encountered suspicion by a colony, controlled by a fanatical organization, that believed in the superiority of its kind. “You disrupt our order,” the colony leader declared. “Mars is for those who conform.” Banished to the endless red sands, Orion wandered and questioned if the universe could ever hold a place for someone like him. I had been sketching pieces of my own story all along. Like Orion, I had wondered if I was asking too much—too much of my father, whose words, when I sought his acceptance, felt suffocating. “Why can’t you just be normal?” I sought his acceptance as someone who loved differently. My father dismissed the humanity of anyone like me and clinged to a worldview where people like us didn’t belong. I reflected often on his words, trying to reconcile my love for him with the pain his rejection caused, but they pressed against me like the red skies above Orion. My comics became my quiet rebellion in crafting a world where everyone could exist freely. Orion searched for a trace of himself in the vast red expanse to end up finding others who had been silenced and cast away. Together, they turned the barren sands of Mars into a haven and carved out a community where differences were celebrated and identities embraced. Like Maria Mitchell, I want to find “imagination in science,” and allow my stories to shine with a purity and wisdom that only a shared sky can inspire. At Vassar, I will organise workshops in the LGBTQ Center and Vassar Not Alone (VNA) where students can channel their personal experiences into art and storytelling to give voice to their identities.",
+            "essay_analysis": {
+                "themes": [
+                    "creative-resilience",
+                    "queer-identity-and-belonging",
+                    "art-as-liberation",
+                    "community-creation-from-exclusion",
+                    "science-fiction-as-personal-narrative",
+                    "storytelling-as-political-resistance"
+                ],
+                "challenges_overcome": [
+                    "queer-alienation-in-familial-and-cultural-contexts",
+                    "emotional-rejection-from-parental-figure",
+                    "suppression-of-self-expression",
+                    "internal-struggle-with-worthiness-and-visibility"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "South-Asian-son-struggling-with-patriarchal-gender-norms",
+                    "autobiographical-comics-influenced-by-queer-futurism",
+                    "reclamation-of-scientific-symbols-through-emotional-metaphor",
+                    "use-of-Mars-and-Orion-as-cultural-escape-valves",
+                    "Maria-Mitchell-reference-rooted-in-scientific-and-historical-feminism"
+                ],
+                "growth_narrative": [
+                    "from-erasure-to-invention-of-self-through-art",
+                    "from-emotional-isolation-to-vision-for-communal-healing",
+                    "from-passive-suffering-to-active-space-making-for-others",
+                    "discovery-of-purpose-in-bridging-identity-and-imagination"
+                ],
+                "why_this_worked": [
+                    "crafts-an-allegorical-mirror-of-the-student’s-life-using-sci-fi",
+                    "shows-high-concept-thinking-with-accessible-emotional-core",
+                    "signals-creative-potential-and-leadership-in-campus-LGBTQ-spaces",
+                    "brilliantly-executed-metaphor-that-transcends-typical-identity-essays",
+                    "evokes-liberal-arts-values-of-interdisciplinarity-and-expression",
+                    "deeply-original-form-without-sacrificing-authenticity-or clarity",
+                    "applicant-demonstrates-agentic-power-to-transform-trauma-into-community-building"
+                ]
+            }
+        }
+    },
+    "application_narrative": {
+        "connected_themes": [
+            "resilience-through-queer-expression",
+            "cosmos-as-symbolic-framework-for-selfhood",
+            "storytelling-as-healing-and-resistance",
+            "public-education-access-through-science",
+            "interdisciplinary-identity-formation",
+            "creative-leadership-in-conservative-contexts"
+        ],
+        "academic_to_extracurricular_connection": [
+            {
+                "subject": "Mathematics",
+                "connection": "Used in astrophysics training for the International Astronomy Olympiad; essential to designing model rockets in rural STEM outreach camps"
+            },
+            {
+                "subject": "Further Mathematics",
+                "connection": "Applied in higher-order problem-solving during advanced astronomy research; foundational to physics-based comic illustrations"
+            },
+            {
+                "subject": "Physics",
+                "connection": "Directly informs student’s participation in the Olympiad, research-based comics, jewelry inspired by astrophysics, and stargazing education camps"
+            },
+            {
+                "subject": "Chemistry",
+                "connection": "Applied in material science understanding for jewelry making; also relevant in interpreting the symbolism and energy of gemstones"
+            },
+            {
+                "subject": "English Literature",
+                "connection": "Influences spoken word poetry, narrative construction of supplemental essays, comic storytelling, and editorial leadership in the school magazine"
+            },
+            {
+                "subject": "History",
+                "connection": "Guides policy research on intersex education laws and enriches understanding of social movements; helps contextualize activism in a broader cultural timeline"
+            },
+            {
+                "subject": "Sociology",
+                "connection": "Informs qualitative research methodology and critical analysis of gender-based exclusion; foundational to student's independent research and NGO work"
+            }
+        ],
+        "success_factors": [
+            "unified-and-compelling-narrative-across-essays-and-experiences",
+            "demonstrated-exceptional-resilience-in-hostile-environment",
+            "authentic-voice-marked-by-literary-and-artistic-mastery",
+            "pioneering-leadership-in-queer-visibility-in-Pakistan",
+            "interdisciplinary-spike-across-STEM-art-and-advocacy",
+            "clear-institutional-fit-with-Vassar-values-of-expression-diversity-and-social-change",
+            "exceptional-academic-achievement-in-high-rigor-curriculum",
+            "transformational-impact-on-peers-through-community-creation",
+            "emotional-intelligence-and-self-awareness-beyond-age-peers"
+        ],
+        "overall_analysis": "This application stands as a paradigm of narrative coherence, institutional fit, and originality. Through intersecting lenses of cosmology, queerness, art, and science, Muhammad Ahmad Raza constructs a multidimensional identity that is intellectually vibrant and socially urgent. His personal statement and supplemental essays are among the most artfully layered and emotionally resonant, successfully embodying the Ethan Sawyer model of vulnerability plus vision. He doesn't just tell us about exclusion—he transforms it into communal healing through storytelling, jewelry-making, policy analysis, and grassroots education. His academic excellence—evidenced by a 4.0 GPA, Cambridge A-Level predictions, and SAT scores—supports the intellectual rigor required at elite liberal arts colleges. What makes him exceptional, however, is not just his academic merit, but his deeply integrated personal mission: to create beauty, meaning, and opportunity in spaces where there was once erasure. His leadership across LGBTQ+ advocacy, science communication, and interdisciplinary art fulfills nearly every category elite colleges seek—intellectual vitality, community contribution, unique voice, and institutional match. His story is not just one of overcoming, but of reframing: transforming marginality into radiance. This is the kind of student who doesn't just succeed at Vassar—he redefines what leadership and identity look like on campus."
+    }
+}

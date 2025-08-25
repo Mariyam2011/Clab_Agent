@@ -1,0 +1,70 @@
+{
+  "success": true,
+  "final_narratives": {
+    "narrative_1": {
+      "title": "Breaking the Silence: From Forced Engagement to Self-Advocacy",
+      "story": "At sixteen, I was engaged to a man six years my senior, a decision made with little input from me. I watched my world grow smaller as my fiancé’s words—about my appearance, my voice, my modest clothing—chipped away at my confidence. For months, I internalized the shame, believing perhaps this was my destiny as a Punjabi Muslim girl. Then, one night, I found the courage to break down before my parents and share all that I had endured. Instead of anger, I found understanding—they listened, saw me, and helped me end the engagement. That moment was a turning point: I realized my voice mattered. My experience with forced engagement ignited a passion for advocating women’s agency and empowerment, especially in societies where silence is expected. Today, I channel that resilience into storytelling—through photography and writing—so that other girls who feel invisible can know they are not alone and can choose themselves, too.",
+      "themes": [
+        "Women empowerment",
+        "Forced child marriage",
+        "Self-advocacy",
+        "Resilience"
+      ],
+      "suggested_activities": [
+        "Leading workshops on self-advocacy and consent for teenage girls",
+        "Photographic projects documenting stories of women overcoming social barriers"
+      ],
+      "academic_connection": "Gender studies, sociology, or communication, with a focus on policy and advocacy for women’s rights"
+    },
+    "narrative_2": {
+      "title": "Through the Lens: Documenting Everyday Equality",
+      "story": "Growing up in Lahore, I never heard the phrase 'that’s women’s work.' My father cooked and cleaned as naturally as my mother. It was only when I shared this with classmates—whose fathers would never touch a broom—that I understood my home was an exception. Suddenly, I saw the invisible walls that defined women’s lives in Pakistan. Photography became my way of making those boundaries visible. I started capturing images of women—students, bus conductors, mothers—who defied expectations, as well as those who bore the weight of tradition. My camera became a bridge, connecting stories of rural and urban women, highlighting both struggle and hope. Each image fuels my commitment to use visual storytelling and marketing not just to sell products, but to challenge narratives and spark conversations about gender, privilege, and agency in South Asia.",
+      "themes": [
+        "Gender equality",
+        "Visual storytelling",
+        "Rural-urban contrasts",
+        "Social change"
+      ],
+      "suggested_activities": [
+        "Organizing community photo exhibitions on women’s lives across Punjab",
+        "Collaborating with local NGOs to create awareness campaigns using visual media"
+      ],
+      "academic_connection": "Media studies, marketing, or visual arts, exploring the intersection of communication and social change"
+    },
+    "narrative_3": {
+      "title": "The Price of Dependence: Learning the Value of Financial Independence",
+      "story": "I grew up watching my grandmothers ask for money from their husbands for even the smallest expenses. While their marriages were loving, I saw how economic dependence limited their choices—from what they wore to how they contributed to family decisions. Their stories, along with those of women denied education or married off young, showed me that love is not always enough; agency requires independence. Inspired by their resilience and determined to carve my own path, I sought out opportunities to learn about marketing and storytelling—fields where I could use my voice and skills to create impact and gain autonomy. I mentor younger girls on financial literacy and explore how brands can empower women through authentic representation. My journey is about more than breaking cycles; it’s about building new legacies where women are free to choose their own futures.",
+      "themes": [
+        "Financial independence",
+        "Education access",
+        "Agency and choice",
+        "Women empowerment"
+      ],
+      "suggested_activities": [
+        "Running financial literacy workshops for girls in local schools",
+        "Interning with organizations focused on women’s economic empowerment"
+      ],
+      "academic_connection": "Business, economics, or entrepreneurship with an emphasis on women’s empowerment and ethical marketing"
+    }
+  },
+  "suggestions": [],
+  "error": "",
+  "extracted_themes": [
+    "Gender equality",
+    "Forced child marriage",
+    "Women empowerment",
+    "Financial independence",
+    "Visual storytelling",
+    "Photography",
+    "Marketing and communication",
+    "Breaking silence",
+    "Self-advocacy",
+    "Education access",
+    "Rural-urban contrast",
+    "Agency and choice",
+    "Resilience",
+    "Cultural expectations",
+    "Family support"
+  ],
+  "theme_matches_found": true
+}

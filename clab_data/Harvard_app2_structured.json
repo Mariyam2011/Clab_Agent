@@ -1,0 +1,604 @@
+{
+    "student_profile": {
+        "name": "Muhammad Zohaib Abbas",
+        "sex": "Male",
+        "gender": "Male",
+        "birth_country": "Pakistan",
+        "cultural_background": [
+            "South Asian",
+            "Punjabi",
+            "rural background (Mianwali district)",
+            "first-generation formally educated",
+            "male dancer in a conservative society",
+            "nuclear family with military and teaching roots",
+            "emotionally resilient and socially aware"
+        ],
+        "languages": [
+            { "English": [ "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Urdu": [ "First Language", "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Punjabi": [ "Speak", "Spoken at Home" ]},
+            { "German, Swiss": [ "Speak", "Read", "Write" ]},
+            { "Arabic": [ "Speak", "Read" ]}
+        ],
+        "socioeconomic_indicators": [
+            "Fee Waiver Requested",
+            "single-income background (retired military father, government-employed mother)",
+            "education enabled via merit scholarships",
+            "took a gap year to support family financially"
+        ],
+        "geographic_context": {
+            "birth_place": "Kamra, Pakistan",
+            "citizenship_status": "Citizen of non-U.S. country",
+            "citizenship": "Pakistan",
+            "current_address": "House Number 105 A, Data Ganj Bakhsh Road Rawalpindi, Punjab, 43600, PAK"        }
+    },
+    "academic_profile": {
+        "schools": [
+            {
+                "name": "SuperNova School, 16 Nazimuddin Road F 8/1, Islamabad, Islamabad, PAK",
+                "type": "Independent",
+                "grades_attended": "12",
+                "gpa_weighting": "Unweighted",
+                "gpa_scale": "4.0",
+                "gpa": 4,
+                "rank_weighting": "Unweighted",
+                "rank": "Top 10% / 250",
+                "recent_courses_taken": [
+                    {
+                        "subject": "Computer Science",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Psychology",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Art and Design",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "German",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    }
+                ]
+            },
+            {
+                "name": "Cadet College Hasan Abdal, District Attock, Punjab, PAK",
+                "type": "Boarding",
+                "grades_attended": "6–11",
+                "gpa_weighting": null,
+                "gpa_scale": null,
+                "gpa": null,
+                "rank_weighting": null,
+                "rank": null,
+                "recent_courses_taken": [
+                    {
+                        "subject": "Mathematics",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Actual A*",
+                        "grade": 11
+                    },
+                    {
+                        "subject": "Chemistry",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Actual A*",
+                        "grade": 11
+                    },
+                    {
+                        "subject": "Biology",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Actual A*",
+                        "grade": 11
+                    },
+                    {
+                        "subject": "Physics",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Actual A",
+                        "grade": 11
+                    }
+                ]
+            }
+        ],
+        "graduation_date": "06/2024",
+        "gap_year": true,
+        "Honors": [
+            {
+                "Title": "Winner Beamline for Schools at CERN (European Organization for Nuclear Research)",
+                "type": "International",
+                "grade": [ 11 ],
+                "keywords": [ "Physics", "CERN", "Global Competition", "STEM Research", "Experimental Science" ]
+            },
+            {
+                "Title": "Duke of Edinburgh Silver Award for Community Service",
+                "type": "International",
+                "grade": [ 10, 11, 12 ],
+                "keywords": [ "Leadership", "Community Service", "Extracurricular", "International Youth Program" ]
+            },
+            {
+                "Title": "Cambridge high achievers award for top in Pakistan in the subject Physics",
+                "type": "State/Regional, National",
+                "grade": [ 11 ],
+                "keywords": [ "Academic Excellence", "National Topper", "Cambridge Awards", "Physics" ]
+            },
+            {
+                "Title": "Large Hadron Collider Course NCP – National Centre of Physics",
+                "type": "National Post-graduate",
+                "grade": [ 11 ],
+                "keywords": [ "STEM", "Particle Physics", "Graduate-level Coursework", "LHC", "NCP Pakistan" ]
+            },
+            {
+                "Title": "Silver Medalist at State Hockey Championship",
+                "type": "State/Regional",
+                "grade": [ 12 ],
+                "keywords": [ "Athletics", "Hockey", "State-Level Sports", "Silver Medal", "Team Sports" ]
+            }
+        ],
+        "future_plans": [ "Scientific researcher", "Doctorate" ],
+        "standardized_tests": [
+            {
+                "exam_name": "N/A",
+                "results": [
+                { "section": "N/A", "score": "N/A" }
+            ]
+            }
+        ]
+    },
+    "activity_profile": {
+        "activities": [
+            {
+                "category": "Research",
+                "grades": "11, 12",
+                "timing": "Break",
+                "hours": "40 hr/wk, 2 wk/yr",
+                "position": "Research Participant & Experiment Performer",
+                "organization": "CERN (European Organization for Nuclear Research), Beamline for Schools",
+                "description": "Gold Medalist among 369 teams from 63 countries; conducted a groundbreaking particle physics experiment at CERN. Mentored by renowned scientists.",
+                "keywords": [
+                    "CERN",
+                    "Beamline for Schools",
+                    "physics experiment",
+                    "international research",
+                    "STEM",
+                    "award-winning",
+                    "mentored"
+                ]
+            },
+            {
+                "category": "Student Govt./Politics",
+                "grades": "12",
+                "timing": "School",
+                "hours": "11 hr/wk, 52 wk/yr",
+                "position": "Head Boy President Student Council",
+                "organization": "Cadet College Hasanabdal",
+                "description": "Led 800+ peers, innovated new societies & rejuvenated established ones. Championed student needs & steered the student council to new heights.",
+                "keywords": [ "leadership", "student council", "presidency", "school-wide governance", "initiative" ]
+            },
+            {
+                "category": "Science/Math",
+                "grades": "11, 12",
+                "timing": "Break",
+                "hours": "40 hr/wk, 2 wk/yr",
+                "position": "Finalist LHC course (Graduate Level)",
+                "organization": "National Centre of Physics Pakistan",
+                "description": "Distinguished as the only highschooler student to Qualify for The Large Hadron Course at the National Centre of Physics, Interned at the Silicone Lab.",
+                "keywords": [
+                    "LHC",
+                    "graduate course",
+                    "internship",
+                    "physics",
+                    "National Centre of Physics",
+                    "high school standout"
+                ]
+            },
+            {
+                "category": "Research",
+                "grades": "12",
+                "timing": "School",
+                "hours": "7 hr/wk, 14 wk/yr",
+                "position": "Authored Published Physics Research Paper",
+                "organization": "International Conference at CERN",
+                "description": "Conducted research on “T10 Beam zone’s Particle Composition”. Used ROOT to simplify raw data to 3-D graphs; aiding in regression & hypothesis testing.",
+                "keywords": [
+                    "research publication",
+                    "particle physics",
+                    "ROOT software",
+                    "data analysis",
+                    "conference paper",
+                    "CERN"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "9.5 hr/wk, 52 wk/yr",
+                "position": "Founder",
+                "organization": "TechTerra (NGO)",
+                "description": "Solved tech disparities for 500+ underprivileged. Pioneered coding workshops; gave podcasts for 'Stem for all' & raised $1750 in funding.",
+                "keywords": [
+                    "NGO",
+                    "STEM access",
+                    "coding education",
+                    "underprivileged youth",
+                    "nonprofit",
+                    "fundraising"
+                ]
+            },
+            {
+                "category": "Athletics: Club",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "10 hr/wk, 48 wk/yr",
+                "position": "Forward and Midfield",
+                "organization": "Provincial Men’s Hockey Team",
+                "description": "Trained with the National team; secured victories in 10+ Provincial/State championships as a forward/midfielder; mentored junior players at school",
+                "keywords": [ "state athlete", "hockey", "sports leadership", "provincial team", "mentorship" ]
+            },
+            {
+                "category": "Science/Math",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "18 hr/wk, 42 wk/yr",
+                "position": "STEM Curator & Trainee",
+                "organization": "Science Fuse, Google",
+                "description": "Currently undergoing online practical Python courses; enhancing skills in Cinematography, Digital Media & using Electronic Arts online platforms",
+                "keywords": [ "STEM training", "Google", "Python", "cinematography", "digital media", "Science Fuse" ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "4 hr/wk, 6 wk/yr",
+                "position": "Rocks Collection & Documentarist",
+                "organization": "Petro Passion Club & Particle Physics",
+                "description": "Amassed 300+ unique rocks; founded 'Petro Passion Club'. Produced a documentary intertwining geology with physics insights.",
+                "keywords": [ "geology", "club founder", "documentary", "interdisciplinary science", "rock collection" ]
+            },
+            {
+                "category": "Dance",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "8.5 hr/wk, 20 wk/yr",
+                "position": "Dance/Movement Therapist",
+                "organization": "'Jhoomar' Dance Club",
+                "description": "Orchestrated hip-hop-based DMT sessions for scholars, enhancing psychological equanimity, self-worth & emotional stability.",
+                "keywords": [ "dance therapy", "DMT", "mental health", "hip-hop", "healing", "club leader" ]
+            },
+            {
+                "category": "Art",
+                "grades": "9, 10, 11, 12",
+                "timing": "School",
+                "hours": "11 hr/wk, 36 wk/yr",
+                "position": "President",
+                "organization": "Calligraphy Club, Cadet College Hasanabdal",
+                "description": "Explored connections between science & arts; experimented with solubility of paints & utilized Golden Ratio in famous paintings. Won Regional Awards.",
+                "keywords": [
+                    "calligraphy",
+                    "president",
+                    "art-science fusion",
+                    "Golden Ratio",
+                    "regional awards",
+                    "experimentation"
+                ]
+            }
+        ],
+        "activity_profile_meta_tags": {
+            "leadership_roles": [
+                "head-boy",
+                "student-council-president",
+                "ngo-founder",
+                "research-lead-author",
+                "science-club-founder",
+                "team-leader-in-international-competition",
+                "movement-therapy-creator",
+                "calligraphy-club-president",
+                "club-founder-and-curator"
+            ],
+            "community_impact": [
+                "stem-equity-for-underprivileged",
+                "dance-therapy-for-emotional-healing",
+                "science-access-in-developing-nation",
+                "gender-norms-challenged-through-dance",
+                "mental-health-through-art",
+                "youth-leadership-in-higher-education",
+                "rural-education-and-access",
+                "public-science-communication",
+                "reimagining-masculinity-through-art",
+                "sports-leadership-and-mentorship"
+            ],
+            "unique_ideas": [
+                "particle-physics-experimentation-by-highschooler",
+                "hip-hop-as-therapeutic-medium",
+                "interdisciplinary-science-and-calligraphy",
+                "geology-documentary-filmmaking",
+                "tech-ngo-for-underprivileged",
+                "first-highschooler-at-national-lhc-course",
+                "Golden-Ratio-in-painting-analysis",
+                "science-art-fusion-in-student-led-club",
+                "cultural-narrative-through-movement",
+                "intersection-of-gender-and-performance"
+            ],
+            "academic_excellence": [
+                "CERN-beamline-gold-medalist",
+                "research-publication-on-beam-composition",
+                "large-hadron-collider-graduate-course",
+                "root-data-visualization-proficiency",
+                "national-physics-competition",
+                "multi-year-honors-in-science-and-math",
+                "research-presenter-in-international-conference",
+                "STEM-scholarship-and-research-internship",
+                "google-digital-media-certificate",
+                "multilingualism-in-research-and-science"
+            ]
+        },
+        "time_commitment": { "total_annual_hours": 3010.5, "average_weekly_hours": 57.9, "activity_count": 10 }
+    },
+    "personal_statement": {
+        "essay_prompt": "Reflect on a time when you questioned or challenged a belief or idea. What prompted your thinking? What was the outcome?",
+        "personal_statement": "In the glare of the spotlight, where judgments drown out the music, my 'payal' (anklet) sings a different tune. Its chimes, echo ancient rhythms, defying every whisper of doubt, declaring my space on the stage regardless of the gendered norms that define this dance, my dance. As I twirl, a question lingers: In the grand dance of life, do identities shape our movements, or do movements shape identities, a grand scheme of constructionism and conformity?\n\nI move my body in uninhibited agility; the thrum of my soles hitting the floor, enraptured by the Saraiki folk tunes. My feet pirouette in a trance, every step resounding with the memory of my father’s violence: ‘Khusra! (Crossdresser), his voice echoed as his belt lashed across my back, ‘Mere betay ko sab Chaka samjhainge?’ (You want people to think my son is transgender?) he bellows as his palms collide with my shoulders, shoving me into the wall.\n\nConformity leaves no space for my expression of self to exist outside the binaries of gender. There is no sanctuary where my gender ceases to exist and the only echo that resounds is that of my payal. Beautiful and complete in its entirety, free from the labels that gender enforces my passion into. How could I not resent these social dictums that preclude me from pursuing my passions on the mere basis of gender?\n\nAs if synchronized with the pulse of my moves, my uncles offer deprecating provocations. ‘Hassaingay sab iss per’ (People will make a mockery of him). It is alleged that my devotion to this craft entails moral depravity, threatening the very foundations of what constitutes masculinity. The constant barrage of pejoratives diminishes my courage to perform at any public avenue. If only this dance were as simple to abandon as society presumes! So with a heavy heart, I left my home in Mianwali and moved to Islamabad.\n\nHowever, once this alien city transforms into a home for me, a familiar mockery begins to rear its head. Despite its infrastructural generosity and claims of progressivist thinking, my optimism stutters when I recognize the same disdain towards men voluntarily pursuing dance existing in Islamabad. And thus, I am once again rendered a pariah over my so-called effeminate conduct, with nowhere left to go, I turn inward, towards my payal, my jhoomar.\n\nIgnoring all the denunciation, I continue to dance, harmonizing my twirls with the agony I have faced. Matching each strike of my father’s with a resounding thump of my adorned feet against the floor. Henceforth, my healing begins, a source from within. My dance now takes form in another light, before a mere passion, now it is a journey. One I craft myself from inception to end, a performance I name ‘Zoh’, after myself; Because now with my soul slowly breaking free, I understand what resilience looks like, my passion is proof of my ambition to persist, to keep dancing no matter the wound.\n\nFollowing the titillating echoes of my payal, I find others like me. Together, we build a sanctuary: “Jhoomar” (Dancers), a dance collective that choreographs beats and rhythms to the assuaging capacities of music therapy. Encapsulating the essence of my personal dance journey, this initiative seeks to amplify the remedial potency of dance. Our collective endeavors are designed not only to craft movements that act as a therapeutic medium, enhancing emotional well-being but also to narrate cultural stories that challenge and transcend toxic stereotypes. Through Jhoomar, I am finally discovering acceptance, coming a long way from being labeled a cultural renegade for my unorthodox preoccupation.\n\nOrthodoxies, at the end of the day, are social constructs: what may be to you, may not be to me. There is no must! No matter which form I metamorph into next, one truth stands: if the world silences the music, I would still dance to the cadence of my soul and the chime of my payal.",
+        "essay_analysis": {
+            "themes": [
+                "gender nonconformity and expression",
+                "resilience through art",
+                "cultural resistance",
+                "healing through dance",
+                "challenging toxic masculinity",
+                "rejection of gender binaries",
+                "social constructs and identity",
+                "creative leadership"
+            ],
+            "challenges_overcome": [
+                "physical and emotional abuse from family",
+                "homophobia and gendered policing",
+                "cultural shame surrounding male dancers",
+                "urban-rural continuity of gender stereotypes",
+                "ostracization from both community and family",
+                "lack of safe space for self-expression",
+                "internal conflict over identity",
+                "social alienation"
+            ],
+            "unique_cultural_and_other_elements": [
+                "use of Saraiki folk music and jhoomar as cultural anchors",
+                "code-switching between English and Urdu for emotional weight",
+                "founding of the 'Jhoomar' dance collective",
+                "references to Pakistani masculinity norms (e.g., 'Khusra', 'Chaka')",
+                "symbolism of 'payal' as voice, soul, and rebellion",
+                "metaphor of dance as both protest and therapy",
+                "male participation in dance as taboo in Pakistani society"
+            ],
+            "growth_narrative": "This essay traces the arc of a student who reclaims a culturally stigmatized identity through performance, transforming personal trauma into collective healing. From battered to brave, silenced to choreographer, the writer illustrates growth not just as survival but as defiance. In the vein of *Who Gets In and Why* and *The Gatekeepers*, this story captures the kind of unapologetic authenticity, leadership, and emotional intelligence that Ivy League schools seek.",
+            "why_this_worked": "The essay succeeds through its vivid, lyrical language and radical vulnerability. It transforms pain into poetics and defiance into design—founding a sanctuary (Jhoomar) that transcends victimhood into movement-building. It evokes *College Essay Essentials* in how it uses metaphor ('payal') to unify its structure, and *Inside the Yale Admissions Office* would laud its specificity, voice, and intellectual reckoning with social constructionism. The writer is not just describing a passion, but reframing identity on their own terms—exactly the kind of intellectual courage that elite schools reward."
+        }
+    },
+    "education_progression": {
+        "education_progression_type": "gap year",
+        "explanation": "In 2022, my mother was diagnosed with Ulcerative Colitis. I needed to help at home, as I was the eldest son. Also, the medical expenses of healthcare process had become a burden, so I took a year off from high school to help at home with household chores and the healthcare of my mother. I simultaneously worked as a part-time tutor of O and A level science subjects to cope with the financial burdens. Though it was a year off high school, I indulged in other academic and co-curricular activities like the ‘Jhoomar’ initiative, research in particle physics, and independently studied for A-level subjects including Physics, Chemistry, Biology, and Mathematics, scoring perfect grades in the upcoming year. I believe the gap year was a great choice as it helped me connect with my family after 3 years of boarding school and helped me explore other interests.",
+        "school_change": true,
+        "school_change_reasoning": "I left Cadet College Hasanabdal after graduating to pursue further subjects of A levels. In August 2023, I joined Supernova School Islamabad to pursue further Cambridge A-level courses including, Computer Sciences, Psychology, Art and Design, and German to be taken over the year. Furthermore, as I had graduated from a boarding school with limited accessibilities, now I wanted to address my non-academic interests including a startup NGO, Field Hockey, and Calligraphy. I further utilized my year by participating and eventually winning a scientific research competition by CERN and earning myself a trip to Switzerland for the summer."
+    },
+    "university_specific_questions": {
+        "college_name": "Harvard University",
+        "entry_term": "Fall 2024",
+        "decision_plan": "Regular Decision",
+        "financial_aid": true,
+        "ACT/SAT_scores": true,
+        "top_academic_majors_interest": [ "1. Physics", "2. Astrophysics", "3. Theater, Dance, and Media" ]
+    },
+    "university_supplemental_questions": {
+        "short_essay_1": {
+            "prompt": "Life experiences / contribute to Harvard",
+            "response": "Holding Amma’s hand, I caressed its creases–etched by time and experience; a roadmap of stories–recalling her struggles. One pictures her gripping tightly onto the rusty bars of the cabin that drove to the nearest town, where she would teach. Another speaks tales of her patience; days, months, years of extra hours, and endless sacrifices to provide for her children’s education. One’s perspectives on adversities tell a lot about their perspective on anything: Her will to dream, her strength to endure, her passion to bring change.\n\nI may not have my mother’s circumstances but I have her perspectives.\n\nThe reassuring touch of her creases highlights the way for me to navigate every challenge in life: from leading the first-ever Pakistani team at CERN–battling limiting resources, and opportunities–to each field hockey tournament in Punjab, In the light of my perspectives shaped by Mother’s stories, I have persevered.\n\nAt Harvard, through simple conversations crossing Harvard Square; complex experiments at the LPPC; taking classes, writing essays; or dancing with Harvard AADT proudly representing my culture, I wish to share not only my identity but my stories—my perspectives.\n\nHolding Amma’s hands beside mine I realise they mirror creases.\n“We share destinies, Mother!” I say.",
+            "essay_analysis": {
+                "themes": [
+                    "intergenerational resilience",
+                    "cultural storytelling",
+                    "perspective as inheritance",
+                    "overcoming adversity through familial strength",
+                    "multidimensional contribution (STEM, sport, dance)",
+                    "motherhood as mentorship",
+                    "cultural representation"
+                ],
+                "challenges_overcome": [
+                    "limited access to academic opportunities",
+                    "navigating international competitions with scarce resources",
+                    "cultural stigma around nontraditional interests like male dance",
+                    "family expectations",
+                    "balancing elite science engagement with regional identity"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "use of mother’s hands as metaphor for generational struggle",
+                    "Pakistani cultural narrative of perseverance",
+                    "juxtaposition of rural roots with global stage (CERN)",
+                    "integration of art (dance) and science (physics)",
+                    "regional representation through field hockey and storytelling",
+                    "subtle gender role reversal in how strength is depicted"
+                ],
+                "growth_narrative": "The writer transitions from simply observing the world through his mother’s sacrifices to embodying her spirit in his pursuits. The essay traces how her quiet strength becomes the foundation of his leadership at CERN, his field hockey perseverance, and his cultural expression through dance. At Harvard, he proposes to continue this legacy by contributing holistically—intellectually, artistically, and empathetically.",
+                "why_this_worked": "This essay delivers what *The Gatekeepers* and *College Essay Essentials* say elite schools love: emotional depth rooted in cultural authenticity, coupled with tangible accomplishments. By presenting personal history as a perspective rather than a burden, the writer shows emotional maturity and vision. The image of ‘creases’ becomes a beautiful literary anchor tying heritage to aspiration. The essay’s unique interplay between maternal influence, high-achieving physics research, and community dance therapy embodies the ‘whole person’ Harvard looks for. It shows not only promise, but the capacity to shape and enrich Harvard’s campus community—academically, artistically, and ethically."
+            }
+        },
+        "short_essay_2": {
+            "prompt": "Briefly describe an intellectual experience that was important to you.",
+            "response": "The tires are stuck. The fuel is running out, The plane HAS TO land. I rush to be the savior…grip the landing gear…AND…. \n\nBuzz! The power’s out! \n\nNo, it was not me saving the 435 lives, It was Krish (the movie)—in the TV; only until the power went out–as usual. \n\nSo while he played with his superpowers, I decided to use mine–my brain–and rectify the situation.\n\nI find myself and Uncle Jabbar grappling with equations, DC to AC conversions, wire maps on the whiteboard, a car battery, a solar panel, and a bit of passion–all connected to a UPS.\n\nViola, the tv is back on.  \n\n“Zindagi mein akar bakar karte raho, kuch na kuch ho jata hai!”\n\nUncle Jabbar’s words of nerdy wisdom are etched around the greater narrative of life: in Haywire circumstances, adaptability, the most valuable instinct man possesses, is not always acceptance but creativity.\n\nIn our adventure, chaotically intertwining essentials from the garage and the rooftop to the TV lounge, we had not created the Quantum computer–nor did we save the plane–but we had created something new. The chaos of the human mind is the essence of innovation!\n\nP.S. The plane grew wings—it’s Bollywood!",
+            "essay_analysis": {
+                "themes": [
+                    "creativity through adversity",
+                    "applied problem-solving",
+                    "intellectual playfulness",
+                    "engineering mindset",
+                    "intergenerational mentorship",
+                    "resourcefulness in scarcity",
+                    "joyful learning"
+                ],
+                "challenges_overcome": [
+                    "power outages disrupting learning and entertainment",
+                    "lack of stable infrastructure in rural Pakistan",
+                    "navigating technical improvisation without formal training",
+                    "youthful frustration turned into problem-solving"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "power cuts as a normalized childhood experience in Pakistan",
+                    "DIY engineering using household objects",
+                    "Bollywood references as cultural and intellectual triggers",
+                    "vernacular wisdom ('akar bakar') paired with circuitry",
+                    "learning through failure and humor"
+                ],
+                "growth_narrative": "This moment captures a joyful shift in the student’s mindset—from being a passive viewer of superheroes to realizing his own capacity to solve real-world problems. The experience crystallizes his belief that adaptability is not merely survival but innovation. What begins in frustration ends in triumphant creation, framed by familial warmth and imaginative thinking.",
+                "why_this_worked": "The essay succeeds by echoing the principles in *The Writing Life* and *The Truth About College Admissions*—intellectual moments don’t need to be grandiose to be powerful. Here, a light-hearted situation becomes a deeply revealing portrait of the student’s curiosity, engineering instincts, and creativity under constraint. It also subtly conveys humility and humor—qualities elite colleges like Harvard treasure. His mind sparks with the improvisational energy Ethan Sawyer celebrates, and the story shows us a learner who is joyful, adaptive, and deeply engaged with the world around him—even when the lights go out."
+            }
+        },
+        "short_essay_3": {
+            "prompt": "Extracurricular, employment, travel, or family experiences",
+            "response": "I am a rock hound. I have many valuable possessions, emeralds, scapolites, and spinels. but on the top of my rack is a precious memory: A painted butterfly on a broken Ghara (Earthen Pot).\n\n“Shukriya Bhae, but I already ate. Can you buy me a color-box instead?”\n\nAli denies the pack of cookies. amidst weeks of food campaigns with my team, he had never refused. Standing at the entrance of the Ghara shop, where he would work, I questioned the real reason behind this playful wish, \"Was there something to hide?\"\n\nYes, there was.\n\nAli did not go to school—He could not. Instead, he worked at the Ghara shop owned by his Uncle Muneeb. He rushed inside to bring a color book, his most prized possession, one he had bought saving from his minimum wage; along with it, a piece of a broken ghara and a pencil made out of sharpened coal. He drew a butterfly.\n\nRealizing the need for a different approach, we not only distributed food packs the next day; we also distributed books–and a color-box. After a year of fundraising, we inaugurated a small school; a canvas for Ali and many others to paint their dreams on.",
+            "essay_analysis": {
+                "themes": [
+                    "grassroots social entrepreneurship",
+                    "transformational community service",
+                    "youth agency",
+                    "dignity in poverty",
+                    "education as liberation",
+                    "empathy-driven leadership",
+                    "symbolism of the butterfly as freedom"
+                ],
+                "challenges_overcome": [
+                    "lack of access to education in rural communities",
+                    "preconceived notions of charity as sufficient aid",
+                    "balancing direct relief with sustainable change",
+                    "mobilizing resources with limited infrastructure"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "reference to 'ghara' (local earthen pot) as cultural anchor",
+                    "dialogue in Urdu for emotional authenticity",
+                    "symbolism in child’s artwork (butterfly)",
+                    "recasting aid from charity to empowerment",
+                    "education reform at the micro level",
+                    "the role of storytelling in local change"
+                ],
+                "growth_narrative": "The student evolves from a well-meaning volunteer to a socially conscious changemaker. What begins as simple food distribution transforms into a deeper realization about access, dignity, and dreams. By interpreting Ali’s butterfly not as decoration but as an aspiration, the applicant unlocks the emotional intelligence and initiative to create sustainable educational access. It is a testament to how small experiences can spark structural impact.",
+                "why_this_worked": "This essay powerfully embodies what *The Years That Matter Most* and *The Gatekeepers* emphasize: elite colleges seek individuals who don’t just care but act. The writer’s shift from charity to systemic change reflects leadership, reflection, and empathy—key qualities highlighted in *College Admissions Cracked* and *Who Gets In and Why*. The image of the butterfly drawn on a broken earthen pot is poetic and symbolic, adding narrative depth. Like the best essays in *50 Successful Ivy League Essays*, this is specific, visual, and purpose-driven, and it offers Harvard a candidate who transforms observation into opportunity, and kindness into legacy."
+            }
+        },
+        "short_essay_4": {
+            "prompt": "Your plans for your college education",
+            "response": "“How do we measure what we cannot see?”\n\nThis enigma always made me feel like a detective; from revealing the tiniest of discoveries like the neutron mass to the cosmic-scaled quests of the Universe, Physics has been my mystery. \n\nI practiced my detective skills while experimenting at CERN–collaborating with the American team, Myriad Magnets, and scientists from around the world. We used detectors to measure beam composition at different beam momenta; intrigued by the undiscovered horizons of possibilities in high-energy Physics, the detective found his calling as a particle physicist.\n\nAt Harvard, studying courses including PHYSICS-389: The Standard Model and Beyond, and 145: Elementary Particles, I hope to establish a vivid theoretical understanding of Particle Physics. Working under renowned professors Melissa Franklin, and John Huth–in light of their experience of the ATLAS and the CMS experiment–and with opportunities like the LPPC, I hope to gain an experimental skill set that I will operationalize by contributing to future upcoming experiments including the CDF II.\n\nArming myself with the experiences, knowledge, and values I gain at Harvard, I see myself not just as a physicist, but as a passionate educationist striving for the provision of scientific education in my home country Pakistan.",
+            "essay_analysis": {
+                "themes": [
+                    "curiosity-driven learning",
+                    "interdisciplinary education",
+                    "scientific inquiry as exploration",
+                    "bridging theory and experiment",
+                    "global collaboration in STEM",
+                    "educational equity",
+                    "returning knowledge home"
+                ],
+                "challenges_overcome": [
+                    "limited access to high-energy physics research as a high school student",
+                    "navigating international collaboration from a developing country",
+                    "balancing passion for research with a commitment to educational reform"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "aspiration to reform science education in Pakistan",
+                    "experience at CERN as national representation",
+                    "identification with the metaphor of a detective",
+                    "use of specific Harvard courses and faculty to ground goals",
+                    "view of education as a multiplier for impact"
+                ],
+                "growth_narrative": "The essay begins with childhood curiosity and evolves into a sophisticated academic plan rooted in both theory and application. From solving mysteries in his imagination to conducting research at CERN, the student builds a clear through-line between personal passion, rigorous scientific engagement, and civic responsibility. His growth is not just intellectual but moral—towards leveraging elite resources for community empowerment.",
+                "why_this_worked": "As *Who Gets In and Why* and *The Price You Pay for College* emphasize, elite schools like Harvard want students who will use their education for broader societal good. This applicant not only showcases academic passion with specific coursework and faculty mentions—a tactic endorsed in *College Admission Essentials*—but also elevates his goals with a return-home mission. He demonstrates vision, preparation, and humility. What sets this essay apart is its blend of aspiration and grounding: a CERN participant who still sees education as the ultimate experiment—and intends to scale it in Pakistan."
+            }
+        },
+        "short_essay_5": {
+            "prompt": "Roommate introduction",
+            "response": "Hey roomie!\n\nEver eaten a Jalebi? \n\nWell, here I am!\n\nAnd here’s my story:\n\n“Kaha tha over dribble na karna–JALEBI.” \nAfter being ridiculed by my coach and the whole team for a lost field hockey match–a result of me making Jalebis (Pretzel shapes) with the ball and eventually losing its control to the opponent for the nth time–I earned the everlasting, ever-known title of Jalebi. \n\nUpon perpetual allocation of this historic cuisine to my personality, whether at social dinners or hockey tournaments, I realized that I almost embody this celebrated Pakistani sweet dish. \n\n(At this point, I urge you to google it and visually appreciate it).\n\nThe sugary syrup captured in its crusty layers encapsulates warmth and sweetness, qualities I strive to embody. The intricate twists and curls signal joy and surprise (Disclaimer: this is a warning for my spontaneous Bhangra dance episodes). Jalebi’s soft texture radiates love and compassion as it melts; this scrumptious delight, with its vibrant golden shades and tenderness, is one of a kind–and so am I. Indeed, Jalebi is a well-suited nickname.\n\nFor all the awesome adventures awaiting us at Harvard, I can’t wait to celebrate your stories and share more of mine.",
+            "essay_analysis": {
+                "themes": [
+                    "humor and self-awareness",
+                    "cultural pride",
+                    "joyful self-expression",
+                    "friendliness and emotional openness",
+                    "metaphorical identity",
+                    "vulnerability as connection"
+                ],
+                "personality_revealed": [
+                    "warmth and kindness",
+                    "comfort with being the punchline",
+                    "creative communicator",
+                    "cultural ambassador through food and dance",
+                    "energetic, spontaneous, and social"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "nickname derived from local dessert and sports mistake",
+                    "references to Pakistani cuisine and Bhangra",
+                    "reframing embarrassment into identity",
+                    "inviting tone rooted in shared celebration"
+                ],
+                "growth_narrative": "What starts as a story of ridicule becomes one of reclamation. The student learns to embrace a nickname that once symbolized failure and reimagines it as a metaphor for his personality. The shift from self-consciousness to self-confidence illustrates his ability to find joy, beauty, and pride in imperfection.",
+                "why_this_worked": "This essay reflects the advice from *College Essay Essentials* and *The Truth About College Admissions*: successful roommate essays should be authentic, relatable, and emotionally warm. It paints a vivid picture, has humor, and conveys cultural authenticity. The metaphor of Jalebi, rich in flavor and form, mirrors the student’s emotional and social complexity. He doesn’t just describe his personality—he serves it up with sweetness and flair. It’s an irresistible introduction, just like a well-fried Jalebi."
+            }
+        }
+    },
+    "application_narrative": {
+        "connected_themes": [
+            "intersection of art, science, and identity",
+            "redefining masculinity and gender through performance",
+            "transformative leadership in STEM and activism",
+            "rural to global trajectory",
+            "social healing through community building",
+            "education as empowerment",
+            "resilience through adversity and self-expression"
+        ],
+        "academic_to_extracurricular_connection": [
+            {
+                "subject": "Computer Science",
+                "connection": "Used to analyze data via ROOT in physics research at CERN and digital media skills acquired via Google/Science Fuse, reflecting computational literacy across STEM and art-activism platforms like Jhoomar."
+            },
+            {
+                "subject": "Chemistry",
+                "connection": "Complemented particle physics research by understanding atomic structure and experimental methodology at NCP."
+            },
+            {
+                "subject": "Mathematics",
+                "connection": "Enabled quantitative analysis in physics experiments at CERN and LHC courses; applied to regression and modeling in scientific research."
+            },
+            {
+                "subject": "Biology",
+                "connection": "Reinforced scientific excellence and competition success (e.g., Cambridge high achiever award); foundational for interdisciplinary research on beam compositions and broader understanding of scientific mechanisms."
+            },
+            {
+                "subject": "Physics",
+                "connection": "Physics isn’t just a subject here—it is the backbone of Zohaib’s international credibility (CERN Gold Medalist, LHC graduate course) and core to his identity as a future educator and researcher. The connection between his physics coursework, competitive research, and eventual aspiration to bring scientific education back to Pakistan shows the rare integration *The Gatekeepers* emphasizes as a key differentiator."
+            },
+            {
+                "subject": "Art and Design",
+                "connection": "Art was not simply a creative outlet—it was intertwined with Zohaib’s leadership in calligraphy, his passion for movement and aesthetic form (as seen in 'Jhoomar'), and his interdisciplinary approach. His Golden Ratio experiments and rock-documentary work show a rare science-art fusion reminiscent of the ‘Applying Sideways’ model at MIT."
+            },
+            {
+                "subject": "Psychology",
+                "connection": "His dance therapy collective, Jhoomar, finds intellectual grounding in psychological well-being and healing through art. This reinforces how curricular inquiry (A-level Psychology) became a mechanism for co-curricular innovation and social impact—what *College Admission Essentials* identifies as 'intellectual vitality with impact.'"
+            },
+            {
+                "subject": "German",
+                "connection": "His multilingualism and studies in German expanded his global engagement, supported his international research collaboration at CERN, and embodied the 'multicultural fluency' Ivy Leagues appreciate in global citizens, particularly first-generation scholars from the Global South."
+            }
+        ],
+        "success_factors": [
+            "Exceptionally interdisciplinary profile with deep impact in both STEM and the arts—a rare hybrid applicant who excels at the highest levels of science while also pushing boundaries in gender and cultural discourse through dance and visual storytelling.",
+            "Narrative of social courage and defiance: from challenging patriarchal norms in rural Pakistan to founding a male-led dance therapy collective—his personal essay exemplifies the kind of radical authenticity emphasized in *Who Gets In and Why* and *The Gatekeepers*.",
+            "Demonstrated capacity for global excellence (CERN research, national awards, multilingualism) and local transformation (NGO founder, education reformer, mental health advocate), making him a bridge-builder between periphery and center—a prized quality in elite admissions.",
+            "Unmistakable emotional intelligence and resilience: from physical abuse at home to academic gold medals, Zohaib’s trajectory is not just about excellence but about healing and leadership. As *The Truth About College Admissions* argues, this emotional narrative arc is often the deciding factor among high-achieving applicants.",
+            "Purpose-driven use of a gap year: turned personal and familial adversity (mother’s illness, financial stress) into a period of growth, responsibility, and intellectual expansion—aligning with *The Years That Matter Most*’s criteria for real-world maturity.",
+            "Narrative voice that is both poetic and precise; storytelling deeply personal yet intellectual—aligned with *College Essay Essentials* and *The Writing Life*",
+            "Cultural specificity paired with universal relevance: From Saraiki folk tunes to international conferences, Zohaib roots his impact in place while reaching for global solutions. This anchoring is frequently cited in *College Admissions Cracked* as essential to authenticity and memorability.",
+            "Explicit connection to Harvard’s offerings (e.g., LPPC, specific professors, courses)—reflects research, fit, and vision"
+        ],
+        "overall_analysis": "Muhammad Zohaib Abbas presents a rare, high-impact profile—equal parts physicist, cultural reformer, and therapeutic artist. His application is a narrative of transformation and synthesis: a rural Pakistani male defying gender norms through dance, breaking national barriers in particle physics, and redefining service through a fusion of STEM, art, and healing. What elevates this application beyond the usual is the integration of his academic brilliance with his social imagination—an educationist in the making who doesn’t just want to study at Harvard but build the conditions that bring Harvard-like opportunities home. The vulnerability in his personal statement, the specificity in his academic plans, the social relevance of his extracurriculars, and his documented leadership all make him a textbook example of what *Inside the Yale Admissions Office* would call a student who would 'redefine the community around them.'"
+    }
+}

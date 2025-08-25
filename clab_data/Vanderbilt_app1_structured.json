@@ -1,0 +1,465 @@
+{
+    "student_profile": {
+        "name": "Muhammad Yahya",
+        "sex": "Male",
+        "gender": "Male",
+        "birth_country": "Pakistan",
+        "cultural_background": [
+            "South Asian",
+            "Punjabi",
+            "Saraiki-speaking minority",
+            "rural background (District Khanewal, Punjab)",
+            "first-generation formally educated",
+            "parents from lower middle-class professions (farmer, local graduate)",
+            "exposure to madrassa education and religious conservatism",
+            "raised in a multilingual household",
+            "deep connection to regional identity and linguistic preservation"
+        ],
+        "languages": [
+            { "Urdu": [ "First Language", "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Saraiki": [ "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "Arabic": [ "Speak", "Read" ]},
+            { "Punjabi": [ "Speak", "Read", "Write", "Spoken at Home" ]},
+            { "English": [ "Speak", "Read", "Write", "Spoken at Home" ]}
+        ],
+        "socioeconomic_indicators": [
+            "Fee Waiver Requested",
+            "father is self-employed farmer",
+            "mother attended college but limited employment visibility",
+            "rural region with likely low educational infrastructure",
+            "student relied on scholarships for A-level education"
+        ],
+        "geographic_context": {
+            "birth_place": "Faisalabad, Pakistan",
+            "citizenship_status": "Citizen of non-U.S. country",
+            "citizenship": "Pakistan",
+            "current_address": "Block number 6 Near Bhatti Clinic District Khanewal, Jahanian, PUNJAB, 58200, PAK"        }
+    },
+    "academic_profile": {
+        "schools": [
+            {
+                "name": "Lahore Grammar School Multan Branch - Boys Campus, 26/B Officers Colony, Multan, Punjab, PAK",
+                "type": "Independent",
+                "grades_attended": "9, 10, 11, 12",
+                "gpa_scale": null,
+                "gpa": null,
+                "gpa_weighting": null,
+                "rank": "na / 200",
+                "rank_weighting": null,
+                "recent_courses_taken": [
+                    {
+                        "subject": "Chemistry - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Physics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Mathematics - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Sociology - (Cambridge AICE AS A-Level)",
+                        "type": "GCE-Advanced Level Examinations (GCE-A Levels)",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    }
+                ]
+            }
+        ],
+        "graduation_date": "08/2025",
+        "gap_year": false,
+        "Honors": [
+            {
+                "Title": "Valedictorian O-levels",
+                "type": "School",
+                "grade": [ 10 ],
+                "keywords": [ "Academic Excellence", "Valedictorian", "Top of Class" ]
+            },
+            {
+                "Title": "100% Academic Merit Scholarship - A-levels",
+                "type": "School",
+                "grade": [ 11, 12 ],
+                "keywords": [ "Merit-Based Aid", "Scholarship", "Academic Recognition" ]
+            },
+            {
+                "Title": "Certificate of Recognition from District Representative (MNA) for Outstanding Service to Community",
+                "type": "State/Regional",
+                "grade": [ 12 ],
+                "keywords": [ "Community Service", "Civic Recognition", "Leadership" ]
+            },
+            {
+                "Title": "Best Saraiki Speech - South Punjab Language Symposium 2024",
+                "type": "State/Regional",
+                "grade": [ 11 ],
+                "keywords": [ "Language Arts", "Public Speaking", "Regional Award", "Cultural Advocacy" ]
+            },
+            {
+                "Title": "Member Winning Team - Pakistan Korfball Championship 2023",
+                "type": "National",
+                "grade": [ 11 ],
+                "keywords": [ "National Athletics", "Team Sport", "Leadership", "Co-ed Sports" ]
+            }
+        ],
+        "future_plans": [ "Policymaker/Government", "Masters" ],
+        "standardized_tests": []
+    },
+    "activity_profile": {
+        "activities": [
+            {
+                "category": "Student Govt./Politics",
+                "grades": "11, 12",
+                "timing": "School",
+                "hours": "12 hr/wk, 36 wk/yr",
+                "position": "Deputy Head Boy",
+                "organization": "Lahore Grammar School",
+                "description": "Led 468+ students;Developed Advocacy Program for student input;Advocated for inclusion of Saraiki in curricula;“Education Equity Week” to raise funds",
+                "keywords": [
+                    "student-leadership",
+                    "curriculum-advocacy",
+                    "linguistic-inclusion",
+                    "school-governance",
+                    "education-equity",
+                    "regional-representation",
+                    "Saraiki-language-rights"
+                ]
+            },
+            {
+                "category": "Academic",
+                "grades": "10, 11, 12",
+                "timing": "School, Break",
+                "hours": "10 hr/wk, 36 wk/yr",
+                "position": "President, Peer Teaching Society",
+                "organization": "Lahore Grammar School",
+                "description": "Started peer tutoring society,150+ hours per term;aided 364+ juniors;led mentor training;hosted forum with policymakers on balanced education access",
+                "keywords": [
+                    "peer-tutoring",
+                    "education-access",
+                    "student-led-initiative",
+                    "leadership-in-learning",
+                    "mentorship-training",
+                    "policy-engagement"
+                ]
+            },
+            {
+                "category": "Athletics: Club",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "10 hr/wk, 48 wk/yr",
+                "position": "Coach & National Player, Mixed Pakistan KorfBall Association",
+                "organization": "Pakistan KorfBall Association",
+                "description": "Played & coached mixed-gender Korfball;Captain Punjab National Korfball team;promoted Korfball in remote regions; won 11+ national tournaments",
+                "keywords": [
+                    "national-athlete",
+                    "sports-coaching",
+                    "gender-inclusion",
+                    "team-leadership",
+                    "sports-promotion",
+                    "rural-engagement"
+                ]
+            },
+            {
+                "category": "Research",
+                "grades": "11",
+                "timing": "School",
+                "hours": "8 hr/wk, 5 wk/yr",
+                "position": "Author",
+                "organization": "Self-directed Research",
+                "description": "Analyzed education policies across Punjab, KPK, & Gilgit-Baltistan;evaluating gaps in teacher training,inclusivity & rural access;recommended reforms",
+                "keywords": [
+                    "independent-research",
+                    "education-policy",
+                    "rural-education",
+                    "regional-analysis",
+                    "policy-recommendation",
+                    "teacher-training"
+                ]
+            },
+            {
+                "category": "Cultural",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "6 hr/wk, 26 wk/yr",
+                "position": "Host & RJ",
+                "organization": "Suno FM 89.4 Multan",
+                "description": "Engaged 3,000+ listeners on “Kamal Saraiki” with 50+ episodes;promoting Saraiki language;hosted 15+ cultural figures to promote language preservation",
+                "keywords": [
+                    "regional-broadcasting",
+                    "radio-host",
+                    "Saraiki-promotion",
+                    "cultural-preservation",
+                    "mass-media-impact",
+                    "linguistic-advocacy"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "8 hr/wk, 50 wk/yr",
+                "position": "Founder and Director",
+                "organization": "Qafla (Caravan)",
+                "description": "Founded NGO providing tech literacy to 200+ rural students of Multan;developed curriculum and trained 10+ volunteer instructors in remote areas",
+                "keywords": [
+                    "ngo-founder",
+                    "tech-literacy",
+                    "rural-education",
+                    "volunteer-training",
+                    "youth-empowerment",
+                    "curriculum-development"
+                ]
+            },
+            {
+                "category": "Cultural",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "6 hr/wk, 26 wk/yr",
+                "position": "Cultural Archivist and Book Collector",
+                "organization": "Hobby",
+                "description": "Collected 37+ rare pre-colonial Urdu, Punjabi, and Hindi texts;hosted community exhibitions highlighting regional linguistic heritage & cultural pride",
+                "keywords": [
+                    "cultural-archiving",
+                    "rare-book-collection",
+                    "linguistic-heritage",
+                    "community-engagement",
+                    "cultural-pride",
+                    "historical-preservation"
+                ]
+            },
+            {
+                "category": "Theater/Drama",
+                "grades": "9, 10, 11, 12",
+                "timing": "School",
+                "hours": "9 hr/wk, 20 wk/yr",
+                "position": "Performer",
+                "organization": "School Dramatics Club",
+                "description": "Held 15+ puppet shows in Saraiki & Sindhi depicting religious stories from various scriptures;engaging 200+ students; held puppet making workshops",
+                "keywords": [
+                    "multilingual-performance",
+                    "religious-literacy",
+                    "youth-theater",
+                    "puppetry-arts",
+                    "cross-cultural-dialogue",
+                    "arts-in-education"
+                ]
+            },
+            {
+                "category": "Internship",
+                "grades": "11",
+                "timing": "Break",
+                "hours": "40 hr/wk, 10 wk/yr",
+                "position": "Summer Intern",
+                "organization": "School Education Department (SEC) Punjab",
+                "description": "Analyzed data for 200+ schools;Contributed in drafting bill for $1M funding boost and digital resources to support underserved rural students",
+                "keywords": [
+                    "education-policy",
+                    "government-internship",
+                    "rural-access",
+                    "budget-analysis",
+                    "data-driven-policy",
+                    "funding-advocacy"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "10, 11, 12",
+                "timing": "Year",
+                "hours": "8 hr/wk, 52 wk/yr",
+                "position": "Founder and Project Lead",
+                "organization": "Ishq e Rohaniat",
+                "description": "Cataloged 20+ Sufi shrines’ historical and architectural details;raised $5,000 for restoration & preservation;started digital archive for awareness",
+                "keywords": [
+                    "heritage-preservation",
+                    "Sufi-architecture",
+                    "religious-history",
+                    "digital-archiving",
+                    "fundraising",
+                    "spiritual-education"
+                ]
+            }
+        ],
+        "activity_profile_meta_tags": {
+            "leadership_roles": [
+                "deputy-head-boy",
+                "ngo-founder",
+                "peer-tutoring-president",
+                "korfball-team-captain",
+                "project-lead",
+                "radio-host",
+                "research-author",
+                "intern-policy-contributor"
+            ],
+            "community_impact": [
+                "rural-tech-education",
+                "education-access-advocacy",
+                "curriculum-inclusion",
+                "Sufi-shrine-restoration",
+                "cultural-literacy",
+                "youth-broadcasting",
+                "rural-school-data-analysis",
+                "gender-inclusion-in-sports"
+            ],
+            "unique_ideas": [
+                "Saraiki-radio-program",
+                "puppetry-religious-literacy",
+                "Sufi-site-digital-archive",
+                "language-based-curriculum-reform",
+                "pre-colonial-book-collecting",
+                "peer-policy-forum",
+                "Korfball-as-gender-inclusion-sport"
+            ],
+            "academic_excellence": [
+                "independent-policy-research",
+                "education-department-internship",
+                "curriculum-development",
+                "academic-peer-leadership",
+                "research-in-marginalized-regions",
+                "education-data-analysis"
+            ]
+        },
+        "time_commitment": { "total_annual_hours": 2660, "average_weekly_hours": 51.2, "activity_count": 10 }
+    },
+    "personal_statement": {
+        "essay_prompt": "Share an essay on any topic of your choice. It can be one you've already written, one that responds to a different prompt, or one of your own design.",
+        "personal_statement": "My Lord proclaims: \"Do not mix the truth with falsehood,or conceal the truth while you know it.\"- Qur'an Surah Al-Baqarah 2:42 And yet,my maulana's (Islamic teacher)-my teacher's-hands,that should have risen to preach and educate,reached out to me in a vice-like group of violation - perversion coloring his mask of piety. I found myself trapped - in the darkness that lurked within the walls of my madrassas (Islamic school). I came here to understand love for God, - My Creator, my Solace - and yet, here the message of Islam was twisted into malice. I was a child of age 11, and so I remained in the dark that the holiest of men could harbor the most sacrilegious of thoughts - corrupting all in their path. My maulana’s words were laden with false righteousness. I read of accountability, he spoke of extremism,I read of acceptance and he spoke of war. Throughout - the onslaught on my body continued but what could I do? I was Punjabi, my family valued men who embodied strength. To admit I was a victim - to admit I had been prey to the one I was supposed to learn from - would be to betray my masculinity. And thus, I kept silent, my religion and education becoming a prison. Debilitated and desecrated I felt like the madrassa I went to -my body akin to the place of religion that had become a perpetrator of sin. In the anonymity of the screen,I tried - to reach out - to understand: why me? Why my faith? Why my teacher? To my horror, or to my solace - I do not know - hundreds answered - and from behind the screen we learned; Hindu, Baha’i, Christian - each bore the weight of a religion distorted by those who claimed to protect it. From them, I learned that this was not just an Islamic tragedy;it was a human one. My temple was desecrated. My pastor speaks of hellfire instead of love. My priest has turned my sanctuary into a chamber of sin My maulana has violated my creed with the Creator The corruption was universal - and it became clear to me that this, this abhorrence - it was about power, about fear and ignorance - as weapons to subjugate us: the vulnerable. And so,the seeds of revolution planted in my heart took root in the northern reaches of Pakistan. Here, the Baltis and Hazaras, people of deep faith, are bound by chains of neglect. Their madrassas are breeding grounds for extremism,they distort the faith that should uplift them. Yet, in the eyes of the children who sat before me, I saw a flicker of light waiting to be kindled. They did not need indoctrination; they needed education - true education. And so, I began to gather students - those whose faith was not blind but questioning. Together, we built a new kind of classroom, one where Science, Math, and English walked hand in hand with Religion. The scholars I brought to teach were not like the maulanas I had known;they were men and women of integrity, who saw religion as a path to knowledge, not a tool for domination.We spoke of morality, of justice, of compassion and slowly, the numbers grew.Six turned to twenty and twenty turned to seventy, and with them, my students, came a ripple of change.They were learning to think, to question, to understand.They were learning that faith could be a force for good, not for harm. But the road is long.The madrassas still stand, their influence still strong.Yet, we are not afraid.We know now that the truth, once uncovered, cannot be hidden again.The students I teach will carry this revolution forward, not with violence or hatred, but with knowledge and compassion. And perhaps, one day, they will turn to those same madrassas and bring with them the light that was denied to us.",
+        "essay_analysis": {
+            "themes": [
+                "truth vs. corruption",
+                "religious abuse and reclamation",
+                "education as liberation",
+                "faith and reform",
+                "childhood trauma transformed into activism"
+            ],
+            "challenges_overcome": [
+                "child sexual abuse by religious authority",
+                "toxic masculinity and cultural silence",
+                "religious trauma",
+                "fear of social stigma",
+                "institutional mistrust"
+            ],
+            "unique_cultural_and_other_elements": [
+                "Pakistani madrassa context",
+                "Saraiki and Punjabi ethnic identity",
+                "interfaith solidarity through trauma",
+                "grassroots education in northern Pakistan",
+                "Islamic reform from within community"
+            ],
+            "growth_narrative": [
+                "transformation from victim to educator",
+                "emotional healing through interfaith connection",
+                "turning personal trauma into systemic reform",
+                "leadership in constructing inclusive educational spaces",
+                "resilience and moral courage in face of betrayal"
+            ],
+            "why_this_worked": [
+                "authentic, raw vulnerability—hallmark of elite admissions essays",
+                "deep intellectual and moral engagement with faith, identity, and justice",
+                "concrete action and impact—building alternative education models",
+                "narrative arc of personal growth and leadership",
+                "compelling writing voice with moral conviction and emotional gravity"
+            ]
+        }
+    },
+    "education_progression": {
+        "education_progression_type": "NA",
+        "explanation": "",
+        "school_change": false,
+        "school_change_reasoning": ""
+    },
+    "university_specific_questions": {
+        "college_name": "Vanderbilt University",
+        "entry_term": "Fall 2025",
+        "decision_plan": "Early Decision",
+        "financial_aid": true,
+        "ACT/SAT_scores": false,
+        "top_academic_majors_interest": [ "1. Public Policy Studies" ]
+    },
+    "university_supplemental_questions": {
+        "short_essay_1": {
+            "prompt": "Vanderbilt University’s motto, Crescere aude, is Latin for “dare to grow.” In your response, reflect on how one or more aspects of your identity, culture, or background has played a role in your personal growth, and how it will contribute to our campus community as you dare to grow at Vanderbilt.",
+            "response": "\"vaddan da hosla kar\" Vanderbilt’s motto, in my native language Saraiki, is thus illuminated above. My motivation for translating it stems from how I’ve often lamented the gross under-representation of my language within Pakistan’s educational institutions. Be it public schools swearing by the single national curriculum or private schools embracing international assessment standards, Saraiki remains almost unfounded. It is this language that was my crux - when leaving behind my tribe for city life - in search for better schooling; this language, particularly its music, folktales, and historical scriptures - were what helped me find shelter and refuge. Akin to the theorisations of decolonial thinkers like Sir Ali Meghji and Sir Homi K. Bhabha, it was an immersion with my indigeneity that allowed me to navigate the cultural clash - and thus grow in the foreignness of urbanisation. On a perceptual level, I now conform to the belief system that all students - whether or not they are migrants, like me - must benefit from the plurality of their course syllabi. An emphasis on diverse, inclusive, and representative curriculums is of foremost priority. Contrary to mere theoretical ideation, I saw how my ideological growth catalysed purpose: authoring the Saraiki Declamation, alongside professors and seniors affiliated with “University of the Punjab, Lahore,” I marvelled at our progress. The Punjab High Court is currently reviewing our appeal for students in Punjab’s public schools to be allowed the liberty to study at least one indigenous language, including my beloved, Saraiki. My campaigning does not conclude here. Bringing it to Vanderbilt, I am fascinated by the prospect of establishing a purpose-built student club devoting to education endeavours - inside and outside of campus. This would mark a historic event in the university’s auspicious history - and would be contingent upon me submitting an extensive pitch before the Office of Student Organizations. Here, I would champion the notion of diversifying curriculums - doing justice to the nativity of not just Saraiki speakers, like myself, but a plethora of linguists. Alas, if we are to grow, it is imperative to grow - without our roots and history surfacing as opportunity costs. If we are to grow, we must not forget where we herald from or the background that helps us cope with our existence. \"vaddan da hosla kar\"",
+            "essay_analysis": {
+                "themes": [
+                    "personal growth through cultural identity",
+                    "language preservation and activism",
+                    "curricular decolonization",
+                    "migrant experience and urban adaptation",
+                    "education as a vehicle for justice"
+                ],
+                "challenges_overcome": [
+                    "marginalization of native language in national curriculum",
+                    "identity displacement due to rural-to-urban migration",
+                    "lack of institutional recognition for Saraiki culture",
+                    "navigating elite academic environments as an outsider"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "Saraiki language and folklore as cultural resilience tools",
+                    "use of decolonial theory (Ali Meghji, Homi K. Bhabha)",
+                    "authorship of the Saraiki Declamation with university faculty",
+                    "petitioning the Punjab High Court for indigenous language inclusion",
+                    "vision of founding a linguistic diversity student organization at Vanderbilt"
+                ],
+                "growth_narrative": [
+                    "transforming cultural alienation into curricular reform",
+                    "evolving from linguistic outsider to institutional advocate",
+                    "applying theoretical frameworks to real-world activism",
+                    "developing leadership identity through advocacy and authorship",
+                    "positioning native heritage as a source of civic contribution"
+                ],
+                "why_this_worked": [
+                    "blends personal narrative with scholarly theory, demonstrating intellectual maturity",
+                    "shows clear trajectory from identity conflict to systemic intervention",
+                    "offers a detailed, actionable plan for campus contribution (student club, curricular reform)",
+                    "reflects mission-fit with Vanderbilt’s values of inclusivity, civic engagement, and growth",
+                    "displays linguistic dexterity, cultural fluency, and institutional leadership potential"
+                ]
+            }
+        }
+    },
+    "application_narrative": {
+        "connected_themes": [
+            "education equity",
+            "linguistic and cultural preservation",
+            "grassroots activism",
+            "religious reformation through knowledge",
+            "youth leadership",
+            "policy reform"
+        ],
+        "academic_to_extracurricular_connection": [
+            {
+                "subject": "Physics",
+                "connection": "Yahya applies analytical and scientific thinking to policy evaluation and educational planning, evident in his education policy research, where he conducted region-specific analysis across Pakistan using empirical data to make systemic recommendations."
+            },
+            {
+                "subject": "Chemistry",
+                "connection": "His understanding of structure, transformation, and reaction underpins his metaphorical grasp of social change—he identifies broken systems (like extremist madrassas) and catalyzes reform by introducing new elements (educational models)."
+            },
+            {
+                "subject": "Mathematics",
+                "connection": "Logical structure, data interpretation, and quantitative skills supported his contribution to the drafting of a funding bill during his internship with Punjab’s School Education Department, including analyzing performance metrics for over 200 rural schools."
+            },
+            {
+                "subject": "Sociology",
+                "connection": "The backbone of his activism—Yahya used sociological theories (Ali Meghji, Homi Bhabha) to frame his identity work and language justice movement. His Saraiki curriculum campaign and public policy research are textbook examples of applied sociological insight."
+            }
+        ],
+        "success_factors": [
+            "Vulnerable and courageous personal statement centered on trauma transformed into activism—displays resilience and authenticity admired in elite holistic review.",
+            "Narrative coherence between cultural identity, education reform, and long-term public policy goals—shows clarity of mission.",
+            "Intellectual vitality: demonstrated through self-directed research, application of sociological theory, and systemic thinking.",
+            "Demonstrated leadership: NGO founder, Deputy Head Boy, radio host, curriculum campaigner—shows ability to mobilize others.",
+            "Institutional fit: aligns with Vanderbilt’s emphasis on civic engagement, diversity, and service-based leadership.",
+            "Spike profile: Deep commitment to linguistic preservation and grassroots educational reform—demonstrates a unique and highly memorable angle.",
+            "Impact at scale: From radio audiences to court-level educational reform petitions—his work exceeds typical high school scope.",
+            "Global-local fusion: Merges hyperlocal cultural advocacy with international academic fluency—ideal for global-minded liberal arts institutions."
+        ],
+        "overall_analysis": "Muhammad Yahya’s application is a rare fusion of vulnerability, intellect, action, and vision. His profile exemplifies the ‘citizen-scholar’ ideal championed by top institutions: a student who not only excels academically but also uses his knowledge to meaningfully intervene in his community. Yahya presents a compelling spike in linguistic and educational justice, deeply rooted in his Saraiki-Punjabi identity and executed through multi-tiered leadership—radio broadcasting, NGO work, peer teaching, and policy advocacy. His essay articulates transformative personal growth from trauma and religious abuse into a life mission centered on reimagining education as a tool of liberation rather than indoctrination. This is exactly the kind of story that elite institutions like Vanderbilt seek: grounded in specificity, propelled by action, and elevated by intellectual engagement. Yahya doesn’t just want to attend Vanderbilt—he wants to transform it by founding cultural initiatives and shaping curriculum conversations. The admission committee likely saw in him not just a strong student, but a future campus change-maker."
+    }
+}

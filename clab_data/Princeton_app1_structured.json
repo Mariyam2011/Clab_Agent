@@ -1,0 +1,673 @@
+{
+    "student_profile": {
+        "name": "Aaima Tariq Malik",
+        "sex": "Female",
+        "gender": "Female",
+        "birth_country": "Pakistan",
+        "cultural_background": [
+            "South Asian",
+            "Pakistani",
+            "Punjabi",
+            "intergenerational gender struggle",
+            "first-generation computational linguist aspirant",
+            "Islamabad urban upbringing",
+            "female in patriarchal society",
+            "educationally ambitious family support",
+            "language preservation and gender advocacy through multilingualism"
+        ],
+        "languages": [],
+        "socioeconomic_indicators": [
+            "Fee Waiver Requested",
+            "military background (father employed, mother homemaker)",
+            "residence in middle-income federal housing (Islamabad)",
+            "access to elite private education through merit",
+            "educational resources pursued through scholarships",
+            "independent language learning from thrift resources and online tools"
+        ],
+        "geographic_context": {
+            "birth_place": "Islamabad, Pakistan",
+            "citizenship_status": "Citizen of non-U.S. country",
+            "citizenship": "Pakistan",
+            "current_address": "Street no.9 House no. 606, Block A, Multi-Gardens Sector B-17, Islamabad, Federal Capital, 47000, PAK"
+        }
+    },
+    "academic_profile": {
+        "schools": [
+            {
+                "name": "Westminster Academy Islamabad, 19 Faiz Ahmed Faiz Rd, H 8/4 H-8, Islamabad, Federal Capital, Pakistan",
+                "type": "Independent",
+                "grades_attended": "11, 12",
+                "gpa_weighting": null,
+                "gpa_scale": null,
+                "gpa": null,
+                "rank_weighting": "Unweighted",
+                "rank": "na / 307",
+                "recent_courses_taken": [
+                    {
+                        "subject": "Mathematics - Cambridge AICE AS A-Level",
+                        "type": "A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Physics - Cambridge AICE AS A-Level",
+                        "type": "A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Economics - Cambridge AICE AS A-Level",
+                        "type": "A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Computer Science - Cambridge AICE AS A-Level",
+                        "type": "A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "Urdu (Pakistan Only) - Cambridge AICE AS A-Level",
+                        "type": "A-Level",
+                        "leaving_exam": "Predicted A*",
+                        "grade": "12"
+                    },
+                    {
+                        "subject": "History - Cambridge AICE AS A-Level",
+                        "type": "A-Level",
+                        "leaving_exam": "Predicted A",
+                        "grade": "12"
+                    }
+                ]
+            },
+            {
+                "name": "Army Public School and College, Fort Road, Lalazar, Rawalpindi, Punjab, Pakistan",
+                "type": "Public",
+                "grades_attended": "9, 10",
+                "gpa_weighting": null,
+                "gpa_scale": null,
+                "gpa": null,
+                "rank_weighting": null,
+                "rank": null,
+                "recent_courses_taken": []
+            }
+        ],
+        "graduation_date": "08/2025",
+        "gap_year": false,
+        "Honors": [
+            {
+                "Title": "Top in World, Urdu Language, IGCSE, Outstanding Cambridge Learner Awards",
+                "type": "International",
+                "grade": [ 9 ],
+                "keywords": [ "language excellence", "Cambridge distinction", "global top scorer" ]
+            },
+            {
+                "Title": "First in Pakistan, Silver Medal, International Linguistics Olympiad, Kangaroo Linguistic Competition",
+                "type": "International",
+                "grade": [ 10 ],
+                "keywords": [ "national language ranking", "linguistic talent", "STEM humanities fusion" ]
+            },
+            {
+                "Title": "Innovative Leader Award, Chief of Army Staff Pakistan",
+                "type": "National",
+                "grade": [ 10 ],
+                "keywords": [ "leadership", "innovation", "national-level recognition" ]
+            },
+            {
+                "Title": "Principal’s Medal (1 out of 3600), 2 Consecutive Years, Army Public School for International Studies",
+                "type": "School",
+                "grade": [ 9, 10 ],
+                "keywords": [ "academic consistency", "school top award", "merit-based distinction" ]
+            },
+            {
+                "Title": "Gold Medalist, Intercity Basketball Tournament",
+                "type": "State/Regional",
+                "grade": [ 11 ],
+                "keywords": [ "athletic excellence", "regional sports", "female empowerment through sports" ]
+            }
+        ],
+        "future_plans": [
+            "Computational linguist using AI to decode scripts, preserve languages, & empower women globally.",
+            "Masters"
+        ],
+        "standardized_tests": [
+            {
+                "exam_name": "SAT",
+                "results": [{ "section": "English", "score": "750" }, { "section": "Math", "score": "740" }]
+            },
+            {
+                "exam_name": "Cambridge AS Level",
+                "results": [{ "subject": "Physics-AS", "score": "A" }, { "subject": "Economics-AS", "score": "A" }]
+            }
+        ]
+    },
+    "activity_profile": {
+        "activities": [
+            {
+                "category": "Academic",
+                "grades": "11, 12",
+                "timing": "School",
+                "hours": "8 hr/wk, 16 wk/yr",
+                "position": "Pakistan National Linguistics Team Member",
+                "organization": "International Linguistics Olympiad",
+                "description": "Led team; finalist at National Level; representing Pakistan internationally; solved linguistic puzzles in Ancient Greek, German, Japanese Braille etc",
+                "keywords": [
+                    "academic-competition",
+                    "national-finalist",
+                    "international-representation",
+                    "team-leader",
+                    "linguistic-puzzles",
+                    "intellectual-vitality"
+                ]
+            },
+            {
+                "category": "Athletics: Club",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "8 hr/wk, 40 wk/yr",
+                "position": "U17 Basketball Team Captain, Vice President",
+                "organization": "Pakistan Basketball Federation, Sports Society",
+                "description": "Competed & led teams at state/regional level U17; empowered 30+ females to participate in sports; improved school sports facilities; mentored juniors",
+                "keywords": [
+                    "sports-leadership",
+                    "female-empowerment",
+                    "mentorship",
+                    "infrastructure-improvement",
+                    "regional-athletics",
+                    "gender-inclusion"
+                ]
+            },
+            {
+                "category": "Student Govt./Politics",
+                "grades": "10",
+                "timing": "School",
+                "hours": "12 hr/wk, 32 wk/yr",
+                "position": "Deputy Head Girl",
+                "organization": "Army Public School for International Studies",
+                "description": "Led 2K+ students; organized STEM/Arts events; introduced sanitary stations; advocated for foreign languages subjects, expanding academic diversity",
+                "keywords": [
+                    "school-leadership",
+                    "female-health-advocacy",
+                    "language-curriculum-expansion",
+                    "event-organization",
+                    "policy-change",
+                    "academic-diversity"
+                ]
+            },
+            {
+                "category": "Career Oriented",
+                "grades": "12",
+                "timing": "Year",
+                "hours": "7 hr/wk, 10 wk/yr",
+                "position": "Research Assistant",
+                "organization": "AUC, NUST (Egyptology & AI)",
+                "description": "Assisted in developing ML models to identify patterns of patriarchal vs. matriarchal references in hieroglyphic texts; analyzed women's roles",
+                "keywords": [
+                    "research",
+                    "AI-application",
+                    "gender-linguistics",
+                    "machine-learning",
+                    "historical-analysis",
+                    "feminist-research"
+                ]
+            },
+            {
+                "category": "Social Justice",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "12 hr/wk, 26 wk/yr",
+                "position": "Founder & Women’s Empowerment Advocate",
+                "organization": "Global Sisterhood Network, Multilingual Women’s Advocacy",
+                "description": "Led multilingual team advocating for women's issues & rights; helped females with legal advice in 13 languages; empowered 1K+ women around the world",
+                "keywords": [
+                    "founder",
+                    "global-advocacy",
+                    "multilingual-team",
+                    "women-rights",
+                    "legal-support",
+                    "social-impact"
+                ]
+            },
+            {
+                "category": "Research",
+                "grades": "11",
+                "timing": "Break",
+                "hours": "12 hr/wk, 8 wk/yr",
+                "position": "Research Intern",
+                "organization": "NUML, RSI Research",
+                "description": "Examined 1K+ Indo-Aryan etymologies with gendered vocab; compiled study on Sanskrit words on women's rights; proposed policy for gender-fair lang",
+                "keywords": [
+                    "linguistic-research",
+                    "gender-fair-language",
+                    "policy-proposal",
+                    "Sanskrit-study",
+                    "etymology",
+                    "academic-internship"
+                ]
+            },
+            {
+                "category": "Other Club/Activity",
+                "grades": "11, 12",
+                "timing": "School",
+                "hours": "7 hr/wk, 24 wk/yr",
+                "position": "Founder & President, Language Learning Advocate",
+                "organization": "Language Society",
+                "description": "Unified 24 students to create 3 dialect dictionaries (500 words each) for preservation of langs; dev. website; led 10+ workshops new languages/history",
+                "keywords": [
+                    "founder",
+                    "language-preservation",
+                    "student-led",
+                    "digital-initiative",
+                    "dictionary-creation",
+                    "cultural-activism"
+                ]
+            },
+            {
+                "category": "Community Service (Volunteer)",
+                "grades": "9, 10",
+                "timing": "School",
+                "hours": "6 hr/wk, 13 wk/yr",
+                "position": "Founder",
+                "organization": "Faces of Courage",
+                "description": "Led team of 8 to teach 50+ acid attack surviving females creative & vocational skills; org mental health sessions; secured 6 jobs via NGOs; recognized",
+                "keywords": [
+                    "community-service",
+                    "vocational-training",
+                    "acid-attack-survivors",
+                    "mental-health",
+                    "NGO-collaboration",
+                    "job-placement"
+                ]
+            },
+            {
+                "category": "Debate/Speech",
+                "grades": "9, 10, 11, 12",
+                "timing": "School",
+                "hours": "7 hr/wk, 24 wk/yr",
+                "position": "MUN & Debate Captain",
+                "organization": "International and State Model United Nations",
+                "description": "Led debate team of 15, launched school’s Punjabi debates, organized inaugural Punjabi Debate Tournament; secured 4 Best Speaker; mentored juniors",
+                "keywords": [
+                    "debate-leadership",
+                    "cultural-linguistics",
+                    "Punjabi-advocacy",
+                    "public-speaking",
+                    "MUN-awards",
+                    "mentorship"
+                ]
+            },
+            {
+                "category": "Art",
+                "grades": "9, 10, 11, 12",
+                "timing": "Year",
+                "hours": "6 hr/wk, 18 wk/yr",
+                "position": "Digital Designer & Language Preservation Activist",
+                "organization": "Endangered Language Awareness Program",
+                "description": "Created digital prints of endangered languages for apparel; collaborated with females from 5+ villages for cultural insights; sold 76 pieces",
+                "keywords": [
+                    "creative-activism",
+                    "language-art",
+                    "cultural-fashion",
+                    "entrepreneurship",
+                    "village-collaboration",
+                    "endangered-languages"
+                ]
+            }
+        ],
+        "activity_profile_meta_tags": {
+            "leadership_roles": [
+                "team-leader-national-linguistics",
+                "sports-captain",
+                "deputy-head-girl",
+                "ngo-founder",
+                "research-assistant",
+                "language-club-founder",
+                "debate-captain",
+                "student-entrepreneur"
+            ],
+            "community_impact": [
+                "female-empowerment-global",
+                "sports-for-girls",
+                "educational-access-for-women",
+                "mental-health-support",
+                "language-accessibility",
+                "survivor-rehabilitation",
+                "legal-awareness-multilingual",
+                "cultural-preservation"
+            ],
+            "unique_ideas": [
+                "AI-for-hieroglyphs-analysis",
+                "gendered-linguistic-policy-research",
+                "dialect-dictionary-creation",
+                "multilingual-legal-advisory",
+                "language-themed-art-apparel",
+                "indigenous-collaboration"
+            ],
+            "academic_excellence": [
+                "linguistics-olympiad",
+                "historical-linguistics-research",
+                "machine-learning-for-archaeology",
+                "etymology-project",
+                "debate-awards",
+                "interdisciplinary-academic-exploration"
+            ]
+        },
+        "time_commitment": { "total_annual_hours": 1940, "average_weekly_hours": 37.3, "activity_count": 10 }
+    },
+    "personal_statement": {
+        "essay_prompt": "Share an essay on any topic of your choice. It can be one you've already written, one that responds to a different prompt, or one of your own design.",
+        "personal_statement": "Za-har?-mun (She-dreamed) \nZa-har?-yam (He-dreamed) \n\nSame longing — different futures — determined by the weight of gendered grammar. In my village dreams are verbs only men can conjugate. A girl’s aspirations are tethered to the confines of the kitchen, our ambition as disposable as the onion skins we peel. But, you see, dreams have a peculiar resilience: they persist, even when silenced, and my Amma’s (mother) silence taught me to listen closely…. \n\nAmidst evenings filled with stitching and cooking, I sensed her yearning for what she was denied: education, freedom, autonomy. Hers was a world of nailah-jabir? (unjust necessity), where even the act of learning English marked one as ghair (foreign), kafir (infidel). When I declared my interest in studying Aramaic and Hebrew, the murmurs turned to outrage. “This is be-deen (against the faith),” they said. My love for languages was painted as a betrayal of my identity, a refusal against norms that kept women tethered to what was deemed “acceptable.” \n\nBut my father shielded me from these accusations. He witnessed my care for the books I found in Sunday thrift markets, and the clay piggy bank which I emptied monthly to purchase a new research paper. He knew — I meant no harm — I only wanted knowledge, a right, my right; as important for me as it is for a man. Together, my parents became my refuge, insisting that I could be za-har?-mun-da-hawa-yam (she-dreamed-of-flight). \n\nZa-parh?-mun (She-read) \nZa-parh?-yam (He-read) \n\nIn learning languages — English, Aramaic, and later Persian and Hebrew — I discovered a medium of resistance.  \n\nAramic: “Let no one be lost to time,” a reminder of my mother’s sacrifices.  \n\nHebrew: “The world stands on three things: truth, justice, and peace,” gave me a framework for my advocacy. \n\nPersian: “A stone may stay in water for a long time, but it remains unsoaked,” mirrored the endurance I sought to embody.  \n\nZa-da-lafz-ghair-yam (She-spoke-the-foreign) \n\nWith Global Sisterhood Network (GSN), I formed a multilingual team advocating for women’s rights across 13 languages, connecting over 1,000 women — from Pakistan to Egypt. Language was my weapon, but it was also my salve. I trained volunteers to translate resources, guiding women to learn about their rights in legal systems that often ignored their dialects. \n\nIn one case, I worked with a woman from a Punjabi village whose story of domestic violence had been dismissed by authorities because she couldn’t communicate in Urdu. With the support of Global Sisterhood Network, her voice finally carried the weight it deserved, and her husband faced legal consequences. \n\nZa-difa?-mun (She-defended) \nZa-difa?-yam (He-defended) \n\nSame resistance — different recognition. Advocacy is often an act of unlearning before it becomes action. My linguistic excavations showed me that systemic inequality is not just a policy failure but a failure to listen. Words like lakir (boundary) and baradari (kinship) had been weaponized in my village to confine women. At GSN, we showed that a boundary can be a line of protection, and kinship can extend to sisterhood. \n\nZa-da-hawa-sang?n-yam (I-flew-through-storms) \n\nThrough GSN, I began to see that language as a framework for existence. My advocacy is a verb, a dream I will dare to conjugate no matter if I am not a man; for it is one conjugated in every dialect spoken by the women I’ve worked with. \n\nAs I sit with women in remote villages, helping them draft legal documents in Punjabi or translate their rights into Arabic, I think back to Amma. Her silence was not consent; it was survival. Every word I speak, every sentence I translate, is a continuation of the flight she once dreamed of but could not take. Language is my lens, my mirror, and my weapon, but most of all, it is my possibility — my way to create a world where no woman’s story is lost in translation.",
+        "essay_analysis": {
+            "themes": [
+                "language as resistance",
+                "gender inequality",
+                "female empowerment",
+                "intergenerational sacrifice",
+                "social justice through linguistics",
+                "cultural reclamation",
+                "advocacy and activism",
+                "resilience and transformation"
+            ],
+            "challenges_overcome": [
+                "cultural taboos against female education",
+                "religious backlash against language study",
+                "gendered suppression of intellectual ambition",
+                "lack of access to resources",
+                "linguistic injustice in legal systems",
+                "familial and societal skepticism",
+                "emotional isolation"
+            ],
+            "unique_cultural_and_other_elements": [
+                "code-switching and embedded multilingualism (Urdu, Aramaic, Persian, Hebrew)",
+                "rural Pakistani gender norms",
+                "poetic and grammatical structure of essay mimicking linguistic conjugation",
+                "founding of Global Sisterhood Network",
+                "integration of ancient languages as cultural tools",
+                "language as both rebellion and reconciliation",
+                "subversion of religious-linguistic orthodoxy"
+            ],
+            "growth_narrative": "The student transforms familial silence and cultural restriction into global advocacy, evolving from a quiet language lover to a multilingual leader of a cross-continental women's rights movement. Her growth arcs from a daughter deciphering her mother's quiet pain to a changemaker ensuring that no woman remains unheard. She internalizes and redefines the grammar of gender and resistance.",
+            "why_this_worked": [
+                "Exemplifies Ethan Sawyer's principle of 'vulnerability and insight' through the quiet strength of Amma and the student’s own evolution",
+                "Implements a poetic structure (like '50 Successful Ivy Essays')—grammar as metaphor for gender, resistance, and hope",
+                "Intellectual vitality shown via independent language study (Aramaic, Hebrew, Persian)",
+                "Authenticity and specificity (Clark and Hernandez): grounded in Pakistani culture but global in application",
+                "Narrative coherence: each language is not just studied but lived, transforming into tools of advocacy",
+                "Demonstrates institutional fit for liberal arts programs (especially Princeton) valuing linguistics, gender studies, and activism",
+                "Powerful storytelling rooted in 'The Gatekeepers' and 'Who Gets In and Why'—intellectual courage, community leadership, global vision"
+            ]
+        }
+    },
+    "education_progression": {
+        "education_progression_type": "NA",
+        "explanation": "",
+        "school_change": true,
+        "school_change_reasoning": "After completing my O-Levels, I needed a school that could support my academic and personal growth. My previous school didn't offer the A-Level courses essential for my goals, especially subjects like History. I wanted a program with dedicated resources and experienced faculty to help me dive deeper into these fields. Additionally, my current school provides a range of extracurriculars—like debating clubs, more sports facilities, etcetera—which aligned perfectly with my interests. I was also motivated by the scholarship opportunities they offered, allowing me to focus on academics without financial worries."
+    },
+    "university_specific_questions": {
+        "college_name": "Princeton University",
+        "entry_term": "Fall 2025",
+        "decision_plan": "Regular Decision",
+        "financial_aid": true,
+        "ACT/SAT_scores": true,
+        "top_academic_majors_interest": [ "Anthropology", "Computer Science (A.B.)" ]
+    },
+    "university_supplemental_questions": {
+        "short_essay_1": {
+            "prompt": "As a research institution that also prides itself on its liberal arts curriculum, Princeton allows students to explore areas across the humanities and the arts, the natural sciences, and the social sciences. What academic areas most pique your curiosity, and how do the programs offered at Princeton suit your particular interests? (Please respond in 250 words or fewer)",
+            "response": "In 57 minutes, I deciphered a linguistic puzzle, isolating phoneme patterns and applying probabilistic methods to reconstruct syntax — a feat rare even among seasoned competitors. The fastest solution in our group, it bridged computational logic with linguistic intuition, propelling us to the Finals at the International Linguistics Olympiad. \n\nAt Princeton, my passion for linguistics finds its home in LIN355: Field Methods in Linguistics and LIN304: Introduction to Machine Translation, where I will learn to apply computational techniques to analyze and preserve endangered languages. Combining my interest in Classics and Gender Studies, specifically through CLA 329 - Sex and Gender in Antiquity and GSS 420 - Feminist Theory, I will explore how language and power have historically intertwined. I’m also drawn to COS 324: Intro to Machine Learning, where I can build upon my work as a research assistant using ML to interpret Egyptian hieroglyphs. \n\nThe Humanities Council’s “Pathways to Language Justice” and the Indigenous Studies Interdisciplinary Group particularly excite me. Having founded Global Sisterhood Network, where we translated legal resources into 13 languages for women, I’ve witnessed the urgent need for linguistic equity.\n\nPrinceton's interdisciplinary ethos—where linguistics can converge with AI, classics, and gender theory—is ideal for a student like me who sees language not merely as communication, but as resistance, preservation, and empowerment.",
+            "essay_analysis": {
+                "themes": [
+                    "linguistic equity",
+                    "interdisciplinary learning",
+                    "computational linguistics",
+                    "feminist theory",
+                    "language preservation",
+                    "cultural empowerment",
+                    "applied research"
+                ],
+                "challenges_overcome": [
+                    "gendered barriers to education in home culture",
+                    "lack of access to advanced research facilities in home country",
+                    "advocating for underrepresented languages and communities"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "Global Sisterhood Network legal translation project",
+                    "experience decoding Egyptian hieroglyphs with machine learning",
+                    "multilingual activism",
+                    "interest in intersection of classics, linguistics, and gender studies",
+                    "references to Princeton-specific course codes and centers"
+                ],
+                "growth_narrative": [
+                    "emerging computational linguist applying theory to social justice",
+                    "from language enthusiast to global advocate",
+                    "expansion from local impact to global interdisciplinary vision"
+                ],
+                "why_this_worked": [
+                    "institutional fit with specific Princeton programs",
+                    "intellectual vitality demonstrated through Olympiad and research",
+                    "authentic and specific alignment with university mission",
+                    "integration of liberal arts with cutting-edge technology",
+                    "shows student as both thinker and doer—bridging theory and practice"
+                ]
+            }
+        },
+        "short_essay_2": {
+            "prompt": "Your Voice Princeton values community and encourages students, faculty, staff and leadership to engage in respectful conversations that can expand their perspectives and challenge their ideas and beliefs. As a prospective member of this community, reflect on how your lived experiences will impact the conversations you will have in the classroom, the dining hall or other campus spaces. What lessons have you learned in life thus far? What will your classmates learn from you? In short, how has your lived experience shaped you? (500 words or fewer)",
+            "response": "“Purdah” (veil) \n\n“Chaar Diwari” (four walls) \n\n“Ghairat” (honor) \n\nSynonyms for subjugation — declarations that to exist as a woman is to trespass.  \n\n“Be-haya” (shameless) is reserved for those who speak too loudly;  \n\n“Be-izzat” (dishonored) is for those who dare to say no.  \n\nA stark example: Sadaf, my cousin who became a cautionary tale for all the women in my family. \n\nSadaf, was attacked by a man, emboldened by a culture that deems rejection as rebellion, who threw acid on her for refusing his marriage proposal. Hundreds of cases of acid attacks are reported annually in Pakistan, but most go unacknowledged, buried under the weight of “izzat” (family honor). In our linguistic prison, whispers spread faster than her scars healed: “Girls shouldn’t provoke men.” \n\nFor months, I lived with a choking fear. I avoided mirrors, worried that I might one day reflect Sadaf’s fate. Words that were supposed to \"protect\" me —“chup” (silence), “modesty”, “obedience”—became iron bars. But words cut both ways.  \n\nIn my isolation, I stumbled across stories of survival: Rukhsana, who rebuilt her life after an acid attack by opening her own clothing business; the work of Dr. Fouzia Saeed, whose advocacy redefined workplace harassment laws; Ayesha Siddiqa’s Military Inc., which dissected power structures with unapologetic precision. These were revolutions written by women who refused to be erased. \n\nAnd then, I met Sadaf again, whose words have stayed with me ever since. \n\n\"Don’t pity me,\" Her courage to live had been forged in pain, and in the face of such power I refused to stay in fear. \n\nFor Sadaf’s courage – for mine, and the countless women who live in fear this system sows, I founded Faces of Courage, my declaration that we as women would no longer hide. With a team of eight, we taught 50 survivors vocational and creative skills, organized mental health workshops, and secured six jobs through partnerships with NGOs. But the work was more than numbers. It was in the hands of women stitching embroidery for the first time, their fingers hesitant but determined. It was in the laughter of a survivor learning to paint, reclaiming the brush that her attacker thought he’d stolen forever. \n\nThe opposition was relentless. “Why teach them skills?” “Why give them jobs?” Acid attack survivors, to many, are unworthy of a second chance, relegated to lives hidden in shame. I was accused of disrupting the “natural order,” of tarnishing my family’s name by speaking out. But if speaking against power is a sin, I’ve learned to wear it as a badge of honor. \n\nAt first, my voice trembled; now it resounds. I burn with courage, as does every woman who has walked through the doors of Faces of Courage. Sadaf taught me that words can imprison, but they can also ignite. “Hope,” “resistance”—these are the words we now live by. \n\nI see a world where women are no longer confined by language but freed by it; a narrative I rewrite every day.",
+            "essay_analysis": {
+                "themes": [
+                    "defiance of patriarchal norms through linguistic reclamation",
+                    "transformative power of language and storytelling in activism",
+                    "grassroots women’s rights advocacy born from personal trauma",
+                    "intersection of cultural honor codes and female autonomy",
+                    "healing and empowerment through vocational creativity"
+                ],
+                "challenges_overcome": [
+                    "confronting systemic gender-based violence and silence culture",
+                    "defying societal backlash for aiding acid attack survivors",
+                    "overcoming internalized fear and reclaiming personal voice",
+                    "navigating cultural taboos while building a public advocacy platform"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "bold critique of honor-based oppression specific to Pakistani society",
+                    "integration of Urdu linguistic constructs as cultural storytelling devices",
+                    "first-hand account of acid attack survivor advocacy in conservative settings",
+                    "fusion of creative arts (embroidery, painting) with rehabilitation and dignity restoration"
+                ],
+                "growth_narrative": [
+                    "evolution from fear-stricken observer to resilient community leader",
+                    "development of courage to challenge cultural silence and stigma",
+                    "maturation of voice from personal resistance to collective empowerment",
+                    "ability to create systemic impact through hands-on initiatives (Faces of Courage)"
+                ],
+                "why_this_worked": [
+                    "high emotional gravity with concrete narrative moments (Sadaf’s story as a turning point)",
+                    "demonstrates rare leadership qualities forged under cultural adversity",
+                    "masterful use of culturally specific vocabulary to convey universal themes of justice",
+                    "clear alignment with Princeton’s civic engagement ethos",
+                    "shows both authenticity and intellectual depth in addressing social change"
+                ]
+            }
+        },
+        "short_essay_3": {
+            "prompt": "Princeton has a longstanding commitment to understanding our responsibility to society through service and civic engagement. How does your own story intersect with these ideals? (250 words or fewer)",
+            "response": "Every evening at home, I speak Burushaski with my family — spoken by only 2,400 people in my rural town. Among classmates and competitions I’ve attended across Pakistan, no one has heard of my language, let alone speaks it. For my grandparents, who learned Urdu and Punjabi as adults to integrate into wider society, Burushaski is their soul — a living archive of which we are the museums.  \n\nLanguage preservation wasn’t always my calling. That began with Ashraf, the local bookseller who handed me a copy of The Lightning Thief: my foray into Greek mythology. That one book cascaded into a love for the languages and histories, but alongside my awe came the heartbreak of realizing they were gone.  \n\nTheir decline mirrored Burushaski, and that realization lit a fire in me to act before my language, too, became a relic. I began small: creating a three-dialect dictionary with my school’s language society and uploading it to a website I designed. To draw attention to the language’s precarious state, I designed apparel printed with Burushaski phrases — turning an endangered tongue into a conversation starter.  \n\nBut I knew I couldn’t stop there. My research project on decoding Egyptian hieroglyphs using machine-learning showed me the vast potential of technology in preserving dying languages. Now, I dream of developing computational tools to analyze linguistic structures and create digital-archives for endangered languages like Burushaski.  \n\nMy language is my identity and I hope to take these efforts global, ensuring no language is lost to silence.",
+            "essay_analysis": {
+                "themes": [
+                    "intergenerational language transmission as civic memory",
+                    "technology-enabled cultural preservation",
+                    "responsibility to linguistic minorities through civic engagement",
+                    "cultural identity as a public service mission",
+                    "grassroots innovation in service of collective heritage"
+                ],
+                "challenges_overcome": [
+                    "lack of institutional support for minority languages",
+                    "invisibility of indigenous cultures in mainstream education",
+                    "navigating limited awareness of Burushaski at national level",
+                    "bridging traditional culture with modern tools under resource constraints"
+                ],
+                "unique_cultural_and_other_elements": [
+                    "Burushaski language as a vehicle of civic storytelling",
+                    "local bookseller as origin of civic intellectual awakening",
+                    "digitization of oral and dialect-based traditions",
+                    "use of fashion and public design as linguistic advocacy tools"
+                ],
+                "growth_narrative": [
+                    "from passive speaker to active cultural custodian",
+                    "transformation of personal identity into collective activism",
+                    "evolution from language learner to civic innovator",
+                    "embracing digital humanities as service mechanism"
+                ],
+                "why_this_worked": [
+                    "demonstrates Ivy-aligned service ethos rooted in local context",
+                    "clearly translates personal heritage into global civic vision",
+                    "blends narrative arc (bookseller to tech advocate) with actionable outcomes",
+                    "shows initiative, leadership, and interdisciplinary thinking (tech + humanities)",
+                    "reflects Princeton’s mission of bridging tradition with public impact through scholarship"
+                ]
+            }
+        },
+        "short_essay_4": {
+            "prompt": "More About You Please respond to each question in 50 words or fewer. There are no right or wrong answers. Be yourself! What is a new skill you would like to learn in college?",
+            "response": "Sentiment Analysis. While reading the Daily-Princetonian, I came across a workshop titled Sentiment Analysis with R: which taught students how to detect affective-emotions in text! I would love to learn how to apply relevant R packages and code to conduct such analyses — a haven for linguistic lovers like me.",
+            "essay_analysis": {
+                "themes": [
+                    "sentiment-analysis",
+                    "computational-linguistics",
+                    "emotional-intelligence",
+                    "language-and-technology"
+                ],
+                "challenges_overcome": [],
+                "unique_cultural_and_other_elements": [
+                    "reference-to-princeton-publication",
+                    "fusion-of-humanities-and-STEM"
+                ],
+                "growth_narrative": [
+                    "desire-to-expand-linguistic-skillset",
+                    "bridging-technical-and-humanistic-thinking"
+                ],
+                "why_this_worked": [
+                    "school-specific-engagement",
+                    "intellectual-curiosity",
+                    "niche-academic-interest",
+                    "cross-disciplinary-drive",
+                    "Princeton-fit"
+                ]
+            }
+        },
+        "short_essay_5": {
+            "prompt": "What brings you joy?",
+            "response": "Time Capsules.\nMama humming a Burushaski song of her childhood and teaching it to me; Abba making elaichi chai the way his mom used to make it for him; A yellowed book annotated by previous, loving readers; Hidden memorabilia in pockets of clothing I thrift at the weekly Sunday market.",
+            "essay_analysis": {
+                "themes": [
+                    "nostalgia",
+                    "cultural-memory",
+                    "family-tradition",
+                    "intergenerational-connection",
+                    "joy-in-small-moments"
+                ],
+                "challenges_overcome": [],
+                "unique_cultural_and_other_elements": [
+                    "Burushaski-language-reference",
+                    "Pakistani-tea-ritual",
+                    "Sunday-market-thrifting",
+                    "heritage-through-objects",
+                    "intercultural-family-life"
+                ],
+                "growth_narrative": [
+                    "deepening-sense-of-self-through-memory",
+                    "valuing-cultural-continuity",
+                    "finding-meaning-in-everyday-ritual"
+                ],
+                "why_this_worked": [
+                    "authenticity",
+                    "rich-sensory-imagery",
+                    "emotional-intelligence",
+                    "cultural-rootedness",
+                    "literary-tone"
+                ]
+            }
+        },
+        "short_essay_6": {
+            "prompt": "What song represents the soundtrack of your life at this moment?",
+            "response": "Channa.\nA folk song that exists in every native tongue of the Indo-Pak region. A version of it remains in my native tongue Burushaski. Every Eid, Christmas and Diwali, the 2,400 surviving Burushaski speakers in my tehsil collect at the local mela and sing this before the festivities end.",
+            "essay_analysis": {
+                "themes": [
+                    "folk-heritage",
+                    "music-and-identity",
+                    "cultural-preservation",
+                    "minority-language-pride",
+                    "community-and-tradition"
+                ],
+                "challenges_overcome": [],
+                "unique_cultural_and_other_elements": [
+                    "Burushaski-language",
+                    "Channa-folk-song",
+                    "multi-faith-harmony",
+                    "minority-language-community",
+                    "Indo-Pak-syncretism"
+                ],
+                "growth_narrative": [ "anchoring-self-in-cultural-roots", "finding-belonging-through-tradition" ],
+                "why_this_worked": [
+                    "rare-cultural-reference",
+                    "evokes-global-awareness",
+                    "identity-through-music",
+                    "community-centric-imagery",
+                    "institutional-fit-through-diverse-background"
+                ]
+            }
+        }
+    },
+    "application_narrative": {
+        "connected_themes": [
+            "language as empowerment and resistance",
+            "intersection of AI and linguistic justice",
+            "female agency and multigenerational advocacy",
+            "cultural preservation through computational methods",
+            "grassroots leadership with global impact",
+            "academic rigor across humanities and STEM",
+            "storytelling as political and social transformation"
+        ],
+        "academic_to_extracurricular_connection": [
+            {
+                "subject": "Mathematics",
+                "connection": "Mathematical reasoning supports her machine learning models in linguistic research, such as analyzing hieroglyphics and gendered grammar patterns."
+            },
+            {
+                "subject": "Physics",
+                "connection": "Developed systemic thinking and problem-solving skills foundational to her work in data analysis for linguistic structures and AI implementation."
+            },
+            {
+                "subject": "Economics",
+                "connection": "Equipped her with frameworks to understand institutional and systemic inequalities, which informed policy recommendations and NGO-based advocacy efforts for women’s rights."
+            },
+            {
+                "subject": "Computer Science",
+                "connection": "Formed the technical foundation for her pioneering research projects applying AI to decode Egyptian hieroglyphs and digitally archive endangered languages."
+            },
+            {
+                "subject": "Urdu",
+                "connection": "Top in World distinction in Urdu fuels her commitment to linguistic preservation and equitable communication; informs her multilingual leadership at the Global Sisterhood Network."
+            },
+            {
+                "subject": "History",
+                "connection": "Contextualizes her research in gendered language evolution, especially through her work in Indo-Aryan etymology and understanding patriarchal structures across civilizations."
+            }
+        ],
+        "success_factors": [
+            "rare intellectual spike in computational linguistics and feminist etymology",
+            "deep and consistent narrative across academics, research, and activism",
+            "evidence of both grassroots and global leadership",
+            "exceptional cross-disciplinary initiative—bridging humanities and STEM",
+            "clear institutional alignment with schools like Princeton, Stanford, and MIT",
+            "transformational personal story told through vulnerable and poetic voice",
+            "extensive impact with 1,000+ women reached and languages digitally preserved",
+            "academic excellence demonstrated by SAT, awards, and A* predictions",
+            "intellectual vitality via research papers and AI applications",
+            "authentic voice that resists performative polish while radiating purpose"
+        ],
+        "overall_analysis": "Aaima Tariq Malik’s application is a masterclass in narrative coherence, intellectual vitality, and institutional alignment. Her core identity—as a computational linguist leveraging AI to preserve endangered languages and fight for women’s rights—permeates every layer of her application. Unlike generic 'well-rounded' profiles, Aaima demonstrates a spike in a rare and intersectional field: feminist computational linguistics. From decoding Egyptian hieroglyphs using machine learning to founding the Global Sisterhood Network across 13 languages, her work is deeply original, community-centered, and scalable. The intellectual maturity shown in her independent research papers rivals that of college juniors. Her essays exemplify Ethan Sawyer’s principles—specificity, transformation, and vulnerability—especially through metaphoric prose and code-switching that demonstrate emotional and linguistic fluency. As admissions officers, we look for students who will not only thrive in academic settings but also transform campus culture. Aaima fits the Princeton mold of service-oriented scholarship, the Stanford maker mindset, and MIT’s hands-on approach to impact. Her lived experience as a Pakistani girl navigating linguistic boundaries and systemic patriarchy gives her a distinct lens on global equity, which she translates into real-world solutions—from trilingual dictionaries to legal aid for rural women. She is not a student who fits the mold. She redefines it. This is the kind of application that excites a committee not just for what the student has done—but for what she will build next. She is the future of the liberal arts in the age of algorithms."
+    }
+}
