@@ -1,1 +1,4 @@
 .env
+
+__pycache__/
+prompt_templates/__pycache__/
