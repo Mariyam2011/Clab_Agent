@@ -1,7 +1,7 @@
-# tools.py
 import ast
 import json
-from typing import Any, Dict, Optional, Union
+import re
+from typing import Any, Dict, Union
 
 from langchain_core.runnables import Runnable
 from langchain_openai import AzureChatOpenAI
@@ -19,7 +19,6 @@ try:
 except Exception:
     from langchain.tools import tool  # fallback
 
-# Add logging to track tool calls and catch issues early
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -36,23 +35,22 @@ class NarrativeAnglesInput(BaseModel):
     )
 
 
-# - Change input schemas to handle both dict and string
-# class NarrativeAnglesInput(BaseModel):
-#    student_profile: Union[Dict[str, Any], str] = Field(..., description="Student profile")
-
-
 class FuturePlanInput(BaseModel):
     user_profile: Union[Dict[str, Any], str] = Field(
         ..., description="Student profile dict or JSON string"
     )
-    narrative: str = Field(..., description="One narrative angle object or JSON string")
+    narrative: Union[Dict[str, Any], str] = Field(
+        ..., description="One narrative angle object or JSON string"
+    )
 
 
 class ActivityListInput(BaseModel):
     user_profile: Union[Dict[str, Any], str] = Field(
         ..., description="Student profile dict or JSON string"
     )
-    narrative: str = Field(..., description="One narrative angle object or JSON string")
+    narrative: Union[Dict[str, Any], str] = Field(
+        ..., description="One narrative angle object or JSON string"
+    )
     future_plan: str = Field(..., description="Future plan single-line statement")
 
 
@@ -73,20 +71,15 @@ class CompleteStrategyInput(BaseModel):
     )
 
 
-@tool(
-    "generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False
-)
-def generate_narrative_angles(
-    user_profile: Union[Dict[str, Any], str],
-) -> Dict[str, Any]:
+# ---------- Tools ----------
+
+@tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
+def generate_narrative_angles(user_profile: Union[Dict[str, Any], str]) -> Dict[str, Any]:
     """Generate 3-5 narrative angles as JSON."""
-    # Normalize user_profile to dict
     if isinstance(user_profile, str):
         try:
-            # Try parsing as JSON first
             user_profile = json.loads(user_profile)
         except json.JSONDecodeError:
-            # If that fails, try eval (for Python dict strings)
             try:
                 user_profile = ast.literal_eval(user_profile)
             except (ValueError, SyntaxError):
@@ -103,10 +96,9 @@ def generate_narrative_angles(
 
 @tool("generate_future_plan", args_schema=FuturePlanInput, return_direct=False)
 def generate_future_plan(
-    user_profile: Union[Dict[str, Any], str], narrative: Dict[str, Any]
+    user_profile: Union[Dict[str, Any], str], narrative: Union[Dict[str, Any], str]
 ) -> str:
     """Generate a single ≤100 character future plan line."""
-    # Normalize user_profile to dict
     if isinstance(user_profile, str):
         try:
             user_profile = json.loads(user_profile)
@@ -126,11 +118,10 @@ def generate_future_plan(
 @tool("generate_activity_list", args_schema=ActivityListInput, return_direct=False)
 def generate_activity_list(
     user_profile: Union[Dict[str, Any], str],
-    narrative: Dict[str, Any],
+    narrative: Union[Dict[str, Any], str],
     future_plan: str,
 ) -> str:
     """Generate enhanced activities and 3 new signature activities."""
-    # Normalize user_profile to dict
     if isinstance(user_profile, str):
         try:
             user_profile = json.loads(user_profile)
@@ -160,7 +151,6 @@ def generate_main_essay_ideas(
 ) -> Dict[str, Any]:
     """Generate comprehensive main essay ideas based on narrative, future plan, and activities."""
 
-    # normalize everything into dicts
     if isinstance(user_profile, str):
         try:
             user_profile = json.loads(user_profile)
@@ -194,56 +184,104 @@ def generate_main_essay_ideas(
     except Exception:
         return {"error": "Invalid JSON from model", "raw": raw}
 
+@tool("route_tool_call", return_direct=True)
+def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str]) -> Any:
+    """
+    Route user request to the appropriate tool, generating minimal dependencies:
+    - "narrative" → generate_narrative_angles
+    - "future plan" → narrative → future_plan
+    - "activities" → narrative → future_plan → activities
+    - "essay" → narrative → future_plan → activities → essay
+    """
+    text = user_request.lower()
 
-@tool("generate_complete_application_strategy", return_direct=False)
-def generate_complete_application_strategy(
-    user_profile: Union[Dict[str, Any], str],
-) -> Dict[str, Any]:
-    """Generate a complete application strategy by chaining narrative → future plan → activities → main essay ideas."""
+    def wants_narrative(s: str) -> bool:
+        return re.search(r"\b(narrative|angle|angles)\b", s) is not None
 
-    # Step 1: Generate narratives
-    narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-    # narratives = generate_narrative_angles(user_profile=user_profile)
-    if "error" in narratives:
-        return {"error": "Failed at narrative stage", "details": narratives}
+    def wants_future(s: str) -> bool:
+        return re.search(r"\b(future\s*plan|future|plan)\b", s) is not None
 
-    # Step 2: Generate future plan
-    future_plan = generate_future_plan.invoke(
-        {"user_profile": user_profile, "narrative": narratives}
-    )
-    # future_plan = generate_future_plan(user_profile=user_profile, narrative=narratives)
-    if not future_plan or "error" in str(future_plan).lower():
-        return {"error": "Failed at future plan stage", "details": future_plan}
+    def wants_activities(s: str) -> bool:
+        return re.search(r"\b(activit(?:y|ies)|extracurriculars?)\b", s) is not None
 
-    # Step 3: Generate activity list
-    activities = generate_activity_list.invoke(
-        {
+    def wants_essay(s: str) -> bool:
+        return re.search(r"\b(essay|personal\s*statement|main\s*essay)\b", s) is not None
+
+    if wants_narrative(text):
+        return generate_narrative_angles.invoke({"user_profile": user_profile})
+
+    if wants_future(text):
+        narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+        return generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+
+    if wants_activities(text):
+        narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+        future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        return generate_activity_list.invoke({
             "user_profile": user_profile,
             "narrative": narratives,
             "future_plan": future_plan,
-        }
-    )
-    # activities = generate_activity_list(user_profile=user_profile, narrative=narratives, future_plan=future_plan)
-    if not activities or "error" in str(activities).lower():
-        return {"error": "Failed at activities stage", "details": activities}
+        })
 
-    # Step 4: Generate main essay ideas
-    essay_ideas = generate_main_essay_ideas.invoke(
-        {
+    if wants_essay(text):
+        narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+        future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        activities = generate_activity_list.invoke({
+            "user_profile": user_profile,
+            "narrative": narratives,
+            "future_plan": future_plan,
+        })
+        return generate_main_essay_ideas.invoke({
             "user_profile": user_profile,
             "narrative": narratives,
             "future_plan": future_plan,
             "activity_result": activities,
-        }
-    )
-    # essay_ideas = generate_main_essay_ideas(user_profile=user_profile, narrative=narratives, future_plan=future_plan, activity_result=activities)
-    if "error" in essay_ideas:
-        return {"error": "Failed at essay stage", "details": essay_ideas}
+        })
 
-    # Final combined result
-    return {
-        "narratives": narratives,
-        "future_plan": future_plan,
-        "activities": activities,
-        "essay_ideas": essay_ideas,
-    }
+    return {"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}
+
+
+# @tool("route_tool_call", return_direct=True)
+# def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str]) -> Any:
+#     """
+#     Route user request to the appropriate tool:
+#     - "narrative" → generate_narrative_angles
+#     - "future plan" → generate_future_plan (auto-generates narrative first if missing)
+#     - "activities" → generate_activity_list (ensures narrative + future_plan exist)
+#     - "essay" → generate_main_essay_ideas (ensures all dependencies exist)
+#     """
+#     request_lower = user_request.lower()
+
+#     if "narrative" in request_lower:
+#         return generate_narrative_angles.invoke({"user_profile": user_profile})
+
+#     elif "future" in request_lower:
+#         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+#         return generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+
+#     elif "activit" in request_lower:
+#         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+#         future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+#         return generate_activity_list.invoke({
+#             "user_profile": user_profile,
+#             "narrative": narratives,
+#             "future_plan": future_plan,
+#         })
+
+#     elif "essay" in request_lower:
+#         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+#         future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+#         activities = generate_activity_list.invoke({
+#             "user_profile": user_profile,
+#             "narrative": narratives,
+#             "future_plan": future_plan,
+#         })
+#         return generate_main_essay_ideas.invoke({
+#             "user_profile": user_profile,
+#             "narrative": narratives,
+#             "future_plan": future_plan,
+#             "activity_result": activities,
+#         })
+
+#     else:
+#         return {"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}
