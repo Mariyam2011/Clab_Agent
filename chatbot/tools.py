@@ -64,13 +64,6 @@ class MainEssayIdeasInput(BaseModel):
     future_plan: str = Field(..., description="Future plan single-line statement")
     activity_result: str = Field(..., description="Activity list text result")
 
-
-class CompleteStrategyInput(BaseModel):
-    student_profile: Union[Dict[str, Any], str] = Field(
-        ..., description="Student profile dict or JSON string"
-    )
-
-
 # ---------- Tools ----------
 
 @tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
@@ -192,6 +185,7 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
     - "future plan" → narrative → future_plan
     - "activities" → narrative → future_plan → activities
     - "essay" → narrative → future_plan → activities → essay
+    - "complete strategy" → generate_complete_application_strategy (all components)
     """
     text = user_request.lower()
 
@@ -208,20 +202,23 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
         return re.search(r"\b(essay|personal\s*statement|main\s*essay)\b", s) is not None
 
     if wants_narrative(text):
-        return generate_narrative_angles.invoke({"user_profile": user_profile})
+        result = generate_narrative_angles.invoke({"user_profile": user_profile})
+        return json.dumps(result, ensure_ascii=False, indent=2)
 
     if wants_future(text):
         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-        return generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        result = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        return str(result)
 
     if wants_activities(text):
         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
         future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
-        return generate_activity_list.invoke({
+        result = generate_activity_list.invoke({
             "user_profile": user_profile,
             "narrative": narratives,
             "future_plan": future_plan,
         })
+        return str(result)
 
     if wants_essay(text):
         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
@@ -231,14 +228,14 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
             "narrative": narratives,
             "future_plan": future_plan,
         })
-        return generate_main_essay_ideas.invoke({
-            "user_profile": user_profile,
-            "narrative": narratives,
+        result = generate_main_essay_ideas.invoke({
+            "user_profile": json.dumps(user_profile, ensure_ascii=False),
+            "narrative": json.dumps(narratives, ensure_ascii=False),
             "future_plan": future_plan,
             "activity_result": activities,
         })
-
-    return {"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}
+        return json.dumps(result, ensure_ascii=False, indent=2)
+    return json.dumps({"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}, ensure_ascii=False, indent=2)
 
 
 # @tool("route_tool_call", return_direct=True)

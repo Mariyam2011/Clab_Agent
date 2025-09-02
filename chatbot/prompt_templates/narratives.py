@@ -48,7 +48,9 @@ def create_narrative_angles_prompt_template() -> ChatPromptTemplate:
 
     {user_profile}
 
-    Output ONLY the valid JSON object, nothing else. Remember: no line breaks within string values.
+    Return exactly one JSON object. Do not include any trailing commas. 
+    Do not include explanations, comments, or text outside the JSON. 
+    Every string value must be a single line. If you must break lines, use "\\n"
     """
 
     return ChatPromptTemplate.from_messages(

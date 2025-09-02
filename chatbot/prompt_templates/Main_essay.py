@@ -73,7 +73,10 @@ def create_main_essay_ideas_prompt_template() -> ChatPromptTemplate:
     - Complete narrative arc (beginning, middle, end)
     - Be unique, interview-defensible, and memorable
 
-    Output ONLY the valid JSON object.
+    Return exactly one JSON object. Do not include any trailing commas. 
+    Do not include explanations, comments, or text outside the JSON. 
+    Every string value must be a single line. If you must break lines, use "\\n"
+    Do not wrap your output in Markdown or code fences. Return only the JSON object.
     """
     return ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", user_prompt)]

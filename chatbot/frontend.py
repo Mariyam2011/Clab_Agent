@@ -24,7 +24,7 @@ except Exception:
     }
 
 st.set_page_config(page_title="Admissions Strategy Chatbot", page_icon="🎓")
-st.title("🎓 Admissions Strategy Chatbot")
+st.title("Admissions Strategy Chatbot")
 
 # Sidebar profile editor
 st.sidebar.header("User Profile (JSON)")
