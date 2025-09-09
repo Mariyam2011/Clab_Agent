@@ -14,13 +14,15 @@ load_dotenv()
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 # Import your router tool
-from tools import route_tool_call  # ensure tools.py exists with route_tool_call
+from tools import route_tool_call, json_to_markdown 
+from complete_strategy_tools import route_tool_call_complete
 
 config = {"configurable": {"thread_id": "1"}}
 
 # 1. Define Chat State
 class ChatState(TypedDict):
     messages: List  # will hold conversation messages
+    tool_option: str
 
 # 2. Define Chat Node
 def chat_node(state: ChatState):
@@ -29,10 +31,17 @@ def chat_node(state: ChatState):
 
     # For now, assume user_profile is known (could also be pulled from memory/db)
     user_profile = DUMMY_USER_DATA
+    tool_option = state.get("tool_option", "standard strategy")
 
     # Route request → tool execution
     try:
-        response = route_tool_call.invoke({
+        if tool_option == "complete strategy":
+            response = route_tool_call_complete.invoke({
+                "user_request": user_msg,
+                "user_profile": user_profile
+            })
+        else:
+            response = route_tool_call.invoke({
             "user_request": user_msg,
             "user_profile": user_profile
         })
@@ -52,17 +61,21 @@ chatbot = graph.compile(checkpointer=checkpointer)
 
 # 4. Run the Chatbot
 if __name__ == "__main__":
-    state = {"messages": []}
+    state = {"messages": [], "tool_option": "standard strategy"}
     while True:
         user_input = input("You: ")
         if user_input.lower() in ["exit", "quit"]:
             break
-
+        tool_choice = input("Select tool: 1. Standard Strategy 2. Complete Strategy ")
+        if tool_choice == "2":
+            state["tool_option"] = "complete strategy"
+        else:
+            state["tool_option"] = "standard strategy"
+            
         # Add user msg to state (append takes only the message)
         state["messages"].append(HumanMessage(content=user_input))
 
         # Run one step through the graph (pass config here)
         state = chatbot.invoke(state, config=config)
 
-        # Print last AI message
         print("Bot:", state["messages"][-1].content)

@@ -26,11 +26,6 @@ def create_activity_list_generator_prompt_template() -> ChatPromptTemplate:
     - Do NOT inflate numbers or invent fictional elements. Every claim must be defensible in an interview.
     - Admissions officers can immediately detect exaggeration.
 
-    EXCELLENCE PATTERNS FROM ACCEPTED STUDENTS:
-    - "Led soil conservation in rural villages in Layyah; reforestation near flood prone farmlands; advised 30+ farmers; built alert app"
-    - "Designed & developed floating hydroponic system; used sensors; created app to monitor; aided 68 female farmers in rural areas"
-    - "Member U19 national team; won 5 gold & 2 silver medals; mentored younger players; selected for exclusive Int'l camp"
-
     FOR EACH ACTIVITY PROVIDE:
     1. **Enhanced Version of Existing:**
        - Current: [What they currently have]
@@ -50,7 +45,10 @@ def create_activity_list_generator_prompt_template() -> ChatPromptTemplate:
     - Activities must progress logically (early involvement → initiative → leadership → scaling).
     - Each line should make an admissions officer pause and think: “Only this student could have done this.”
 
-    OUTPUT: Only return the activities in the exact format required, no extra commentary.
+    OUTPUT: Return exactly one JSON object. Do not include any trailing commas. 
+    Do not include explanations, comments, or text outside the JSON. 
+    Every string value must be a single line. If you must break lines, use "\\n"
+    Do not wrap your output in Markdown or code fences. Return only the JSON object.
     """
     return ChatPromptTemplate.from_template(prompt)
 

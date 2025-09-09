@@ -28,7 +28,39 @@ logger = logging.getLogger(__name__)
 # Initialize LLM
 llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
+def _strip_fences(s: str) -> str:
+    s = s.strip()
+    if s.startswith("```"):
+        # remove opening fence and optional language
+        s = s[3:]
+        if s.lower().startswith("json"):
+            s = s[4:]
+        # remove trailing fence
+        if s.rstrip().endswith("```"):
+            s = s.rstrip()[:-3]
+    return s.strip()
 
+def _coerce_json(raw):
+    if not isinstance(raw, str):
+        return raw
+    s = _strip_fences(raw)
+    try:
+        return json.loads(s)
+    except Exception:
+        pass
+    # best-effort: extract biggest {...}
+    try:
+        start = s.find("{")
+        end = s.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            return json.loads(s[start:end+1])
+    except Exception:
+        pass
+    # last resort
+    try:
+        return ast.literal_eval(s)
+    except Exception:
+        return None
 
 # ---------- Input Schema ----------
 

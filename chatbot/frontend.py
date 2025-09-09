@@ -12,6 +12,8 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 # Import router and default profile
 from tools import route_tool_call
+from complete_strategy_tools import route_tool_call_complete
+
 try:
     from user_data import DUMMY_USER_DATA as DEFAULT_PROFILE
 except Exception:
@@ -33,6 +35,7 @@ profile_text = st.sidebar.text_area(
     json.dumps(DEFAULT_PROFILE, indent=2, ensure_ascii=False),
     height=420,
 )
+tool_option = st.selectbox("Select tool:", ["Standard Strategy", "Complete Strategy"])
 
 # Session state for messages
 if "messages" not in st.session_state:
@@ -44,7 +47,7 @@ for msg in st.session_state.messages:
         st.markdown(msg["content"])
 
 # Chat input
-if user_input := st.chat_input("Ask for narrative, future plan, activities, or essay"):
+if user_input := st.chat_input("Ask for narrative, future plan, activities, essay or complete strategy"):
     # Append user message
     st.session_state.messages.append({"role": "user", "content": user_input})
     with st.chat_message("user"):
@@ -59,7 +62,7 @@ if user_input := st.chat_input("Ask for narrative, future plan, activities, or e
         with st.chat_message("assistant"):
             st.error(error_msg)
         st.stop()
-
+    
     # Call router tool
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):

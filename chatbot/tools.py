@@ -1,7 +1,7 @@
 import ast
 import json
 import re
-from typing import Any, Dict, Union
+from typing import Any, Dict, Union, List
 
 from langchain_core.runnables import Runnable
 from langchain_openai import AzureChatOpenAI
@@ -27,6 +27,40 @@ logger = logging.getLogger(__name__)
 # Initialize LLM
 llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
+# ---------- Helpers ----------
+def _strip_fences_and_labels(s: str) -> str:
+    s = s.strip()
+    if s.startswith("```"):
+        s = s[3:]
+        first_newline = s.find("\n")
+        if first_newline != -1:
+            s = s[first_newline + 1 :]
+        if s.rstrip().endswith("```"):
+            s = s.rstrip()[:-3]
+    if s.lower().startswith("json "):
+        s = s[5:]
+    return s.strip()
+
+
+def _coerce_json_best_effort(raw: Any) -> Any:
+    if not isinstance(raw, str):
+        return raw
+    s = _strip_fences_and_labels(raw)
+    try:
+        return json.loads(s)
+    except Exception:
+        pass
+    try:
+        start = s.find("{")
+        end = s.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            return json.loads(s[start : end + 1])
+    except Exception:
+        pass
+    try:
+        return ast.literal_eval(s)
+    except Exception:
+        return None
 
 # ---------- Input Schemas ----------
 class NarrativeAnglesInput(BaseModel):
@@ -64,6 +98,19 @@ class MainEssayIdeasInput(BaseModel):
     future_plan: str = Field(..., description="Future plan single-line statement")
     activity_result: str = Field(..., description="Activity list text result")
 
+
+class JSONToMarkdownLLMInput(BaseModel):
+    data: Union[Dict[str, Any], List[Any], str] = Field(
+        ..., description="JSON object/list or JSON string to convert to Markdown using LLM"
+    )
+    title: str | None = Field(
+        default=None, description="Optional top-level title for the Markdown output"
+    )
+    style_hint: str | None = Field(
+        default=None,
+        description="Optional style guidance (e.g., 'Complete Application Strategy format').",
+    )
+
 # ---------- Tools ----------
 
 @tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
@@ -81,10 +128,10 @@ def generate_narrative_angles(user_profile: Union[Dict[str, Any], str]) -> Dict[
     prompt: ChatPromptTemplate = create_narrative_angles_prompt_template()
     chain: Runnable = prompt | llm | StrOutputParser()
     raw = chain.invoke({"user_profile": json.dumps(user_profile)})
-    try:
-        return json.loads(raw)
-    except Exception:
-        return {"error": "Invalid JSON from model", "raw": raw}
+    parsed = _coerce_json_best_effort(raw)
+    if isinstance(parsed, (dict, list)):
+        return parsed  # expected dict with narrative_angles or list
+    return {"error": "Invalid JSON from model", "raw": raw}
 
 
 @tool("generate_future_plan", args_schema=FuturePlanInput, return_direct=False)
@@ -177,6 +224,8 @@ def generate_main_essay_ideas(
     except Exception:
         return {"error": "Invalid JSON from model", "raw": raw}
 
+
+
 @tool("route_tool_call", return_direct=True)
 def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str]) -> Any:
     """
@@ -238,47 +287,37 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
     return json.dumps({"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}, ensure_ascii=False, indent=2)
 
 
-# @tool("route_tool_call", return_direct=True)
-# def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str]) -> Any:
-#     """
-#     Route user request to the appropriate tool:
-#     - "narrative" → generate_narrative_angles
-#     - "future plan" → generate_future_plan (auto-generates narrative first if missing)
-#     - "activities" → generate_activity_list (ensures narrative + future_plan exist)
-#     - "essay" → generate_main_essay_ideas (ensures all dependencies exist)
-#     """
-#     request_lower = user_request.lower()
+@tool("json_to_markdown_llm", args_schema=JSONToMarkdownLLMInput, return_direct=False)
+def json_to_markdown_llm(data: Union[Dict[str, Any], List[Any], str]) -> str:
+    """Convert JSON to Markdown using the LLM. Returns pure Markdown (no code fences)."""
+    try:
+        py = data if isinstance(data, (dict, list)) else json.loads(_strip_fences_and_labels(str(data)))
+    except Exception:
+        try:
+            py = ast.literal_eval(str(data))
+        except Exception as e:
+            return f"Error: {e}"
 
-#     if "narrative" in request_lower:
-#         return generate_narrative_angles.invoke({"user_profile": user_profile})
+    json_str = json.dumps(py, ensure_ascii=False, indent=2)
 
-#     elif "future" in request_lower:
-#         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-#         return generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+    system_instructions = (
+        "You are a formatter that converts JSON into clean, readable Markdown. "
+        "Output ONLY Markdown content without code fences. "
+        "Never include triple backticks. Avoid tables unless specifically asked. "
+        "Prefer headings, bullet points, and numbered lists. "
+        "Convert the JSON structure faithfully without adding creative content or changing the meaning. "
+        "Only format the existing data into Markdown structure."
+    )
 
-#     elif "activit" in request_lower:
-#         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-#         future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
-#         return generate_activity_list.invoke({
-#             "user_profile": user_profile,
-#             "narrative": narratives,
-#             "future_plan": future_plan,
-#         })
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", system_instructions),
+        ("human", "JSON:\n{json}"),
+    ])
 
-#     elif "essay" in request_lower:
-#         narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-#         future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
-#         activities = generate_activity_list.invoke({
-#             "user_profile": user_profile,
-#             "narrative": narratives,
-#             "future_plan": future_plan,
-#         })
-#         return generate_main_essay_ideas.invoke({
-#             "user_profile": user_profile,
-#             "narrative": narratives,
-#             "future_plan": future_plan,
-#             "activity_result": activities,
-#         })
+    chain: Runnable = prompt | llm | StrOutputParser()
 
-#     else:
-#         return {"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}
+    raw = chain.invoke({"json": json_str})
+
+    md = _strip_fences_and_labels(raw)
+
+    return md.strip()
