@@ -227,7 +227,12 @@ def generate_main_essay_ideas(
 
 
 @tool("route_tool_call", return_direct=True)
-def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str]) -> Any:
+def route_tool_call(
+    user_request: str,
+    user_profile: Union[Dict[str, Any], str],
+    memory: Union[Dict[str, Any], None] = None,
+    conversation_history: Union[List[Dict[str, str]], str, None] = None,
+) -> Any:
     """
     Route user request to the appropriate tool, generating minimal dependencies:
     - "narrative" → generate_narrative_angles
@@ -237,6 +242,15 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
     - "complete strategy" → generate_complete_application_strategy (all components)
     """
     text = user_request.lower()
+
+    # Initialize/normalize short-term memory container
+    if memory is None or not isinstance(memory, dict):
+        memory = {}
+
+    # Helpers to fetch cached artifacts from memory if present
+    cached_narratives = memory.get("narratives")
+    cached_future_plan = memory.get("future_plan")
+    cached_activities = memory.get("activities")
 
     def wants_narrative(s: str) -> bool:
         return re.search(r"\b(narrative|angle|angles)\b", s) is not None
@@ -252,27 +266,39 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
 
     if wants_narrative(text):
         result = generate_narrative_angles.invoke({"user_profile": user_profile})
-        return json.dumps(result, ensure_ascii=False, indent=2)
+        return {
+            "type": "narrative",
+            "result": result,
+            "memory": {"narratives": result},
+        }
 
     if wants_future(text):
-        narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
+        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": user_profile})
         result = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
-        return str(result)
+        return {
+            "type": "future_plan",
+            "result": result,
+            "memory": {"narratives": narratives, "future_plan": result},
+        }
 
     if wants_activities(text):
-        narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-        future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": user_profile})
+        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
         result = generate_activity_list.invoke({
             "user_profile": user_profile,
             "narrative": narratives,
             "future_plan": future_plan,
         })
-        return str(result)
+        return {
+            "type": "activities",
+            "result": result,
+            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": result},
+        }
 
     if wants_essay(text):
-        narratives = generate_narrative_angles.invoke({"user_profile": user_profile})
-        future_plan = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
-        activities = generate_activity_list.invoke({
+        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": user_profile})
+        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        activities = cached_activities or generate_activity_list.invoke({
             "user_profile": user_profile,
             "narrative": narratives,
             "future_plan": future_plan,
@@ -283,8 +309,12 @@ def route_tool_call(user_request: str, user_profile: Union[Dict[str, Any], str])
             "future_plan": future_plan,
             "activity_result": activities,
         })
-        return json.dumps(result, ensure_ascii=False, indent=2)
-    return json.dumps({"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}, ensure_ascii=False, indent=2)
+        return {
+            "type": "essay",
+            "result": result,
+            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": activities},
+        }
+    return {"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}
 
 
 @tool("json_to_markdown_llm", args_schema=JSONToMarkdownLLMInput, return_direct=False)
