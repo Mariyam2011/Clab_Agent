@@ -1,7 +1,10 @@
 import ast
 import json
 import re
-from typing import Any, Dict, Union, List
+import os
+import requests
+from copy import deepcopy
+from typing import Any, Dict, Union, List, Optional
 
 from langchain_core.runnables import Runnable
 from langchain_openai import AzureChatOpenAI
@@ -112,6 +115,135 @@ class JSONToMarkdownLLMInput(BaseModel):
     )
 
 # ---------- Tools ----------
+
+class WebSearchInput(BaseModel):
+    query: str = Field(..., description="Search query for the web")
+    num_results: int = Field(default=5, description="Number of results to return (1-10)")
+    time_window: Optional[str] = Field(
+        default=None,
+        description="Optional recency filter, e.g., 'd7' (7 days), 'm1' (1 month)")
+    rewrite: bool = Field(default=False, description="Rewrite the query with LLM before searching")
+    context: Optional[str] = Field(default=None, description="Optional domain context for rewriting")
+
+
+class QueryRewriteInput(BaseModel):
+    raw_query: str = Field(..., description="Original user query to be rewritten")
+    context: Optional[str] = Field(
+        default=None,
+        description="Optional context about the search domain (e.g., 'college admissions', 'scholarships')")
+
+@tool("rewrite_search_query", args_schema=QueryRewriteInput, return_direct=False)
+def rewrite_search_query(raw_query: str, context: Optional[str] = None) -> str:
+    """Rewrite a user search query to be clearer and more specific for web search."""
+    system_instructions = (
+        "You are a query rewriting expert. Improve the user's search query for web search. "
+        "Keep it concise (<= 20 words), unambiguous, and include key entities, constraints, and intent. "
+        "Prefer neutral phrasing, avoid stopwords, avoid quotes unless necessary, and do not add hallucinated facts. "
+        "Return ONLY the rewritten query, no extra text."
+    )
+
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", system_instructions),
+        ("human", "Context (optional): {ctx}\n\nOriginal query: {q}\n\nRewritten query:"),
+    ])
+    chain: Runnable = prompt | llm | StrOutputParser()
+    rewritten = chain.invoke({"ctx": context or "", "q": raw_query})
+    return rewritten.strip()
+
+def _use_tavily(query: str, num_results: int, time_window: Optional[str]) -> List[Dict[str, Any]]:
+    api_key = os.getenv("TAVILY_API_KEY")
+    if not api_key:
+        return []
+    try:
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "query": query,
+            "search_depth": "advanced",
+            "max_results": max(1, min(num_results, 10)),
+        }
+        if time_window:
+            payload["time_window"] = time_window
+        resp = requests.post("https://api.tavily.com/search", headers=headers, json=payload, timeout=30)
+        data = resp.json()
+        results = []
+        for item in (data.get("results") or [])[:num_results]:
+            results.append({
+                "title": item.get("title"),
+                "url": item.get("url"),
+                "snippet": item.get("content") or item.get("snippet"),
+                "source": "tavily",
+            })
+        return results
+    except Exception:
+        return []
+
+
+def perform_web_search(
+    query: str,
+    num_results: int = 5,
+    time_window: Optional[str] = None,
+    rewrite: bool = False,
+    context: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Search using Tavily with optional LLM rewriting and return metadata + results."""
+    original_query = query
+    final_query = query
+    if rewrite:
+        try:
+            final_query = rewrite_search_query.invoke({"raw_query": query, "context": context})  # type: ignore
+            if isinstance(final_query, dict) and "error" in final_query:
+                final_query = original_query
+            elif isinstance(final_query, dict) and "rewritten" in final_query:
+                final_query = final_query.get("rewritten") or original_query
+            elif not isinstance(final_query, str):
+                final_query = original_query
+        except Exception:
+            final_query = original_query
+
+    results = _use_tavily(final_query, num_results, time_window)
+    return {
+        "original_query": original_query,
+        "final_query": final_query,
+        "results": results,
+        "count": len(results),
+        "time_window": time_window,
+        "rewrite_applied": bool(rewrite) and final_query != original_query,
+    }
+
+
+def _should_use_web(user_text: str) -> bool:
+    text = user_text.lower()
+    triggers = [
+        r"\b(current|latest|recent|today|now|this\s+year|202\d|202[0-9])\b",
+        r"\b(news|update|changes?|deadlines?|rankings?|requirements?)\b",
+        r"\bsearch\b|\bweb\b|\bonline\b",
+    ]
+    for pat in triggers:
+        if re.search(pat, text):
+            return True
+    return False
+
+
+@tool("web_search", args_schema=WebSearchInput, return_direct=False)
+def web_search(
+    query: str,
+    num_results: int = 5,
+    time_window: Optional[str] = None,
+    rewrite: bool = False,
+    context: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Search the web and return metadata + list of sources with title, url, snippet."""
+    payload = perform_web_search(
+        query=query,
+        num_results=num_results,
+        time_window=time_window,
+        rewrite=rewrite,
+        context=context,
+    )
+    return payload
 
 @tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
 def generate_narrative_angles(user_profile: Union[Dict[str, Any], str]) -> Dict[str, Any]:
@@ -264,47 +396,71 @@ def route_tool_call(
     def wants_essay(s: str) -> bool:
         return re.search(r"\b(essay|personal\s*statement|main\s*essay)\b", s) is not None
 
+    # Opportunistic web enrichment
+    enriched_profile = user_profile
+    try:
+        if _should_use_web(text):
+            web_payload = web_search.invoke({
+                "query": user_request,
+                "num_results": 5,
+                "rewrite": bool(memory.get("rewrite_queries", False)),
+                "context": memory.get("search_context"),
+            })
+            memory["web_context"] = web_payload.get("results")
+            memory["web_meta"] = {
+                "original_query": web_payload.get("original_query"),
+                "final_query": web_payload.get("final_query"),
+                "rewrite_applied": web_payload.get("rewrite_applied", False),
+                "time_window": web_payload.get("time_window"),
+            }
+            if isinstance(user_profile, dict):
+                tmp = deepcopy(user_profile)
+                tmp["web_context"] = memory["web_context"]
+                enriched_profile = tmp
+    except Exception:
+        enriched_profile = user_profile
+
     if wants_narrative(text):
-        result = generate_narrative_angles.invoke({"user_profile": user_profile})
+        result = generate_narrative_angles.invoke({"user_profile": enriched_profile})
         return {
             "type": "narrative",
             "result": result,
-            "memory": {"narratives": result},
+            "memory": {"narratives": result, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
         }
 
     if wants_future(text):
-        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": user_profile})
-        result = generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": enriched_profile})
+        result = generate_future_plan.invoke({"user_profile": enriched_profile, "narrative": narratives})
         return {
             "type": "future_plan",
             "result": result,
-            "memory": {"narratives": narratives, "future_plan": result},
+            "memory": {"narratives": narratives, "future_plan": result, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
         }
 
     if wants_activities(text):
-        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": user_profile})
-        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": enriched_profile})
+        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": enriched_profile, "narrative": narratives})
         result = generate_activity_list.invoke({
-            "user_profile": user_profile,
+            "user_profile": enriched_profile,
             "narrative": narratives,
             "future_plan": future_plan,
         })
         return {
             "type": "activities",
             "result": result,
-            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": result},
+            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": result, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
         }
 
     if wants_essay(text):
-        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": user_profile})
-        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": user_profile, "narrative": narratives})
+        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": enriched_profile})
+        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": enriched_profile, "narrative": narratives})
         activities = cached_activities or generate_activity_list.invoke({
-            "user_profile": user_profile,
+            "user_profile": enriched_profile,
             "narrative": narratives,
             "future_plan": future_plan,
         })
         result = generate_main_essay_ideas.invoke({
-            "user_profile": json.dumps(user_profile, ensure_ascii=False),
+            "user_profile": json.dumps(enriched_profile, ensure_ascii=False),
             "narrative": json.dumps(narratives, ensure_ascii=False),
             "future_plan": future_plan,
             "activity_result": activities,
@@ -312,9 +468,25 @@ def route_tool_call(
         return {
             "type": "essay",
             "result": result,
-            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": activities},
+            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": activities, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
         }
-    return {"error": "Unknown request type. Try: narrative, future plan, activities, or essay."}
+    # Explicit web search request
+    if re.search(r"\b(web\s*search|search\s*web|search)\b", text):
+        payload = web_search.invoke({
+            "query": user_request,
+            "num_results": 5,
+            "rewrite": bool(memory.get("rewrite_queries", False)),
+            "context": memory.get("search_context"),
+        })
+        memory["web_context"] = payload.get("results")
+        memory["web_meta"] = {
+            "original_query": payload.get("original_query"),
+            "final_query": payload.get("final_query"),
+            "rewrite_applied": payload.get("rewrite_applied", False),
+            "time_window": payload.get("time_window"),
+        }
+        return {"type": "web_search", "result": payload, "memory": {"web_context": memory["web_context"], "web_meta": memory["web_meta"]}}
+    return {"error": "Unknown request type. Try: narrative, future plan, activities, essay, or 'search'."}
 
 
 @tool("json_to_markdown_llm", args_schema=JSONToMarkdownLLMInput, return_direct=False)

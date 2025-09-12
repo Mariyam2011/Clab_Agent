@@ -25,6 +25,9 @@ class ChatState(TypedDict):
     tool_option: str
     format_option: str  # "JSON" or "Markdown (LLM)"
     memory: dict  # short-term memory for artifacts
+    # Optional toggles for web search query rewriting
+    rewrite_queries: bool
+    search_context: str | None
 
 # 2. Define Chat Node
 def chat_node(state: ChatState):
@@ -36,6 +39,14 @@ def chat_node(state: ChatState):
     tool_option = state.get("tool_option", "standard strategy")
     format_option = state.get("format_option", "JSON")
     memory = state.get("memory", {})
+    # Sync rewrite settings from state into memory so tools can read them
+    try:
+        if "rewrite_queries" in state:
+            memory["rewrite_queries"] = bool(state.get("rewrite_queries", False))
+        if state.get("search_context"):
+            memory["search_context"] = state.get("search_context")
+    except Exception:
+        pass
 
     # Route request → tool execution
     try:
@@ -93,6 +104,25 @@ def chat_node(state: ChatState):
             payload = response.get("result")
         else:
             payload = response
+        # If payload is a web_search response, render a concise text
+        try:
+            if isinstance(response, dict) and response.get("type") == "web_search" and isinstance(payload, dict):
+                items = payload.get("results") or []
+                meta_header = []
+                if payload.get("original_query") or payload.get("final_query"):
+                    meta_header.append(f"Original query: {payload.get('original_query','')}")
+                    meta_header.append(f"Final query: {payload.get('final_query','')}")
+                    meta_header.append(f"Rewrite applied: {payload.get('rewrite_applied', False)}")
+                lines = (["\n".join(meta_header)] if meta_header else []) + ["Web search results:"]
+                for idx, it in enumerate(items[:5], start=1):
+                    title = it.get("title") or f"Result {idx}"
+                    url = it.get("url") or ""
+                    snippet = it.get("snippet") or ""
+                    lines.append(f"{idx}. {title} - {url}\n{snippet}")
+                text_out = "\n\n".join(lines) if len(lines) > 1 else str(payload)
+                return {"messages": state["messages"] + [AIMessage(content=text_out)], "memory": memory}
+        except Exception:
+            pass
         return {"messages": state["messages"] + [AIMessage(content=str(payload))], "memory": memory}
     except Exception as e:
         return {"messages": state["messages"] + [AIMessage(content=f"Error: {e}")], "memory": memory}
@@ -109,7 +139,7 @@ chatbot = graph.compile(checkpointer=checkpointer)
 
 # 4. Run the Chatbot
 if __name__ == "__main__":
-    state = {"messages": [], "tool_option": "standard strategy", "format_option": "JSON", "memory": {}}
+    state = {"messages": [], "tool_option": "standard strategy", "format_option": "JSON", "memory": {}, "rewrite_queries": False, "search_context": None}
     while True:
         user_input = input("You: ")
         if user_input.lower() in ["exit", "quit"]:
@@ -124,6 +154,17 @@ if __name__ == "__main__":
             state["format_option"] = "Markdown (LLM)"
         else:
             state["format_option"] = "JSON"
+        try:
+            rw_choice = input("Rewrite web queries? 1. No 2. Yes ")
+            state["rewrite_queries"] = True if rw_choice.strip() == "2" else False
+            if state["rewrite_queries"]:
+                ctx = input("Query rewrite context (optional): ")
+                state["search_context"] = ctx if ctx.strip() else None
+            else:
+                state["search_context"] = None
+        except Exception:
+            state["rewrite_queries"] = False
+            state["search_context"] = None
             
         # Add user msg to state (append takes only the message)
         state["messages"].append(HumanMessage(content=user_input))
