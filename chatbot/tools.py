@@ -114,8 +114,6 @@ class JSONToMarkdownLLMInput(BaseModel):
         description="Optional style guidance (e.g., 'Complete Application Strategy format').",
     )
 
-# ---------- Tools ----------
-
 class WebSearchInput(BaseModel):
     query: str = Field(..., description="Search query for the web")
     num_results: int = Field(default=5, description="Number of results to return (1-10)")
@@ -131,6 +129,8 @@ class QueryRewriteInput(BaseModel):
     context: Optional[str] = Field(
         default=None,
         description="Optional context about the search domain (e.g., 'college admissions', 'scholarships')")
+
+# ---------- Tools ----------
 
 @tool("rewrite_search_query", args_schema=QueryRewriteInput, return_direct=False)
 def rewrite_search_query(raw_query: str, context: Optional[str] = None) -> str:

@@ -10,9 +10,9 @@ load_dotenv()
 # Allow importing from project root (one level up from /chatbot)
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-# Import router, formatters, and default profile
-from tools import route_tool_call, json_to_markdown_llm
-from complete_strategy_tools import route_tool_call_complete
+# Import compiled chatbot graph and message classes
+from backend import chatbot, config as CHAT_CONFIG
+from langchain_core.messages import HumanMessage, AIMessage
 
 try:
     from user_data import DUMMY_USER_DATA as DEFAULT_PROFILE
@@ -77,67 +77,42 @@ if user_input := st.chat_input("Ask for narrative, future plan, activities, essa
     else:
         st.session_state.memory.pop("search_context", None)
 
-    # Call router tool
+    # Build state and call agent graph
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
-                if tool_option == "Complete Strategy":
-                    response = route_tool_call_complete.invoke({
-                        "user_request": outgoing_text,
-                        "user_profile": user_profile,
-                    })
-                else:
-                    response = route_tool_call.invoke({
-                        "user_request": outgoing_text,
-                        "user_profile": user_profile,
-                        "memory": st.session_state.memory,
-                        "conversation_history": st.session_state.messages[-6:],
-                    })
-
-                # Decide how to render output
-                # Unwrap memory-aware response
-                new_memory = None
-                payload = response
-                if isinstance(response, dict) and "result" in response:
-                    new_memory = response.get("memory") or {}
-                    payload = response.get("result")
-
-                if new_memory:
-                    st.session_state.memory.update(new_memory)
-
-                if format_option == "JSON":
-                    output = payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False, indent=2)
-                else:
-                    # Try to coerce to JSON-like Python object
-                    py_obj = None
-                    if isinstance(payload, (dict, list)):
-                        py_obj = payload
-                    elif isinstance(payload, str):
-                        try:
-                            py_obj = json.loads(payload)
-                        except Exception:
-                            py_obj = None
-
-                    if py_obj is not None:
-                        try:
-                            if format_option == "Markdown (LLM)":
-                                output = json_to_markdown_llm.invoke({
-                                    "data": py_obj,
-                                })
-                            else:
-                                output = json_to_markdown_llm.invoke({"data": py_obj})
-                        except Exception:
-                            output = payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False, indent=2)
+                # Convert history to LangChain messages
+                lc_history = []
+                for m in st.session_state.messages[-6:]:
+                    if m["role"] == "user":
+                        lc_history.append(HumanMessage(content=m["content"]))
                     else:
-                        # Fall back to raw rendering if we cannot parse JSON
-                        output = payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False, indent=2)
+                        lc_history.append(AIMessage(content=m["content"]))
+
+                # Build agent state
+                state = {
+                    "messages": lc_history + [HumanMessage(content=outgoing_text)],
+                    "tool_option": "complete strategy" if tool_option == "Complete Strategy" else "standard strategy",
+                    "format_option": format_option,
+                    "memory": dict(st.session_state.memory),
+                    "rewrite_queries": bool(rewrite_queries),
+                    "search_context": search_context if search_context else None,
+                }
+
+                # Invoke one step
+                new_state = chatbot.invoke(state, config=CHAT_CONFIG)
+
+                # Extract assistant reply
+                ai_msg = new_state["messages"][-1].content if new_state.get("messages") else ""
+                st.session_state.memory.update(new_state.get("memory", {}))
+                output = ai_msg
             except Exception as e:
                 output = f"Error: {e}"
 
             st.markdown(output)
             st.session_state.messages.append({"role": "assistant", "content": output})
 
-            # Show web sources if present in memory
+            # Optionally render web context if tools populate it in memory
             web_ctx = st.session_state.memory.get("web_context")
             if web_ctx:
                 with st.expander("Web sources used"):

@@ -1,23 +1,44 @@
 import os
 import sys
+import json
 
-from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, ToolMessage
 from langgraph.graph import StateGraph
 from typing import TypedDict, List
 from langgraph.checkpoint.memory import MemorySaver
+from langgraph.prebuilt import ToolNode
+from langgraph.prebuilt.tool_node import tools_condition
 from user_data import DUMMY_USER_DATA
 from dotenv import load_dotenv
+from langchain_openai import AzureChatOpenAI
 
 load_dotenv()
 
 # Allow importing modules from project root (one level up)
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-# Import your router tool
-from tools import route_tool_call, json_to_markdown_llm
+# Import tools to bind to the LLM
+from tools import (
+    route_tool_call,
+    json_to_markdown_llm,
+    web_search,
+    rewrite_search_query,
+)
 from complete_strategy_tools import route_tool_call_complete
 
-config = {"configurable": {"thread_id": "1"}}
+config = {"recursion_limit": 4}
+
+# Initialize LLM with tool calling
+_AZURE_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
+llm = AzureChatOpenAI(deployment_name=_AZURE_DEPLOYMENT)
+tools = [
+    route_tool_call,
+    route_tool_call_complete,
+    json_to_markdown_llm,
+    web_search,
+    rewrite_search_query,
+]
+llm_with_tools = llm.bind_tools(tools)
 
 # 1. Define Chat State
 class ChatState(TypedDict):
@@ -29,17 +50,22 @@ class ChatState(TypedDict):
     rewrite_queries: bool
     search_context: str | None
 
-# 2. Define Chat Node
-def chat_node(state: ChatState):
-    """Chat node that calls the router tool when the user sends a message."""
-    user_msg = state["messages"][-1].content  # last user message
+"""
+2. Define Agent + Tool nodes using LLM tool calling
+"""
 
-    # For now, assume user_profile is known (could also be pulled from memory/db)
+SYSTEM_INSTRUCTIONS = (
+    "You are an elite admissions strategist. "
+    "Use the available tools to fulfill the user's request. "
+    "Prefer calling the router tools (`route_tool_call` or `route_tool_call_complete`) once per user request. "
+    "Always include the user's profile, short-term memory, and recent conversation as tool arguments when applicable. "
+    "If tool results are already present in the conversation, synthesize the final answer directly and DO NOT call tools again. "
+    "If a tool returns structured JSON, you may return it directly or format using `json_to_markdown_llm` when asked for Markdown."
+)
+
+def _build_context_system_message(state: ChatState) -> SystemMessage:
     user_profile = DUMMY_USER_DATA
-    tool_option = state.get("tool_option", "standard strategy")
-    format_option = state.get("format_option", "JSON")
-    memory = state.get("memory", {})
-    # Sync rewrite settings from state into memory so tools can read them
+    memory = dict(state.get("memory", {}))
     try:
         if "rewrite_queries" in state:
             memory["rewrite_queries"] = bool(state.get("rewrite_queries", False))
@@ -48,94 +74,64 @@ def chat_node(state: ChatState):
     except Exception:
         pass
 
-    # Route request → tool execution
-    try:
-        if tool_option == "complete strategy":
-            response = route_tool_call_complete.invoke({
-                "user_request": user_msg,
-                "user_profile": user_profile
-            })
-        else:
-            response = route_tool_call.invoke({
-                "user_request": user_msg,
-                "user_profile": user_profile,
-                "memory": memory,
-                "conversation_history": [
-                    {"role": ("user" if isinstance(m, HumanMessage) else "assistant"), "content": m.content}
-                    for m in state["messages"][-6:]
-                ],
-            })
+    conversation_history = [
+        {"role": ("user" if isinstance(m, HumanMessage) else "assistant"), "content": m.content}
+        for m in state.get("messages", [])[-6:]
+    ]
 
-        # Optional LLM-based Markdown formatting
-        if format_option == "Markdown (LLM)":
-            output = None
-            try:
-                import json as _json
-                # Unwrap memory-aware response shape
-                if isinstance(response, dict) and "result" in response:
-                    new_memory = response.get("memory") or {}
-                    memory.update(new_memory)
-                    payload = response.get("result")
-                else:
-                    payload = response
+    ctx = {
+        "user_profile": user_profile,
+        "memory": memory,
+        "conversation_history": conversation_history,
+        "format_option": state.get("format_option", "JSON"),
+        "tool_option": state.get("tool_option", "standard strategy"),
+    }
+    return SystemMessage(content=f"{SYSTEM_INSTRUCTIONS}\n\nCONTEXT(JSON): {json.dumps(ctx)}")
 
-                if isinstance(payload, (dict, list)):
-                    py_obj = payload
-                else:
-                    try:
-                        py_obj = _json.loads(str(payload))
-                    except Exception:
-                        py_obj = None
-                if py_obj is not None:
-                    output = json_to_markdown_llm.invoke({
-                        "data": py_obj,
-
-                    })
-            except Exception:
-                output = None
-            if output is None:
-                output = str(payload)
-            new_state = {"messages": state["messages"] + [AIMessage(content=output)], "memory": memory}
-            return new_state
-
-        # Raw/JSON path
-        if isinstance(response, dict) and "result" in response:
-            memory.update(response.get("memory") or {})
-            payload = response.get("result")
-        else:
-            payload = response
-        # If payload is a web_search response, render a concise text
+def agent_node(state: ChatState):
+    # Build system message with context and any prior tool results (so the LLM can finalize)
+    base_sys = _build_context_system_message(state).content
+    recent = state["messages"][-12:]
+    tool_results = [m.content for m in recent if isinstance(m, ToolMessage)]
+    if tool_results:
         try:
-            if isinstance(response, dict) and response.get("type") == "web_search" and isinstance(payload, dict):
-                items = payload.get("results") or []
-                meta_header = []
-                if payload.get("original_query") or payload.get("final_query"):
-                    meta_header.append(f"Original query: {payload.get('original_query','')}")
-                    meta_header.append(f"Final query: {payload.get('final_query','')}")
-                    meta_header.append(f"Rewrite applied: {payload.get('rewrite_applied', False)}")
-                lines = (["\n".join(meta_header)] if meta_header else []) + ["Web search results:"]
-                for idx, it in enumerate(items[:5], start=1):
-                    title = it.get("title") or f"Result {idx}"
-                    url = it.get("url") or ""
-                    snippet = it.get("snippet") or ""
-                    lines.append(f"{idx}. {title} - {url}\n{snippet}")
-                text_out = "\n\n".join(lines) if len(lines) > 1 else str(payload)
-                return {"messages": state["messages"] + [AIMessage(content=text_out)], "memory": memory}
+            base_sys += "\n\nTOOL_RESULTS:\n" + "\n".join(tool_results[:4])
+            base_sys += "\n\nSTRICT: The above tool results are sufficient. Do NOT call any tools again. Produce the final answer now."
         except Exception:
             pass
-        return {"messages": state["messages"] + [AIMessage(content=str(payload))], "memory": memory}
-    except Exception as e:
-        return {"messages": state["messages"] + [AIMessage(content=f"Error: {e}")], "memory": memory}
+    system_msg = SystemMessage(content=base_sys)
+    # Azure constraint: drop ToolMessage from the visible transcript
+    cleaned = [m for m in recent if not isinstance(m, ToolMessage)]
+    msgs = [system_msg] + cleaned
+    ai = llm_with_tools.invoke(msgs)
+    return {"messages": state["messages"] + [ai]}
+
+tools_node = ToolNode(tools)
+
+def should_continue(state: ChatState):
+    """Route to tools only if the last assistant message actually requested a tool call.
+
+    Prevents infinite ping-pong when the model replies without tool_calls or when
+    prior tool messages exist but have been sanitized from the visible transcript.
+    """
+    try:
+        last = state["messages"][-1]
+        if isinstance(last, AIMessage) and getattr(last, "tool_calls", None):
+            return "tools"
+    except Exception:
+        pass
+    return "end"
 
 # 3. Build the Graph
-checkpointer = MemorySaver()
 
 graph = StateGraph(ChatState)
-graph.add_node("chat", chat_node)
-graph.set_entry_point("chat")
-graph.set_finish_point("chat")
+graph.add_node("agent", agent_node)
+graph.add_node("tools", tools_node)
+graph.set_entry_point("agent")
+graph.add_conditional_edges("agent", tools_condition)
+graph.add_edge("tools", "agent")
 
-chatbot = graph.compile(checkpointer=checkpointer)
+chatbot = graph.compile()
 
 # 4. Run the Chatbot
 if __name__ == "__main__":
