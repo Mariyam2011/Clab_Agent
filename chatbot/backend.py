@@ -52,18 +52,14 @@ def _build_context_system_message(user_profile: Dict[str, Any]) -> SystemMessage
     )
 
 
-def invoke_agent_tool(
-    agent_name: str, recent_messages: List[BaseMessage], user_profile: Dict[str, Any]
-) -> str:
-    user_context = recent_messages + [user_profile]
-
+def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_profile: Dict[str, Any]) -> str:
     if agent_name not in AGENT_TOOLS:
         return f"Error: Unknown agent '{agent_name}'. Available agents: {list(AGENT_TOOLS.keys())}"
 
     try:
         tool_function = AGENT_TOOLS[agent_name]
 
-        result = tool_function(user_context=user_context)
+        result = tool_function.invoke({"user_profile": user_profile, "recent_messages": recent_messages})
 
         if isinstance(result, dict):
             return json.dumps(result, indent=2, ensure_ascii=False)
@@ -81,9 +77,7 @@ def chatbot_invoke(state: ChatState) -> ChatState:
     selected_agent = state.get("selected_agent")
 
     if selected_agent and selected_agent in AGENT_TOOLS:
-        response_content = invoke_agent_tool(
-            selected_agent, recent_messages, user_profile
-        )
+        response_content = invoke_agent_tool(selected_agent, recent_messages, user_profile)
 
         ai_message = AIMessage(content=response_content)
     else:
@@ -106,9 +100,7 @@ if __name__ == "__main__":
     }
 
     print("College Admissions Copilot - CLI Mode")
-    print(
-        "Available agents: @narrative_angles, @future_plan, @activity_list, @main_essay_ideas"
-    )
+    print("Available agents: @narrative_angles, @future_plan, @activity_list, @main_essay_ideas")
     print("Type 'exit' or 'quit' to stop\n")
 
     while True:

@@ -87,11 +87,7 @@ if user_input:
 
                 new_state = chatbot_invoke(state)
 
-                ai_msg = (
-                    new_state["messages"][-1].content
-                    if new_state.get("messages")
-                    else "No response generated."
-                )
+                ai_msg = new_state["messages"][-1].content if new_state.get("messages") else "No response generated."
 
                 output = ai_msg
 

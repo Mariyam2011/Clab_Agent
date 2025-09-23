@@ -3,6 +3,9 @@ Narrative angles generation tool for college application strategy.
 Generates 3-5 narrative angles based on user context.
 """
 
+import json
+
+from typing import List, Dict, Any
 from langchain_core.runnables import Runnable
 from langchain_openai import AzureChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
@@ -12,6 +15,10 @@ from pydantic import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
 
 from langchain_core.tools import tool
+
+from tools.utils import create_conversation_context
+
+from langchain_core.messages import BaseMessage
 
 
 llm = AzureChatOpenAI(deployment_name="gpt-4o")
@@ -66,19 +73,20 @@ def create_narrative_angles_prompt_template() -> ChatPromptTemplate:
     Every string value must be a single line. If you must break lines, use "\\n"
     """
 
-    return ChatPromptTemplate.from_messages(
-        [("system", system_prompt), ("user", user_prompt)]
-    )
+    return ChatPromptTemplate.from_messages([("system", system_prompt), ("user", user_prompt)])
 
 
 class NarrativeAnglesInput(BaseModel):
-    user_context: str = Field(..., description="Complete user context")
+    user_profile: Dict[str, Any] = Field(..., description="Complete user profile")
+    recent_messages: List[BaseMessage] = Field(..., description="Recent conversation messages")
 
 
-@tool(
-    "generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False
-)
-def generate_narrative_angles(user_context: str) -> str:
+@tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
+def generate_narrative_angles(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
+    """Generate unique narrative angles for college application strategy based on user context."""
+    user_context = create_conversation_context(recent_messages)
+    user_context += f"\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
+
     prompt: ChatPromptTemplate = create_narrative_angles_prompt_template()
 
     chain: Runnable = prompt | llm | StrOutputParser()
