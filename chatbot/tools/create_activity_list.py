@@ -155,9 +155,9 @@ class ActivityListInput(BaseModel):
     recent_messages: List[BaseMessage] = Field(..., description="Recent conversation messages")
 
 
-@tool("generate_activity_list", args_schema=ActivityListInput, return_direct=False)
-def generate_activity_list(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
-    """Generate enhanced activities and new signature activities for college applications based on user context."""
+@tool("create_activity_list", args_schema=ActivityListInput, return_direct=False)
+def create_activity_list(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
+    """Create enhanced activities and new signature activities for college applications based on user context."""
 
     user_context = create_conversation_context(recent_messages)
     user_context += f"\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"

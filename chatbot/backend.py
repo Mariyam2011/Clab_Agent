@@ -13,9 +13,10 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 load_dotenv()
 
 from tools import (
-    generate_narrative_angles,
-    generate_future_plan,
-    generate_activity_list,
+    suggest_narrative_angles,
+    create_future_plan,
+    format_activity_list,
+    create_activity_list,
     generate_main_essay_ideas,
 )
 
@@ -31,10 +32,11 @@ class ChatState(TypedDict):
 
 
 AGENT_TOOLS = {
-    "narrative_angles": generate_narrative_angles,
-    "future_plan": generate_future_plan,
-    "activity_list": generate_activity_list,
-    "main_essay_ideas": generate_main_essay_ideas,
+    "suggest_narrative_angles": suggest_narrative_angles,
+    "create_future_plan": create_future_plan,
+    "create_activity_list": create_activity_list,
+    "format_activity_list": format_activity_list,
+    "generate_main_essay_ideas": generate_main_essay_ideas,
 }
 
 SYSTEM_INSTRUCTIONS = (
@@ -100,7 +102,6 @@ if __name__ == "__main__":
     }
 
     print("College Admissions Copilot - CLI Mode")
-    print("Available agents: @narrative_angles, @future_plan, @activity_list, @main_essay_ideas")
     print("Type 'exit' or 'quit' to stop\n")
 
     while True:

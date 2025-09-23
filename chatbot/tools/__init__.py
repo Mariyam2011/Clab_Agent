@@ -1,12 +1,13 @@
-from .narrative_angles_tool import generate_narrative_angles
-from .future_plan_tool import generate_future_plan
-from .activity_list_tool import generate_activity_list
-from .main_essay_tool import generate_main_essay_ideas
-
+from .suggest_narrative_angles import suggest_narrative_angles
+from .create_future_plan import create_future_plan
+from .format_activity_list import format_activity_list
+from .create_activity_list import create_activity_list
+from .generate_main_essay_ideas import generate_main_essay_ideas
 
 __all__ = [
-    "generate_narrative_angles",
-    "generate_future_plan",
-    "generate_activity_list",
+    "suggest_narrative_angles",
+    "create_future_plan",
+    "format_activity_list",
+    "create_activity_list",
     "generate_main_essay_ideas",
 ]

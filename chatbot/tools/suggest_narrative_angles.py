@@ -81,8 +81,8 @@ class NarrativeAnglesInput(BaseModel):
     recent_messages: List[BaseMessage] = Field(..., description="Recent conversation messages")
 
 
-@tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
-def generate_narrative_angles(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
+@tool("suggest_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
+def suggest_narrative_angles(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
     """Generate unique narrative angles for college application strategy based on user context."""
     user_context = create_conversation_context(recent_messages)
     user_context += f"\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"

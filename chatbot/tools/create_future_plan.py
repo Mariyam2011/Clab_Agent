@@ -69,9 +69,9 @@ class FuturePlanInput(BaseModel):
     recent_messages: List[BaseMessage] = Field(..., description="Recent conversation messages")
 
 
-@tool("generate_future_plan", args_schema=FuturePlanInput, return_direct=False)
-def generate_future_plan(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
-    """Generate a compelling future plan statement for college applications based on user context."""
+@tool("create_future_plan", args_schema=FuturePlanInput, return_direct=False)
+def create_future_plan(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
+    """Create a compelling future plan statement for college applications based on user context."""
     user_context = create_conversation_context(recent_messages)
     user_context += f"\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
 
