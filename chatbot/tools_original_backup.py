@@ -30,6 +30,7 @@ logger = logging.getLogger(__name__)
 # Initialize LLM
 llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
+
 # ---------- Helpers ----------
 def _strip_fences_and_labels(s: str) -> str:
     s = s.strip()
@@ -64,6 +65,7 @@ def _coerce_json_best_effort(raw: Any) -> Any:
         return ast.literal_eval(s)
     except Exception:
         return None
+
 
 # ---------- Input Schemas ----------
 class NarrativeAnglesInput(BaseModel):
@@ -104,7 +106,8 @@ class MainEssayIdeasInput(BaseModel):
 
 class JSONToMarkdownLLMInput(BaseModel):
     data: Union[Dict[str, Any], List[Any], str] = Field(
-        ..., description="JSON object/list or JSON string to convert to Markdown using LLM"
+        ...,
+        description="JSON object/list or JSON string to convert to Markdown using LLM",
     )
     title: str | None = Field(
         default=None, description="Optional top-level title for the Markdown output"
@@ -114,23 +117,34 @@ class JSONToMarkdownLLMInput(BaseModel):
         description="Optional style guidance (e.g., 'Complete Application Strategy format').",
     )
 
+
 class WebSearchInput(BaseModel):
     query: str = Field(..., description="Search query for the web")
-    num_results: int = Field(default=5, description="Number of results to return (1-10)")
+    num_results: int = Field(
+        default=5, description="Number of results to return (1-10)"
+    )
     time_window: Optional[str] = Field(
         default=None,
-        description="Optional recency filter, e.g., 'd7' (7 days), 'm1' (1 month)")
-    rewrite: bool = Field(default=False, description="Rewrite the query with LLM before searching")
-    context: Optional[str] = Field(default=None, description="Optional domain context for rewriting")
+        description="Optional recency filter, e.g., 'd7' (7 days), 'm1' (1 month)",
+    )
+    rewrite: bool = Field(
+        default=False, description="Rewrite the query with LLM before searching"
+    )
+    context: Optional[str] = Field(
+        default=None, description="Optional domain context for rewriting"
+    )
 
 
 class QueryRewriteInput(BaseModel):
     raw_query: str = Field(..., description="Original user query to be rewritten")
     context: Optional[str] = Field(
         default=None,
-        description="Optional context about the search domain (e.g., 'college admissions', 'scholarships')")
+        description="Optional context about the search domain (e.g., 'college admissions', 'scholarships')",
+    )
+
 
 # ---------- Tools ----------
+
 
 @tool("rewrite_search_query", args_schema=QueryRewriteInput, return_direct=False)
 def rewrite_search_query(raw_query: str, context: Optional[str] = None) -> str:
@@ -142,15 +156,23 @@ def rewrite_search_query(raw_query: str, context: Optional[str] = None) -> str:
         "Return ONLY the rewritten query, no extra text."
     )
 
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", system_instructions),
-        ("human", "Context (optional): {ctx}\n\nOriginal query: {q}\n\nRewritten query:"),
-    ])
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", system_instructions),
+            (
+                "human",
+                "Context (optional): {ctx}\n\nOriginal query: {q}\n\nRewritten query:",
+            ),
+        ]
+    )
     chain: Runnable = prompt | llm | StrOutputParser()
     rewritten = chain.invoke({"ctx": context or "", "q": raw_query})
     return rewritten.strip()
 
-def _use_tavily(query: str, num_results: int, time_window: Optional[str]) -> List[Dict[str, Any]]:
+
+def _use_tavily(
+    query: str, num_results: int, time_window: Optional[str]
+) -> List[Dict[str, Any]]:
     api_key = os.getenv("TAVILY_API_KEY")
     if not api_key:
         return []
@@ -166,16 +188,20 @@ def _use_tavily(query: str, num_results: int, time_window: Optional[str]) -> Lis
         }
         if time_window:
             payload["time_window"] = time_window
-        resp = requests.post("https://api.tavily.com/search", headers=headers, json=payload, timeout=30)
+        resp = requests.post(
+            "https://api.tavily.com/search", headers=headers, json=payload, timeout=30
+        )
         data = resp.json()
         results = []
         for item in (data.get("results") or [])[:num_results]:
-            results.append({
-                "title": item.get("title"),
-                "url": item.get("url"),
-                "snippet": item.get("content") or item.get("snippet"),
-                "source": "tavily",
-            })
+            results.append(
+                {
+                    "title": item.get("title"),
+                    "url": item.get("url"),
+                    "snippet": item.get("content") or item.get("snippet"),
+                    "source": "tavily",
+                }
+            )
         return results
     except Exception:
         return []
@@ -193,7 +219,9 @@ def perform_web_search(
     final_query = query
     if rewrite:
         try:
-            final_query = rewrite_search_query.invoke({"raw_query": query, "context": context})  # type: ignore
+            final_query = rewrite_search_query.invoke(
+                {"raw_query": query, "context": context}
+            )  # type: ignore
             if isinstance(final_query, dict) and "error" in final_query:
                 final_query = original_query
             elif isinstance(final_query, dict) and "rewritten" in final_query:
@@ -245,8 +273,13 @@ def web_search(
     )
     return payload
 
-@tool("generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False)
-def generate_narrative_angles(user_profile: Union[Dict[str, Any], str]) -> Dict[str, Any]:
+
+@tool(
+    "generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False
+)
+def generate_narrative_angles(
+    user_profile: Union[Dict[str, Any], str],
+) -> Dict[str, Any]:
     """Generate 3-5 narrative angles as JSON."""
     if isinstance(user_profile, str):
         try:
@@ -357,7 +390,6 @@ def generate_main_essay_ideas(
         return {"error": "Invalid JSON from model", "raw": raw}
 
 
-
 @tool("route_tool_call", return_direct=True)
 def route_tool_call(
     user_request: str,
@@ -394,18 +426,22 @@ def route_tool_call(
         return re.search(r"\b(activit(?:y|ies)|extracurriculars?)\b", s) is not None
 
     def wants_essay(s: str) -> bool:
-        return re.search(r"\b(essay|personal\s*statement|main\s*essay)\b", s) is not None
+        return (
+            re.search(r"\b(essay|personal\s*statement|main\s*essay)\b", s) is not None
+        )
 
     # Opportunistic web enrichment
     enriched_profile = user_profile
     try:
         if _should_use_web(text):
-            web_payload = web_search.invoke({
-                "query": user_request,
-                "num_results": 5,
-                "rewrite": bool(memory.get("rewrite_queries", False)),
-                "context": memory.get("search_context"),
-            })
+            web_payload = web_search.invoke(
+                {
+                    "query": user_request,
+                    "num_results": 5,
+                    "rewrite": bool(memory.get("rewrite_queries", False)),
+                    "context": memory.get("search_context"),
+                }
+            )
             memory["web_context"] = web_payload.get("results")
             memory["web_meta"] = {
                 "original_query": web_payload.get("original_query"),
@@ -425,59 +461,112 @@ def route_tool_call(
         return {
             "type": "narrative",
             "result": result,
-            "memory": {"narratives": result, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
+            "memory": {
+                "narratives": result,
+                **(
+                    {"web_context": memory.get("web_context")}
+                    if memory.get("web_context")
+                    else {}
+                ),
+            },
         }
 
     if wants_future(text):
-        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": enriched_profile})
-        result = generate_future_plan.invoke({"user_profile": enriched_profile, "narrative": narratives})
+        narratives = cached_narratives or generate_narrative_angles.invoke(
+            {"user_profile": enriched_profile}
+        )
+        result = generate_future_plan.invoke(
+            {"user_profile": enriched_profile, "narrative": narratives}
+        )
         return {
             "type": "future_plan",
             "result": result,
-            "memory": {"narratives": narratives, "future_plan": result, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
+            "memory": {
+                "narratives": narratives,
+                "future_plan": result,
+                **(
+                    {"web_context": memory.get("web_context")}
+                    if memory.get("web_context")
+                    else {}
+                ),
+            },
         }
 
     if wants_activities(text):
-        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": enriched_profile})
-        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": enriched_profile, "narrative": narratives})
-        result = generate_activity_list.invoke({
-            "user_profile": enriched_profile,
-            "narrative": narratives,
-            "future_plan": future_plan,
-        })
+        narratives = cached_narratives or generate_narrative_angles.invoke(
+            {"user_profile": enriched_profile}
+        )
+        future_plan = cached_future_plan or generate_future_plan.invoke(
+            {"user_profile": enriched_profile, "narrative": narratives}
+        )
+        result = generate_activity_list.invoke(
+            {
+                "user_profile": enriched_profile,
+                "narrative": narratives,
+                "future_plan": future_plan,
+            }
+        )
         return {
             "type": "activities",
             "result": result,
-            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": result, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
+            "memory": {
+                "narratives": narratives,
+                "future_plan": future_plan,
+                "activities": result,
+                **(
+                    {"web_context": memory.get("web_context")}
+                    if memory.get("web_context")
+                    else {}
+                ),
+            },
         }
 
     if wants_essay(text):
-        narratives = cached_narratives or generate_narrative_angles.invoke({"user_profile": enriched_profile})
-        future_plan = cached_future_plan or generate_future_plan.invoke({"user_profile": enriched_profile, "narrative": narratives})
-        activities = cached_activities or generate_activity_list.invoke({
-            "user_profile": enriched_profile,
-            "narrative": narratives,
-            "future_plan": future_plan,
-        })
-        result = generate_main_essay_ideas.invoke({
-            "user_profile": json.dumps(enriched_profile, ensure_ascii=False),
-            "narrative": json.dumps(narratives, ensure_ascii=False),
-            "future_plan": future_plan,
-            "activity_result": activities,
-        })
+        narratives = cached_narratives or generate_narrative_angles.invoke(
+            {"user_profile": enriched_profile}
+        )
+        future_plan = cached_future_plan or generate_future_plan.invoke(
+            {"user_profile": enriched_profile, "narrative": narratives}
+        )
+        activities = cached_activities or generate_activity_list.invoke(
+            {
+                "user_profile": enriched_profile,
+                "narrative": narratives,
+                "future_plan": future_plan,
+            }
+        )
+        result = generate_main_essay_ideas.invoke(
+            {
+                "user_profile": json.dumps(enriched_profile, ensure_ascii=False),
+                "narrative": json.dumps(narratives, ensure_ascii=False),
+                "future_plan": future_plan,
+                "activity_result": activities,
+            }
+        )
         return {
             "type": "essay",
             "result": result,
-            "memory": {"narratives": narratives, "future_plan": future_plan, "activities": activities, **({"web_context": memory.get("web_context")} if memory.get("web_context") else {})},
+            "memory": {
+                "narratives": narratives,
+                "future_plan": future_plan,
+                "activities": activities,
+                **(
+                    {"web_context": memory.get("web_context")}
+                    if memory.get("web_context")
+                    else {}
+                ),
+            },
         }
     # Explicit web search request
     if re.search(r"\b(web\s*search|search\s*web|search)\b", text):
-        payload = web_search.invoke({
-            "query": user_request,
-            "num_results": 5,
-            "rewrite": bool(memory.get("rewrite_queries", False)),
-            "context": memory.get("search_context"),
-        })
+        payload = web_search.invoke(
+            {
+                "query": user_request,
+                "num_results": 5,
+                "rewrite": bool(memory.get("rewrite_queries", False)),
+                "context": memory.get("search_context"),
+            }
+        )
         memory["web_context"] = payload.get("results")
         memory["web_meta"] = {
             "original_query": payload.get("original_query"),
@@ -485,15 +574,28 @@ def route_tool_call(
             "rewrite_applied": payload.get("rewrite_applied", False),
             "time_window": payload.get("time_window"),
         }
-        return {"type": "web_search", "result": payload, "memory": {"web_context": memory["web_context"], "web_meta": memory["web_meta"]}}
-    return {"error": "Unknown request type. Try: narrative, future plan, activities, essay, or 'search'."}
+        return {
+            "type": "web_search",
+            "result": payload,
+            "memory": {
+                "web_context": memory["web_context"],
+                "web_meta": memory["web_meta"],
+            },
+        }
+    return {
+        "error": "Unknown request type. Try: narrative, future plan, activities, essay, or 'search'."
+    }
 
 
 @tool("json_to_markdown_llm", args_schema=JSONToMarkdownLLMInput, return_direct=False)
 def json_to_markdown_llm(data: Union[Dict[str, Any], List[Any], str]) -> str:
     """Convert JSON to Markdown using the LLM. Returns pure Markdown (no code fences)."""
     try:
-        py = data if isinstance(data, (dict, list)) else json.loads(_strip_fences_and_labels(str(data)))
+        py = (
+            data
+            if isinstance(data, (dict, list))
+            else json.loads(_strip_fences_and_labels(str(data)))
+        )
     except Exception:
         try:
             py = ast.literal_eval(str(data))
@@ -511,10 +613,12 @@ def json_to_markdown_llm(data: Union[Dict[str, Any], List[Any], str]) -> str:
         "Only format the existing data into Markdown structure."
     )
 
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", system_instructions),
-        ("human", "JSON:\n{json}"),
-    ])
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", system_instructions),
+            ("human", "JSON:\n{json}"),
+        ]
+    )
 
     chain: Runnable = prompt | llm | StrOutputParser()
 
