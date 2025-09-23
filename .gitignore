@@ -1,4 +1,6 @@
 .env
 
 __pycache__/
-prompt_templates/__pycache__/
+chatbot/prompt_templates/__pycache__/
+chatbot/tools/__pycache__/
+chatbot/__pycache__/

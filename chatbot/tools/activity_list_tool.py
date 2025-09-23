@@ -1,4 +1,23 @@
+"""
+Activity list generation tool for college application strategy.
+Generates enhanced activities and 3 new signature activities based on user context.
+"""
+
+import json
+from typing import Any, Dict, Union
+
+from langchain_core.runnables import Runnable
+from langchain_openai import AzureChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+
+from langchain_core.prompts import ChatPromptTemplate
+
+from langchain_core.tools import tool
+
+
+llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
 
 def create_activity_list_generator_prompt_template() -> ChatPromptTemplate:
@@ -45,4 +64,18 @@ def create_activity_list_generator_prompt_template() -> ChatPromptTemplate:
     Every string value must be a single line. If you must break lines, use "\\n"
     Do not wrap your output in Markdown or code fences. Return only the JSON object.
     """
+
     return ChatPromptTemplate.from_template(prompt)
+
+
+class ActivityListInput(BaseModel):
+    user_context: str = Field(..., description="Complete user context")
+
+
+@tool("generate_activity_list", args_schema=ActivityListInput, return_direct=False)
+def generate_activity_list(user_context: str) -> str:
+    prompt: ChatPromptTemplate = create_activity_list_generator_prompt_template()
+
+    chain: Runnable = prompt | llm | StrOutputParser()
+
+    return chain.invoke({"user_context": user_context})

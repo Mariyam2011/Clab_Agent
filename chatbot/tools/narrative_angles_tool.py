@@ -1,4 +1,20 @@
+"""
+Narrative angles generation tool for college application strategy.
+Generates 3-5 narrative angles based on user context.
+"""
+
+from langchain_core.runnables import Runnable
+from langchain_openai import AzureChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+
+from langchain_core.prompts import ChatPromptTemplate
+
+from langchain_core.tools import tool
+
+
+llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
 
 def create_narrative_angles_prompt_template() -> ChatPromptTemplate:
@@ -53,3 +69,18 @@ def create_narrative_angles_prompt_template() -> ChatPromptTemplate:
     return ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", user_prompt)]
     )
+
+
+class NarrativeAnglesInput(BaseModel):
+    user_context: str = Field(..., description="Complete user context")
+
+
+@tool(
+    "generate_narrative_angles", args_schema=NarrativeAnglesInput, return_direct=False
+)
+def generate_narrative_angles(user_context: str) -> str:
+    prompt: ChatPromptTemplate = create_narrative_angles_prompt_template()
+
+    chain: Runnable = prompt | llm | StrOutputParser()
+
+    return chain.invoke({"user_context": user_context})

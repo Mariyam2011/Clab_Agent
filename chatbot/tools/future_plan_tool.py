@@ -1,4 +1,20 @@
+"""
+Future plan generation tool for college application strategy.
+Generates a single ≤100 character future plan line based on user context.
+"""
+
+from langchain_core.runnables import Runnable
+from langchain_openai import AzureChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+
+from langchain_core.prompts import ChatPromptTemplate
+
+from langchain_core.tools import tool
+
+
+llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
 
 def create_future_plan_prompt_template() -> ChatPromptTemplate:
@@ -35,4 +51,18 @@ def create_future_plan_prompt_template() -> ChatPromptTemplate:
 
     Generate the future plan line:
     """
+
     return ChatPromptTemplate.from_template(prompt)
+
+
+class FuturePlanInput(BaseModel):
+    user_context: str = Field(..., description="Complete user context")
+
+
+@tool("generate_future_plan", args_schema=FuturePlanInput, return_direct=False)
+def generate_future_plan(user_context: str) -> str:
+    prompt: ChatPromptTemplate = create_future_plan_prompt_template()
+
+    chain: Runnable = prompt | llm | StrOutputParser()
+
+    return chain.invoke({"user_context": user_context})

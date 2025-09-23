@@ -1,158 +1,115 @@
 import os
 import sys
 import json
+from typing import TypedDict, List, Dict, Any
 
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, ToolMessage
-from langgraph.graph import StateGraph
-from typing import TypedDict, List
-from langgraph.prebuilt import ToolNode
-from langgraph.prebuilt.tool_node import tools_condition
-from user_data import DUMMY_USER_DATA
-from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, BaseMessage
 from langchain_openai import AzureChatOpenAI
+from dotenv import load_dotenv
+
+from user_data import DUMMY_USER_DATA
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
 load_dotenv()
 
-
-from tools import (  # noqa: E402
-    route_tool_call,
-    json_to_markdown_llm,
-    web_search,
-    rewrite_search_query,
+from tools import (
+    generate_narrative_angles,
+    generate_future_plan,
+    generate_activity_list,
+    generate_main_essay_ideas,
 )
-
-
-from complete_strategy_tools import route_tool_call_complete  # noqa: E402
 
 config = {"recursion_limit": 4}
 
-# Initialize LLM with tool calling
-_AZURE_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
 
-llm = AzureChatOpenAI(deployment_name=_AZURE_DEPLOYMENT)
-
-tools = [
-    route_tool_call,
-    route_tool_call_complete,
-    json_to_markdown_llm,
-    web_search,
-    rewrite_search_query,
-]
-
-llm_with_tools = llm.bind_tools(tools)
+llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
 
 class ChatState(TypedDict):
-    messages: List  # will hold conversation messages
-    tool_option: str
-    format_option: str  # "JSON" or "Markdown (LLM)"
-    memory: dict  # short-term memory for artifacts
-    rewrite_queries: bool
-    search_context: str | None
+    messages: List
+    selected_agent: str | None
 
+
+AGENT_TOOLS = {
+    "narrative_angles": generate_narrative_angles,
+    "future_plan": generate_future_plan,
+    "activity_list": generate_activity_list,
+    "main_essay_ideas": generate_main_essay_ideas,
+}
 
 SYSTEM_INSTRUCTIONS = (
     "You are an elite admissions strategist. "
-    "Use the available tools to fulfill the user's request. "
-    "Prefer calling the router tools (`route_tool_call` or `route_tool_call_complete`) once per user request. "
-    "Always include the user's profile, short-term memory, and recent conversation as tool arguments when applicable. "
-    "If tool results are already present in the conversation, synthesize the final answer directly and DO NOT call tools again. "
-    "If a tool returns structured JSON, you may return it directly or format using `json_to_markdown_llm` when asked for Markdown."
+    "Help students with college application strategy, essay writing, and academic planning. "
+    "Provide helpful, detailed, and personalized responses based on the student's profile. "
+    "Be encouraging and specific in your advice."
 )
 
 
-def _build_context_system_message(state: ChatState) -> SystemMessage:
-    user_profile = DUMMY_USER_DATA
-
-    memory = dict(state.get("memory", {}))
-
-    if "rewrite_queries" in state:
-        memory["rewrite_queries"] = bool(state.get("rewrite_queries", False))
-
-    if state.get("search_context"):
-        memory["search_context"] = state.get("search_context")
-
-    conversation_history = [
-        {
-            "role": ("user" if isinstance(m, HumanMessage) else "assistant"),
-            "content": m.content,
-        }
-        for m in state.get("messages", [])[-6:]
-    ]
-
-    ctx = {
-        "user_profile": user_profile,
-        "memory": memory,
-        "conversation_history": conversation_history,
-        "format_option": state.get("format_option", "JSON"),
-        "tool_option": state.get("tool_option", "standard strategy"),
-    }
-
+# For simple LLM calls
+def _build_context_system_message(user_profile: Dict[str, Any]) -> SystemMessage:
     return SystemMessage(
-        content=f"{SYSTEM_INSTRUCTIONS}\n\nCONTEXT(JSON): {json.dumps(ctx)}"
+        content=f"{SYSTEM_INSTRUCTIONS}\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
     )
 
 
-def agent_node(state: ChatState):
-    base_sys = _build_context_system_message(state).content
+def invoke_agent_tool(
+    agent_name: str, recent_messages: List[BaseMessage], user_profile: Dict[str, Any]
+) -> str:
+    user_context = recent_messages + [user_profile]
 
-    recent = state["messages"][-12:]
+    if agent_name not in AGENT_TOOLS:
+        return f"Error: Unknown agent '{agent_name}'. Available agents: {list(AGENT_TOOLS.keys())}"
 
-    tool_results = [m.content for m in recent if isinstance(m, ToolMessage)]
-
-    if tool_results:
-        base_sys += "\n\nTOOL_RESULTS:\n" + "\n".join(tool_results[:4])
-        base_sys += "\n\nSTRICT: The above tool results are sufficient. Do NOT call any tools again. Produce the final answer now."
-
-    system_msg = SystemMessage(content=base_sys)
-
-    cleaned = [m for m in recent if not isinstance(m, ToolMessage)]
-    msgs = [system_msg] + cleaned
-    ai = llm_with_tools.invoke(msgs)
-
-    return {"messages": state["messages"] + [ai]}
-
-
-tools_node = ToolNode(tools)
-
-
-def should_continue(state: ChatState):
     try:
-        last = state["messages"][-1]
-        if isinstance(last, AIMessage) and getattr(last, "tool_calls", None):
-            return "tools"
-    except (IndexError, AttributeError, Exception):
-        pass
+        tool_function = AGENT_TOOLS[agent_name]
 
-    return "end"
+        result = tool_function(user_context=user_context)
 
+        if isinstance(result, dict):
+            return json.dumps(result, indent=2, ensure_ascii=False)
+        else:
+            return str(result)
 
-graph = StateGraph(ChatState)
-
-graph.add_node("agent", agent_node)
-graph.add_node("tools", tools_node)
-
-graph.set_entry_point("agent")
-
-graph.add_conditional_edges("agent", tools_condition)
-
-graph.add_edge("tools", "agent")
+    except Exception as e:
+        return f"Error calling {agent_name}: {str(e)}"
 
 
-chatbot = graph.compile()
+def chatbot_invoke(state: ChatState) -> ChatState:
+    user_profile = DUMMY_USER_DATA
+    recent_messages = state["messages"][-6:]
+
+    selected_agent = state.get("selected_agent")
+
+    if selected_agent and selected_agent in AGENT_TOOLS:
+        response_content = invoke_agent_tool(
+            selected_agent, recent_messages, user_profile
+        )
+
+        ai_message = AIMessage(content=response_content)
+    else:
+        system_msg = _build_context_system_message(user_profile)
+
+        messages = [system_msg] + recent_messages
+
+        ai_message = llm.invoke(messages)
+
+    return {
+        "messages": state["messages"] + [ai_message],
+        "selected_agent": selected_agent,
+    }
 
 
 if __name__ == "__main__":
     state = {
         "messages": [],
-        "tool_option": "standard strategy",
-        "format_option": "JSON",
-        "memory": {},
-        "rewrite_queries": False,
-        "search_context": None,
+        "selected_agent": None,
     }
+
+    print("College Admissions Copilot - CLI Mode")
+    print(
+        "Available agents: @narrative_angles, @future_plan, @activity_list, @main_essay_ideas"
+    )
+    print("Type 'exit' or 'quit' to stop\n")
 
     while True:
         user_input = input("You: ")
@@ -160,35 +117,19 @@ if __name__ == "__main__":
         if user_input.lower() in ["exit", "quit"]:
             break
 
-        tool_choice = input("Select tool: 1. Standard Strategy 2. Complete Strategy ")
+        selected_agent = None
 
-        if tool_choice == "2":
-            state["tool_option"] = "complete strategy"
-        else:
-            state["tool_option"] = "standard strategy"
+        if user_input.startswith("@"):
+            parts = user_input.split(" ", 1)
+            agent_name = parts[0][1:]
 
-        fmt_choice = input("Select output: 1. JSON 2. Markdown (LLM) ")
+            if agent_name in AGENT_TOOLS:
+                selected_agent = agent_name
 
-        if fmt_choice == "2":
-            state["format_option"] = "Markdown (LLM)"
-        else:
-            state["format_option"] = "JSON"
-        try:
-            rw_choice = input("Rewrite web queries? 1. No 2. Yes ")
-            state["rewrite_queries"] = True if rw_choice.strip() == "2" else False
-            if state["rewrite_queries"]:
-                ctx = input("Query rewrite context (optional): ")
-                state["search_context"] = ctx if ctx.strip() else None
-            else:
-                state["search_context"] = None
-        except Exception:
-            state["rewrite_queries"] = False
-            state["search_context"] = None
-
-        # Add user msg to state (append takes only the message)
         state["messages"].append(HumanMessage(content=user_input))
+        state["selected_agent"] = selected_agent
 
-        # Run one step through the graph (pass config here)
-        state = chatbot.invoke(state, config=config)
+        state = chatbot_invoke(state)
 
         print("Bot:", state["messages"][-1].content)
+        print()

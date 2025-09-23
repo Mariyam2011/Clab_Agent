@@ -1,4 +1,23 @@
+"""
+Main essay ideas generation tool for college application strategy.
+Generates comprehensive main essay ideas based on user context.
+"""
+
+import json
+from typing import Any, Dict, Union
+
+from langchain_core.runnables import Runnable
+from langchain_openai import AzureChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+
+from langchain_core.prompts import ChatPromptTemplate
+
+from langchain_core.tools import tool
+
+
+llm = AzureChatOpenAI(deployment_name="gpt-4o")
 
 
 def create_main_essay_ideas_prompt_template() -> ChatPromptTemplate:
@@ -72,3 +91,16 @@ def create_main_essay_ideas_prompt_template() -> ChatPromptTemplate:
     return ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", user_prompt)]
     )
+
+
+class MainEssayIdeasInput(BaseModel):
+    user_context: str = Field(..., description="Complete user context")
+
+
+@tool("generate_main_essay_ideas", args_schema=MainEssayIdeasInput, return_direct=False)
+def generate_main_essay_ideas(user_context: str) -> str:
+    prompt: ChatPromptTemplate = create_main_essay_ideas_prompt_template()
+
+    chain: Runnable = prompt | llm | StrOutputParser()
+
+    return chain.invoke({"user_context": user_context})
