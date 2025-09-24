@@ -16,10 +16,15 @@ st.title("🎓 College Admissions Copilot")
 # Display agent help in sidebar
 with st.sidebar:
     st.markdown("**Examples:**")
-    st.markdown("`@narrative_angles` - Generate narrative angles for my profile")
-    st.markdown("`@future_plan` with focus on engineering")
-    st.markdown("`@activity_list` based on my interests")
-    st.markdown("`@main_essay_ideas` based on my profile")
+
+    st.markdown("`@suggest_narrative_angles` - Generate narrative angles for my profile")
+    st.markdown("`@create_future_plan` with focus on engineering")
+    st.markdown("`@create_activity_list` based on my interests")
+    st.markdown("`@generate_main_essay_ideas` based on my profile")
+
+    # Add toggle button for user data
+    st.markdown("---")
+    fetch_user_data = st.toggle("Fetch user data first", value=True)
 
 
 if "messages" not in st.session_state:
@@ -32,10 +37,10 @@ for msg in st.session_state.messages:
 
 
 AVAILABLE_AGENTS = [
-    "narrative_angles",
-    "future_plan",
-    "activity_list",
-    "main_essay_ideas",
+    "suggest_narrative_angles",
+    "create_future_plan",
+    "create_activity_list",
+    "generate_main_essay_ideas",
 ]
 
 user_input = st.chat_input("Type @ to select an agent, then describe what you need...")
@@ -53,7 +58,7 @@ if user_input:
             selected_agent = potential_agent
         else:
             st.error(
-                f"Unknown agent '@{potential_agent}'. Available agents: {', '.join([f'@{k}' for k in AVAILABLE_AGENTS.keys()])}"
+                f"Unknown agent '@{potential_agent}'. Available agents: {', '.join([f'@{k}' for k in AVAILABLE_AGENTS])}"
             )
             st.stop()
 
@@ -81,6 +86,7 @@ if user_input:
                 state = {
                     "messages": lc_history + [HumanMessage(content=user_input)],
                     "selected_agent": selected_agent,
+                    "fetch_user_data": fetch_user_data,  # Pass the toggle state
                 }
 
                 from backend import chatbot_invoke

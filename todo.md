@@ -1,0 +1,3 @@
+- pass the user query as well
+- fix web search tool
+- make multiple tools for activity list generation

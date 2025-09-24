@@ -5,7 +5,7 @@ Generates enhanced activities and 3 new signature activities based on user conte
 
 import json
 import logging
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from langchain_openai import AzureChatOpenAI
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field, validator
 from langchain_core.tools import tool
 from langchain_core.messages import BaseMessage
 
-from tools.utils import create_conversation_context
+from tools.utils import create_conversation_context, create_user_context
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -128,12 +128,14 @@ def create_activity_list_generator_prompt_template() -> ChatPromptTemplate:
     - Activities progress logically: involvement → initiative → leadership → scaling
     - Each should make admissions officers think: "Only this student could have done this"
 
+    {user_profile_context}
+
     {format_instructions}
     """
 
-    user_prompt = """Use the following user context to generate the activity list per the instructions above:
-
-    {user_context}
+    user_prompt = """{conversation_context}
+    
+    USER QUERY: {user_query}
 
     Remember: 
     - Enhance existing activities by revealing hidden impact
@@ -151,16 +153,17 @@ def create_activity_list_generator_prompt_template() -> ChatPromptTemplate:
 
 
 class ActivityListInput(BaseModel):
-    user_profile: Dict[str, Any] = Field(..., description="Complete user profile")
+    user_profile: Optional[Dict[str, Any]] = Field(None, description="Complete user profile")
     recent_messages: List[BaseMessage] = Field(..., description="Recent conversation messages")
 
 
 @tool("create_activity_list", args_schema=ActivityListInput, return_direct=False)
-def create_activity_list(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
+def create_activity_list(user_profile: Optional[Dict[str, Any]], recent_messages: List[BaseMessage]) -> str:
     """Create enhanced activities and new signature activities for college applications based on user context."""
 
-    user_context = create_conversation_context(recent_messages)
-    user_context += f"\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
+    conversation_context = create_conversation_context(recent_messages[:-1])
+
+    user_profile_context = create_user_context(user_profile)
 
     parser = PydanticOutputParser(pydantic_object=ActivityListOutput)
 
@@ -173,7 +176,12 @@ def create_activity_list(user_profile: Dict[str, Any], recent_messages: List[Bas
     for attempt in range(max_retries):
         try:
             result = chain.invoke(
-                {"user_context": user_context, "format_instructions": parser.get_format_instructions()}
+                {
+                    "conversation_context": conversation_context,
+                    "user_query": recent_messages[-1].content,
+                    "user_profile_context": user_profile_context,
+                    "format_instructions": parser.get_format_instructions(),
+                }
             )
 
             result_dict = result.dict()

@@ -3,8 +3,7 @@ Main essay ideas generation tool for college application strategy.
 Generates comprehensive main essay ideas based on user context.
 """
 
-import json
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from langchain_core.runnables import Runnable
 from langchain_openai import AzureChatOpenAI
@@ -16,7 +15,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from langchain_core.tools import tool
 
-from tools.utils import create_conversation_context
+from tools.utils import create_conversation_context, create_user_context
 
 from langchain_core.messages import BaseMessage
 
@@ -73,11 +72,15 @@ def create_main_essay_ideas_prompt_template() -> ChatPromptTemplate:
     - No extra commentary
 
     Tone: Engaging, vivid, authentic, and admissions-ready.
+
+    {user_profile_context}
     """
 
-    user_prompt = """Generate 3-5  compelling main essay story ideas for this student.
+    user_prompt = """{conversation_context}
+    
+    USER QUERY: {user_query}
 
-    {user_context}
+    Generate 3-5 compelling main essay story ideas for this student.
 
     TASK:
     - Align with future plan and activities
@@ -96,18 +99,25 @@ def create_main_essay_ideas_prompt_template() -> ChatPromptTemplate:
 
 
 class MainEssayIdeasInput(BaseModel):
-    user_profile: Dict[str, Any] = Field(..., description="Complete user profile")
+    user_profile: Optional[Dict[str, Any]] = Field(None, description="Complete user profile")
     recent_messages: List[BaseMessage] = Field(..., description="Recent conversation messages")
 
 
 @tool("generate_main_essay_ideas", args_schema=MainEssayIdeasInput, return_direct=False)
-def generate_main_essay_ideas(user_profile: Dict[str, Any], recent_messages: List[BaseMessage]) -> str:
+def generate_main_essay_ideas(user_profile: Optional[Dict[str, Any]], recent_messages: List[BaseMessage]) -> str:
     """Generate compelling main essay ideas for college applications based on user context."""
-    user_context = create_conversation_context(recent_messages)
-    user_context += f"\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
+    conversation_context = create_conversation_context(recent_messages[:-1])
+
+    user_profile_context = create_user_context(user_profile)
 
     prompt: ChatPromptTemplate = create_main_essay_ideas_prompt_template()
 
     chain: Runnable = prompt | llm | StrOutputParser()
 
-    return chain.invoke({"user_context": user_context})
+    return chain.invoke(
+        {
+            "conversation_context": conversation_context,
+            "user_profile_context": user_profile_context,
+            "user_query": recent_messages[-1].content,
+        }
+    )

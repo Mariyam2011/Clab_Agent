@@ -15,7 +15,6 @@ load_dotenv()
 from tools import (
     suggest_narrative_angles,
     create_future_plan,
-    format_activity_list,
     create_activity_list,
     generate_main_essay_ideas,
 )
@@ -29,32 +28,35 @@ llm = AzureChatOpenAI(deployment_name="gpt-4o")
 class ChatState(TypedDict):
     messages: List
     selected_agent: str | None
+    fetch_user_data: bool
 
 
 AGENT_TOOLS = {
     "suggest_narrative_angles": suggest_narrative_angles,
     "create_future_plan": create_future_plan,
     "create_activity_list": create_activity_list,
-    "format_activity_list": format_activity_list,
     "generate_main_essay_ideas": generate_main_essay_ideas,
 }
 
 SYSTEM_INSTRUCTIONS = (
     "You are an elite admissions strategist. "
     "Help students with college application strategy, essay writing, and academic planning. "
-    "Provide helpful, detailed, and personalized responses based on the student's profile. "
+    "Provide helpful, detailed, and general responses. "
     "Be encouraging and specific in your advice."
 )
 
 
 # For simple LLM calls
-def _build_context_system_message(user_profile: Dict[str, Any]) -> SystemMessage:
-    return SystemMessage(
-        content=f"{SYSTEM_INSTRUCTIONS}\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
-    )
+def _build_context_system_message(user_profile: Dict[str, Any] | None) -> SystemMessage:
+    if user_profile:
+        return SystemMessage(
+            content=f"{SYSTEM_INSTRUCTIONS}\n\nSTUDENT PROFILE & CONTEXT: {json.dumps(user_profile, ensure_ascii=False)}"
+        )
+    else:
+        return SystemMessage(content=SYSTEM_INSTRUCTIONS)
 
 
-def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_profile: Dict[str, Any]) -> str:
+def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_profile: Dict[str, Any] | None) -> str:
     if agent_name not in AGENT_TOOLS:
         return f"Error: Unknown agent '{agent_name}'. Available agents: {list(AGENT_TOOLS.keys())}"
 
@@ -73,8 +75,11 @@ def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_
 
 
 def chatbot_invoke(state: ChatState) -> ChatState:
-    user_profile = DUMMY_USER_DATA
-    recent_messages = state["messages"][-6:]
+    fetch_user_data = state.get("fetch_user_data", False)
+
+    user_profile = DUMMY_USER_DATA if fetch_user_data else None
+
+    recent_messages = state["messages"]
 
     selected_agent = state.get("selected_agent")
 
@@ -92,6 +97,7 @@ def chatbot_invoke(state: ChatState) -> ChatState:
     return {
         "messages": state["messages"] + [ai_message],
         "selected_agent": selected_agent,
+        "fetch_user_data": fetch_user_data,
     }
 
 
@@ -99,6 +105,7 @@ if __name__ == "__main__":
     state = {
         "messages": [],
         "selected_agent": None,
+        "fetch_user_data": True,
     }
 
     print("College Admissions Copilot - CLI Mode")
