@@ -24,7 +24,9 @@ with st.sidebar:
 
     # Add toggle button for user data
     st.markdown("---")
-    fetch_user_data = st.toggle("Fetch user data first", value=True)
+    use_web_search = st.toggle("Use web search", value=False)
+    fetch_user_data = st.toggle("Fetch user data first", value=False)
+    convert_to_markdown = st.toggle("Convert to Markdown", value=True)
 
 
 if "messages" not in st.session_state:
@@ -81,12 +83,12 @@ if user_input:
                     else:
                         lc_history.append(AIMessage(content=m["content"]))
 
-                print(lc_history)  # TODO: remove
-
                 state = {
                     "messages": lc_history + [HumanMessage(content=user_input)],
                     "selected_agent": selected_agent,
-                    "fetch_user_data": fetch_user_data,  # Pass the toggle state
+                    "convert_to_markdown": convert_to_markdown,
+                    "fetch_user_data": fetch_user_data,
+                    "use_web_search": use_web_search,
                 }
 
                 from backend import chatbot_invoke

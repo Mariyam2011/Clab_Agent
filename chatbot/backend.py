@@ -19,6 +19,8 @@ from tools import (
     generate_main_essay_ideas,
 )
 
+from tools.convert_to_markdown import json_to_markdown_llm
+
 config = {"recursion_limit": 4}
 
 
@@ -29,6 +31,8 @@ class ChatState(TypedDict):
     messages: List
     selected_agent: str | None
     fetch_user_data: bool
+    convert_to_markdown: bool
+    use_web_search: bool
 
 
 AGENT_TOOLS = {
@@ -56,7 +60,12 @@ def _build_context_system_message(user_profile: Dict[str, Any] | None) -> System
         return SystemMessage(content=SYSTEM_INSTRUCTIONS)
 
 
-def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_profile: Dict[str, Any] | None) -> str:
+def invoke_agent_tool(
+    agent_name: str,
+    recent_messages: List[BaseMessage],
+    user_profile: Dict[str, Any] | None,
+    convert_to_markdown: bool = False,
+) -> str:
     if agent_name not in AGENT_TOOLS:
         return f"Error: Unknown agent '{agent_name}'. Available agents: {list(AGENT_TOOLS.keys())}"
 
@@ -66,9 +75,17 @@ def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_
         result = tool_function.invoke({"user_profile": user_profile, "recent_messages": recent_messages})
 
         if isinstance(result, dict):
-            return json.dumps(result, indent=2, ensure_ascii=False)
+            result_str = json.dumps(result, indent=2, ensure_ascii=False)
         else:
-            return str(result)
+            result_str = str(result)
+
+        if convert_to_markdown:
+            try:
+                result_str = json_to_markdown_llm.invoke({"data": result})
+            except Exception as e:
+                result_str = f"{result_str}\n\n*Note: Markdown conversion failed: {str(e)}*"
+
+        return result_str
 
     except Exception as e:
         return f"Error calling {agent_name}: {str(e)}"
@@ -76,6 +93,8 @@ def invoke_agent_tool(agent_name: str, recent_messages: List[BaseMessage], user_
 
 def chatbot_invoke(state: ChatState) -> ChatState:
     fetch_user_data = state.get("fetch_user_data", False)
+    convert_to_markdown = state.get("convert_to_markdown", True)
+    use_web_search = state.get("use_web_search", False)
 
     user_profile = DUMMY_USER_DATA if fetch_user_data else None
 
@@ -84,7 +103,7 @@ def chatbot_invoke(state: ChatState) -> ChatState:
     selected_agent = state.get("selected_agent")
 
     if selected_agent and selected_agent in AGENT_TOOLS:
-        response_content = invoke_agent_tool(selected_agent, recent_messages, user_profile)
+        response_content = invoke_agent_tool(selected_agent, recent_messages, user_profile, convert_to_markdown)
 
         ai_message = AIMessage(content=response_content)
     else:
@@ -98,6 +117,7 @@ def chatbot_invoke(state: ChatState) -> ChatState:
         "messages": state["messages"] + [ai_message],
         "selected_agent": selected_agent,
         "fetch_user_data": fetch_user_data,
+        "convert_to_markdown": convert_to_markdown,
     }
 
 
