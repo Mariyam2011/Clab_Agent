@@ -15,17 +15,18 @@ load_dotenv()
 from tools import (
     suggest_narrative_angles,
     create_future_plan,
-    create_activity_list,
+    format_activity_list,
     generate_main_essay_ideas,
+    create_activities_blueprint,
+    create_activity_ideas,
+    create_activity_list,
 )
 
 from tools.convert_to_markdown import json_to_markdown_llm
 
 config = {"recursion_limit": 4}
 
-
 llm = AzureChatOpenAI(deployment_name="gpt-4o")
-
 
 class ChatState(TypedDict):
     messages: List
@@ -34,12 +35,14 @@ class ChatState(TypedDict):
     convert_to_markdown: bool
     use_web_search: bool
 
-
 AGENT_TOOLS = {
     "suggest_narrative_angles": suggest_narrative_angles,
     "create_future_plan": create_future_plan,
-    "create_activity_list": create_activity_list,
+    "format_activity_list": format_activity_list,
     "generate_main_essay_ideas": generate_main_essay_ideas,
+    "create_activities_blueprint": create_activities_blueprint,
+    "create_activity_ideas": create_activity_ideas,
+    "create_activity_list": create_activity_list,
 }
 
 SYSTEM_INSTRUCTIONS = (
@@ -49,7 +52,6 @@ SYSTEM_INSTRUCTIONS = (
     "Be encouraging and specific in your advice."
 )
 
-
 # For simple LLM calls
 def _build_context_system_message(user_profile: Dict[str, Any] | None) -> SystemMessage:
     if user_profile:
@@ -58,7 +60,6 @@ def _build_context_system_message(user_profile: Dict[str, Any] | None) -> System
         )
     else:
         return SystemMessage(content=SYSTEM_INSTRUCTIONS)
-
 
 def invoke_agent_tool(
     agent_name: str,
@@ -120,36 +121,3 @@ def chatbot_invoke(state: ChatState) -> ChatState:
         "convert_to_markdown": convert_to_markdown,
     }
 
-
-if __name__ == "__main__":
-    state = {
-        "messages": [],
-        "selected_agent": None,
-        "fetch_user_data": True,
-    }
-
-    print("College Admissions Copilot - CLI Mode")
-    print("Type 'exit' or 'quit' to stop\n")
-
-    while True:
-        user_input = input("You: ")
-
-        if user_input.lower() in ["exit", "quit"]:
-            break
-
-        selected_agent = None
-
-        if user_input.startswith("@"):
-            parts = user_input.split(" ", 1)
-            agent_name = parts[0][1:]
-
-            if agent_name in AGENT_TOOLS:
-                selected_agent = agent_name
-
-        state["messages"].append(HumanMessage(content=user_input))
-        state["selected_agent"] = selected_agent
-
-        state = chatbot_invoke(state)
-
-        print("Bot:", state["messages"][-1].content)
-        print()

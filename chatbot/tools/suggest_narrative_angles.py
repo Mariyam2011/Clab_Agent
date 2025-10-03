@@ -9,9 +9,6 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
-
-from langchain_core.prompts import ChatPromptTemplate
-
 from langchain_core.tools import tool
 
 from tools.utils import create_conversation_context, create_user_context

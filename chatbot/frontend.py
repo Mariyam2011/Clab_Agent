@@ -3,23 +3,24 @@ import sys
 import streamlit as st
 import re
 from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage, AIMessage
+from chatbot.backend import chatbot_invoke
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 load_dotenv()
 
-from langchain_core.messages import HumanMessage, AIMessage
-
 st.set_page_config(page_title="College Admissions Copilot", page_icon="🎓")
 st.title("🎓 College Admissions Copilot")
-
-
 # Display agent help in sidebar
 with st.sidebar:
     st.markdown("**Examples:**")
 
     st.markdown("`@suggest_narrative_angles` - Generate narrative angles for my profile")
     st.markdown("`@create_future_plan` with focus on engineering")
-    st.markdown("`@create_activity_list` based on my interests")
+    st.markdown("`@format_activity_list` based on my profile")
+    st.markdown("`@create_activity_list` to generate activities list end-to-end")
+    st.markdown("`@create_activity_ideas` based on my interests")
+    st.markdown("`@create_activities_blueprint` based on my interests")
     st.markdown("`@generate_main_essay_ideas` based on my profile")
 
     # Add toggle button for user data
@@ -41,7 +42,10 @@ for msg in st.session_state.messages:
 AVAILABLE_AGENTS = [
     "suggest_narrative_angles",
     "create_future_plan",
+    "format_activity_list",
     "create_activity_list",
+    "create_activity_ideas",
+    "create_activities_blueprint",
     "generate_main_essay_ideas",
 ]
 
@@ -90,8 +94,6 @@ if user_input:
                     "fetch_user_data": fetch_user_data,
                     "use_web_search": use_web_search,
                 }
-
-                from backend import chatbot_invoke
 
                 new_state = chatbot_invoke(state)
 
