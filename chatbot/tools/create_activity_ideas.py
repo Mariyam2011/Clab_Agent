@@ -26,6 +26,15 @@ class ExistingEnhancement(BaseModel):
         None,
         description="Stronger impact framing with method, results, and clear link to future goals (≤150 chars if possible)",
     )
+    hours_per_week: Optional[float] = Field(
+        None, description="Realistic hours per week spent on this activity (1-40 hours)"
+    )
+    weeks_per_year: Optional[int] = Field(
+        None, description="Realistic weeks per year active in this activity (1-52 weeks)"
+    )
+    participation_grades: Optional[List[str]] = Field(
+        None, description="Grade levels during which student participates (e.g., ['9', '10', '11', '12'])"
+    )
     improvement_suggestions: List[str] = Field(
         default_factory=list,
         description="Concrete ways to deepen impact/leadership that align with student's narrative and future goals",
@@ -50,6 +59,15 @@ class DevelopedIdea(BaseModel):
     )
     unique_method: str = Field(
         ..., description="Unexpected approach aligned to the student's skills, interests, and narrative"
+    )
+    hours_per_week: Optional[float] = Field(
+        None, description="Realistic hours per week to spend on this activity (1-40 hours)"
+    )
+    weeks_per_year: Optional[int] = Field(
+        None, description="Realistic weeks per year active in this activity (1-52 weeks)"
+    )
+    participation_grades: Optional[List[str]] = Field(
+        None, description="Grade levels during which student would participate (e.g., ['11', '12'])"
     )
     resources_needed: List[str] = Field(default_factory=list, description="Tools, mentors, partnerships, or budget")
     first_90_days: List[str] = Field(default_factory=list, description="Step-by-step plan for first 90 days")
@@ -119,6 +137,13 @@ def create_activity_ideas_prompt_template() -> ChatPromptTemplate:
         "- When developing missing activities, ensure they fill gaps that strengthen the narrative arc toward their aspirations.\n"
         "- The connection between each activity and future goals should be explicit and defensible in an interview.\n"
         "- Avoid generic activities that don't tie to the student's specific trajectory.\n\n"
+        "TIME COMMITMENT & PARTICIPATION TRACKING:\n"
+        "- For EACH activity, provide realistic hours_per_week (1-40), weeks_per_year (1-52), and participation_grades.\n"
+        "- Hours should be defensible: a student can't commit 40 hrs/week to 10 different activities.\n"
+        "- Total weekly hours across all activities should not exceed 50-60 hours (assuming 15-20 hrs available after school/sleep/homework).\n"
+        "- Year-round activities: 48-52 weeks/year; School-year only: 30-36 weeks/year; Summer programs: 8-12 weeks/year.\n"
+        "- participation_grades should reflect when the student started or plans to start (e.g., ['9','10','11','12'] for 4-year commitment).\n"
+        "- Balance depth (multi-year commitment, higher hours) with breadth (variety of activities).\n\n"
         "INSTRUCTIONS:\n"
         "- The blueprint provides category lines like '- <Category>: Existing: N | Missing: M' and a final total of 10.\n"
         "- For each category, create N 'Existing' ideas (refine/strengthen plausible existing items) and M 'Generated' ideas.\n"
@@ -168,6 +193,8 @@ def create_activity_ideas(
     - Uses student's profile and conversation context for authenticity.
     - EVERY activity (existing enhancements and new ideas) MUST align with the student's narrative and future goals.
     - Ensures narrative coherence: activities tell a cohesive story leading to stated future aspirations.
+    - Includes realistic time commitment tracking: hours_per_week, weeks_per_year, and participation_grades for each activity.
+    - Validates total time commitments are realistic and defensible for college applications.
     """
 
     conversation_context = create_conversation_context(recent_messages[:-1])
